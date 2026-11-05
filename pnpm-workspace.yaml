@@ -1,0 +1,17 @@
+packages:
+  - "web"
+  - "api"
+
+allowBuilds:
+  "@prisma/engines": true
+  esbuild: true
+  prisma: true
+  sharp: true
+
+minimumReleaseAgeExclude:
+  - "@next/eslint-plugin-next@16.4.5"
+  - better-auth@1.7.16
+  - eslint-config-next@16.4.5
+  - next@16.4.5
+
+minimumReleaseAge: 0

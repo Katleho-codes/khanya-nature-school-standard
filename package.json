@@ -1,0 +1,25 @@
+{
+  "name": "khanya-nature-school",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@12.14.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm db:up && concurrently -k -n api,web -c green,cyan \"pnpm --filter @khanya/api dev\" \"pnpm --filter @khanya/web dev\"",
+    "db:up": "docker compose up -d --wait db",
+    "db:migrate": "pnpm --filter @khanya/api db:migrate",
+    "db:seed": "pnpm --filter @khanya/api db:seed",
+    "db:reset": "pnpm --filter @khanya/api db:reset",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "build": "pnpm --filter @khanya/api build && pnpm --filter @khanya/web build",
+    "smoke": "playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.58.2",
+    "concurrently": "^9.2.1"
+  }
+}

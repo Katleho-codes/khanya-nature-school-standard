@@ -1,0 +1,395 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+  moduleFormat = "esm"
+  importFileExtension = "js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id            String    @id
+  name          String
+  email         String    @unique
+  emailVerified Boolean   @default(false)
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  role       String?
+  banned     Boolean?  @default(false)
+  banReason  String?
+  banExpires DateTime?
+  isActive   Boolean   @default(true)
+
+  sessions     Session[]
+  accounts     Account[]
+  posts        Post[]
+  media        Media[]
+  enquiryNotes EnquiryNote[]
+
+  @@index([role])
+}
+
+model Session {
+  id             String   @id
+  expiresAt      DateTime
+  token          String   @unique
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  ipAddress      String?
+  userAgent      String?
+  userId         String
+  impersonatedBy String?
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+}
+
+enum PostCategory {
+  NEWS
+  ANNOUNCEMENT
+  NOTICE
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+}
+
+enum DocumentCategory {
+  ADMISSION_FORM
+  FEE_SCHEDULE
+  POLICY
+  OTHER
+}
+
+enum EnquirySource {
+  WEBSITE
+  WHATSAPP
+  PHONE
+  WALK_IN
+}
+
+enum EnquiryStatus {
+  NEW
+  CONTACTED
+  VISIT_ARRANGED
+  ENROLLED
+  NOT_PROCEEDING
+}
+
+model Branch {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  name          String
+  tagline       String
+  addressLine1  String
+  suburb        String
+  city          String
+  province      String
+  postalCode    String
+  lat           Float?
+  lng           Float?
+  phone         String
+  whatsapp      String
+  email         String
+  hours         Json
+  description   String
+  heroImageId   String?
+  isActive      Boolean  @default(true)
+  sortOrder     Int      @default(0)
+  seoTitle      String?
+  seoDescription String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  heroImage          Media?             @relation("BranchHero", fields: [heroImageId], references: [id], onDelete: SetNull)
+  programmeBranches  ProgrammeBranch[]
+  posts              Post[]
+  events             Event[]
+  albums             Album[]
+  documents          Document[]
+  enquiries          Enquiry[]
+
+  @@index([isActive, sortOrder])
+}
+
+model Programme {
+  id               String   @id @default(cuid())
+  slug             String   @unique
+  name             String
+  ageFromMonths    Int
+  ageToMonths      Int
+  ageLabel         String
+  summary          String
+  description      String
+  dailyRhythm      Json
+  hoursLabel       String
+  monthlyFeeCents  Int?
+  feeNote          String?
+  imageId          String?
+  isPublished      Boolean  @default(false)
+  sortOrder        Int      @default(0)
+  seoTitle         String?
+  seoDescription   String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  image              Media?             @relation("ProgrammeImage", fields: [imageId], references: [id], onDelete: SetNull)
+  programmeBranches  ProgrammeBranch[]
+  enquiries          Enquiry[]
+
+  @@index([isPublished, sortOrder])
+}
+
+model ProgrammeBranch {
+  id          String    @id @default(cuid())
+  programmeId String
+  branchId    String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  programme Programme @relation(fields: [programmeId], references: [id], onDelete: Cascade)
+  branch    Branch    @relation(fields: [branchId], references: [id], onDelete: Cascade)
+
+  @@unique([programmeId, branchId])
+  @@index([branchId])
+}
+
+model Post {
+  id             String       @id @default(cuid())
+  slug           String       @unique
+  title          String
+  excerpt        String
+  bodyMd         String
+  coverId        String?
+  category       PostCategory @default(NEWS)
+  branchId       String?
+  isPinned       Boolean      @default(false)
+  status         PostStatus   @default(DRAFT)
+  publishedAt    DateTime?
+  authorId       String
+  seoTitle       String?
+  seoDescription String?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  cover  Media?  @relation("PostCover", fields: [coverId], references: [id], onDelete: SetNull)
+  branch Branch? @relation(fields: [branchId], references: [id], onDelete: SetNull)
+  author User    @relation(fields: [authorId], references: [id])
+
+  @@index([status, publishedAt])
+  @@index([branchId, status])
+  @@index([category])
+}
+
+model Event {
+  id             String    @id @default(cuid())
+  slug           String    @unique
+  title          String
+  descriptionMd  String
+  startsAt       DateTime
+  endsAt         DateTime
+  allDay         Boolean   @default(false)
+  locationText   String
+  branchId       String?
+  coverId        String?
+  isPublished    Boolean   @default(false)
+  seoTitle       String?
+  seoDescription String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  cover  Media?  @relation("EventCover", fields: [coverId], references: [id], onDelete: SetNull)
+  branch Branch? @relation(fields: [branchId], references: [id], onDelete: SetNull)
+
+  @@index([isPublished, startsAt])
+  @@index([branchId, isPublished])
+}
+
+model Album {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  description String
+  coverId     String?
+  branchId    String?
+  takenOn     DateTime?
+  isPublished Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  cover  Media?       @relation("AlbumCover", fields: [coverId], references: [id], onDelete: SetNull)
+  branch Branch?      @relation(fields: [branchId], references: [id], onDelete: SetNull)
+  photos AlbumPhoto[]
+
+  @@index([isPublished, takenOn])
+}
+
+model AlbumPhoto {
+  id        String   @id @default(cuid())
+  albumId   String
+  mediaId   String
+  caption   String
+  alt       String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  album Album @relation(fields: [albumId], references: [id], onDelete: Cascade)
+  media Media @relation(fields: [mediaId], references: [id], onDelete: Cascade)
+
+  @@index([albumId, sortOrder])
+}
+
+model Document {
+  id            String           @id @default(cuid())
+  title         String
+  description   String
+  category      DocumentCategory @default(OTHER)
+  mediaId       String
+  branchId      String?
+  sortOrder     Int              @default(0)
+  isPublished   Boolean          @default(false)
+  downloadCount Int              @default(0)
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+
+  media  Media   @relation("DocumentMedia", fields: [mediaId], references: [id], onDelete: Restrict)
+  branch Branch? @relation(fields: [branchId], references: [id], onDelete: SetNull)
+
+  @@index([isPublished, sortOrder])
+}
+
+model Media {
+  id           String   @id @default(cuid())
+  url          String
+  originalName String
+  mimeType     String
+  sizeBytes    Int
+  width        Int?
+  height       Int?
+  alt          String?
+  uploadedById String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  uploadedBy    User?     @relation(fields: [uploadedById], references: [id], onDelete: SetNull)
+  branchHeroes  Branch[]  @relation("BranchHero")
+  programmes    Programme[] @relation("ProgrammeImage")
+  postCovers    Post[]    @relation("PostCover")
+  eventCovers   Event[]   @relation("EventCover")
+  albumCovers   Album[]   @relation("AlbumCover")
+  albumPhotos   AlbumPhoto[]
+  documents     Document[] @relation("DocumentMedia")
+  siteSettings  SiteSettings[] @relation("OgImage")
+
+  @@index([createdAt])
+}
+
+model Enquiry {
+  id                String        @id @default(cuid())
+  reference         String        @unique
+  parentName        String
+  email             String
+  phone             String
+  childName         String
+  childDateOfBirth  DateTime?
+  branchId          String
+  programmeId       String?
+  preferredStart    DateTime?
+  message           String
+  source            EnquirySource @default(WEBSITE)
+  consentPopia      Boolean
+  consentAt         DateTime
+  status            EnquiryStatus @default(NEW)
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  branch    Branch        @relation(fields: [branchId], references: [id])
+  programme Programme?    @relation(fields: [programmeId], references: [id], onDelete: SetNull)
+  notes     EnquiryNote[]
+
+  @@index([status, createdAt])
+  @@index([branchId, createdAt])
+  @@index([createdAt])
+}
+
+model EnquiryNote {
+  id        String   @id @default(cuid())
+  enquiryId String
+  authorId  String
+  body      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  enquiry Enquiry @relation(fields: [enquiryId], references: [id], onDelete: Cascade)
+  author  User    @relation(fields: [authorId], references: [id])
+
+  @@index([enquiryId, createdAt])
+}
+
+model SiteSettings {
+  id                   String   @id @default("site")
+  schoolName           String
+  tagline              String
+  defaultSeoTitle      String
+  defaultSeoDescription String
+  socialFacebook       String?
+  socialInstagram      String?
+  socialYoutube        String?
+  ogImageId            String?
+  whatsappDefaultMessage String
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  ogImage Media? @relation("OgImage", fields: [ogImageId], references: [id], onDelete: SetNull)
+}
+
+model EmailOutbox {
+  id          String   @id @default(cuid())
+  to          String
+  subject     String
+  html        String
+  text        String
+  template    String
+  relatedType String?
+  relatedId   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([createdAt])
+}

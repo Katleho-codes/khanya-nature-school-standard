@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: khanya-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: khanya
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5442:5432"
+    volumes:
+      - khanya_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d khanya"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  khanya_pgdata:
