@@ -324,8 +324,24 @@ export function ScribbleCircle({ className }: { className?: string }) {
   );
 }
 
-export function ScribbleArrow({ className }: { className?: string }) {
+export function ScribbleCross({ className }: { className?: string }) {
   return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="3"
+      strokeLinecap="round"
+      aria-hidden
+    >
+      <path d="M5 4c5 6 9 10 14 16" filter="url(#crayon-rough)" />
+      <path d="M19 5c-5 5-10 9-14 15" filter="url(#crayon-rough)" />
+    </svg>
+  );
+}
+
+export function ScribbleArrow({ className }: { className?: string }) {  return (
     <svg
       viewBox="0 0 100 80"
       className={className}

@@ -55,9 +55,9 @@ const initialValues: EnquiryValues = {
 };
 
 const inputClass =
-  "mt-1.5 w-full rounded-sm border border-line-strong bg-paper px-3.5 py-2.5 text-[0.92rem] text-bark placeholder:text-bark-soft/65 transition-colors focus:border-forest focus:outline-none";
+  "mt-1.5 w-full rounded-[14px] border-2 border-ink/15 bg-paper px-4 py-3 text-[0.95rem] text-ink placeholder:text-ink/40 transition-colors focus:border-ink focus:outline-none focus:ring-4 focus:ring-sun/35";
 
-const labelClass = "block text-[0.78rem] font-medium tracking-[0.01em] text-forest";
+const labelClass = "block text-[0.8rem] font-extrabold text-sky-deep";
 
 function fieldErrorId(name: keyof EnquiryValues): string {
   return `enquiry-${name}-error`;
@@ -180,8 +180,8 @@ export function EnquiryForm({
 
   if (branches.length === 0) {
     return (
-      <div className="border-t border-line py-8">
-        <p className="text-sm leading-relaxed text-bark-soft">
+      <div className="border-t-2 border-ink/10 py-8">
+        <p className="text-sm leading-relaxed text-ink/65">
           Online enquiries are temporarily unavailable. Please phone or email the
           school and we will help you directly.
         </p>
@@ -209,7 +209,7 @@ export function EnquiryForm({
             placeholder="Nomsa Mokoena"
           />
           {errors.parentName ? (
-            <p id={fieldErrorId("parentName")} className="mt-1.5 text-[0.78rem] text-clay">
+            <p id={fieldErrorId("parentName")} className="mt-1.5 text-[0.78rem] field-error text-poppy-deep">
               {errors.parentName}
             </p>
           ) : null}
@@ -231,7 +231,7 @@ export function EnquiryForm({
             placeholder="Lesedi"
           />
           {errors.childName ? (
-            <p id={fieldErrorId("childName")} className="mt-1.5 text-[0.78rem] text-clay">
+            <p id={fieldErrorId("childName")} className="mt-1.5 text-[0.78rem] field-error text-poppy-deep">
               {errors.childName}
             </p>
           ) : null}
@@ -254,7 +254,7 @@ export function EnquiryForm({
             placeholder="you@example.co.za"
           />
           {errors.email ? (
-            <p id={fieldErrorId("email")} className="mt-1.5 text-[0.78rem] text-clay">
+            <p id={fieldErrorId("email")} className="mt-1.5 text-[0.78rem] field-error text-poppy-deep">
               {errors.email}
             </p>
           ) : null}
@@ -277,7 +277,7 @@ export function EnquiryForm({
             placeholder="082 555 0100"
           />
           {errors.phone ? (
-            <p id={fieldErrorId("phone")} className="mt-1.5 text-[0.78rem] text-clay">
+            <p id={fieldErrorId("phone")} className="mt-1.5 text-[0.78rem] field-error text-poppy-deep">
               {errors.phone}
             </p>
           ) : null}
@@ -303,7 +303,7 @@ export function EnquiryForm({
           {errors.childDateOfBirth ? (
             <p
               id={fieldErrorId("childDateOfBirth")}
-              className="mt-1.5 text-[0.78rem] text-clay"
+              className="mt-1.5 text-[0.78rem] field-error text-poppy-deep"
             >
               {errors.childDateOfBirth}
             </p>
@@ -331,7 +331,7 @@ export function EnquiryForm({
             ))}
           </select>
           {errors.branchId ? (
-            <p id={fieldErrorId("branchId")} className="mt-1.5 text-[0.78rem] text-clay">
+            <p id={fieldErrorId("branchId")} className="mt-1.5 text-[0.78rem] field-error text-poppy-deep">
               {errors.branchId}
             </p>
           ) : null}
@@ -339,7 +339,7 @@ export function EnquiryForm({
 
         <div>
           <label htmlFor="enquiry-programmeId" className={labelClass}>
-            Programme <span className="font-normal text-bark-soft">(optional)</span>
+            Programme <span className="font-normal text-ink/65">(optional)</span>
           </label>
           <select
             id="enquiry-programmeId"
@@ -347,7 +347,7 @@ export function EnquiryForm({
             value={programmeAvailable ? values.programmeId : ""}
             onChange={(event) => update("programmeId", event.target.value)}
             disabled={!selectedBranch}
-            className={`${inputClass} disabled:cursor-not-allowed disabled:bg-sage-tint/60`}
+            className={`${inputClass} disabled:cursor-not-allowed disabled:bg-sky-tint/60`}
           >
             <option value="">
               {selectedBranch ? "Not sure yet" : "Choose a branch first"}
@@ -363,7 +363,7 @@ export function EnquiryForm({
         <div>
           <label htmlFor="enquiry-preferredStart" className={labelClass}>
             Preferred start{" "}
-            <span className="font-normal text-bark-soft">(optional)</span>
+            <span className="font-normal text-ink/65">(optional)</span>
           </label>
           <input
             id="enquiry-preferredStart"
@@ -392,15 +392,15 @@ export function EnquiryForm({
           />
           <div className="mt-1.5 flex items-start justify-between gap-4">
             {errors.message ? (
-              <p id={fieldErrorId("message")} className="text-[0.78rem] text-clay">
+              <p id={fieldErrorId("message")} className="text-[0.78rem] field-error text-poppy-deep">
                 {errors.message}
               </p>
             ) : (
-              <p id="enquiry-message-hint" className="text-[0.75rem] text-bark-soft">
+              <p id="enquiry-message-hint" className="text-[0.75rem] text-ink/65">
                 A sentence or two is enough.
               </p>
             )}
-            <span className="shrink-0 text-[0.72rem] tabular-nums text-bark-soft">
+            <span className="shrink-0 text-[0.72rem] tabular-nums text-ink/65">
               {values.message.length} / 2 000
             </span>
           </div>
@@ -412,7 +412,7 @@ export function EnquiryForm({
         <input id="enquiry-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <div className="mt-6 border-t border-line pt-5">
+      <div className="mt-6 border-t-2 border-ink/10 pt-5">
         <div className="flex items-start gap-3">
           <input
             id="enquiry-consentPopia"
@@ -424,22 +424,22 @@ export function EnquiryForm({
             aria-describedby={
               errors.consentPopia ? fieldErrorId("consentPopia") : "enquiry-consent-hint"
             }
-            className="mt-1 h-4 w-4 shrink-0 accent-forest"
+            className="mt-1 h-6 w-6 shrink-0 rounded-full border-2 border-ink/30 accent-sun"
           />
-          <label htmlFor="enquiry-consentPopia" className="text-[0.82rem] leading-relaxed text-bark-soft">
+          <label htmlFor="enquiry-consentPopia" className="text-[0.9rem] leading-relaxed text-ink/70">
             I agree that Khanya Nature School may keep these details to reply to
             my enquiry, as explained in the{" "}
-            <Link href="/privacy" className="mark-link text-forest">
+            <Link href="/privacy" className="squiggle-link text-ink">
               privacy notice
             </Link>
             .
           </label>
         </div>
-        <p id="enquiry-consent-hint" className="mt-1 pl-7 text-[0.72rem] text-bark-soft">
+        <p id="enquiry-consent-hint" className="mt-1 pl-9 text-[0.76rem] text-ink/60">
           We do not share your details with anyone else.
         </p>
         {errors.consentPopia ? (
-          <p id={fieldErrorId("consentPopia")} className="mt-1.5 pl-7 text-[0.78rem] text-clay">
+          <p id={fieldErrorId("consentPopia")} className="mt-1.5 pl-9 text-[0.8rem] field-error text-poppy-deep">
             {errors.consentPopia}
           </p>
         ) : null}
@@ -448,7 +448,7 @@ export function EnquiryForm({
       {serverMessage ? (
         <div
           role="alert"
-          className="mt-5 border-l-2 border-clay bg-clay/5 px-4 py-3 text-[0.84rem] text-clay"
+          className="mt-5 border-l-2 border-poppy-deep bg-poppy-tint px-4 py-3 text-[0.84rem] text-poppy-deep"
         >
           {serverMessage}
         </div>
@@ -458,12 +458,12 @@ export function EnquiryForm({
         <button
           type="submit"
           disabled={submitting}
-          className="inline-flex items-center justify-center gap-2 rounded-sm border border-forest bg-forest px-5 py-3 text-[0.9rem] font-medium text-oat transition-colors hover:border-forest-deep hover:bg-forest-deep disabled:cursor-wait disabled:opacity-60"
+          className="inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-full border-b-4 border-sun-deep bg-sun px-6 py-3 text-[0.95rem] font-extrabold text-ink transition-colors hover:bg-sun-deep hover:border-ink/25 active:translate-y-[3px] active:border-b-0 disabled:cursor-wait disabled:opacity-60"
         >
           {submitting ? (
             <>
               <span
-                className="h-4 w-4 animate-spin rounded-full border-2 border-oat/40 border-t-oat"
+                className="h-4 w-4 animate-spin rounded-full border-2 border-ink/30 border-t-ink"
                 aria-hidden
               />
               Sending your enquiry
@@ -475,8 +475,8 @@ export function EnquiryForm({
             </>
           )}
         </button>
-        <p className="inline-flex items-center gap-1.5 text-[0.74rem] text-bark-soft">
-          <CheckIcon className="h-3.5 w-3.5 text-sage-deep" />
+        <p className="inline-flex items-center gap-1.5 text-[0.78rem] text-ink/65">
+          <CheckIcon className="h-4 w-4 text-meadow-deep" />
           We usually reply within one working day.
         </p>
       </div>

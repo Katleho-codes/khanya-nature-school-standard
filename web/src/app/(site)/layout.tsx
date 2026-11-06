@@ -13,7 +13,7 @@ export default async function SiteLayout({
     <>
       <a
         href="#main"
-        className="sr-only z-50 rounded-sm bg-forest px-4 py-2 text-oat focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        className="sr-only z-50 rounded-full bg-sun px-5 py-3 font-bold text-ink focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
       >
         Skip to content
       </a>

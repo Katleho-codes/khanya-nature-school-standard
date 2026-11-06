@@ -17,7 +17,7 @@ const links = [
 export function DesktopNav() {
   const pathname = usePathname();
   return (
-    <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
+    <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
       {links.map((link) => {
         const active =
           pathname === link.href || pathname.startsWith(`${link.href}/`);
@@ -26,10 +26,10 @@ export function DesktopNav() {
             key={link.href}
             href={link.href}
             aria-current={active ? "page" : undefined}
-            className={`relative py-1 text-[0.84rem] tracking-[0.01em] transition-colors ${
+            className={`rounded-full px-3 py-2 text-[0.88rem] font-bold transition-colors ${
               active
-                ? "text-forest after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:bg-ochre"
-                : "text-bark-soft hover:text-forest"
+                ? "bg-sun text-ink"
+                : "text-ink/70 hover:bg-sun-tint hover:text-ink"
             }`}
           >
             {link.label}
@@ -50,9 +50,9 @@ export function FooterLink({
   return (
     <Link
       href={href}
-      className="group inline-flex items-center gap-1.5 text-oat/75 transition-colors hover:text-oat"
+      className="group inline-flex items-center gap-1.5 font-semibold text-paper/75 transition-colors hover:text-sun"
     >
-      <span className="border-b border-transparent transition-colors group-hover:border-ochre">
+      <span className="decoration-sun decoration-2 underline-offset-4 group-hover:underline">
         {children}
       </span>
       <ArrowRightIcon className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-100" />

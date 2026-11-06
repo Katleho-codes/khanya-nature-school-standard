@@ -397,6 +397,27 @@
     background-color: rgb(221 242 252 / 0.55);
     cursor: not-allowed;
   }
+
+  .field-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .field-error::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 0.95rem;
+    height: 0.95rem;
+    margin-top: 0.18rem;
+    background-color: currentColor;
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 4c5 6 11 10 16 16M20 4C14 10 9 14 4 20' fill='none' stroke='black' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
 }
 
 @layer utilities {
