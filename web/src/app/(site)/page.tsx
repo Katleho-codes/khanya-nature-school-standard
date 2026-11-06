@@ -7,8 +7,20 @@ import { siteUrl } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 import { Photo } from "@/components/Photo";
 import { ButtonLink } from "@/components/Button";
-import { ProgrammeRow, BranchCard, PostCard } from "@/components/PublicCards";
+import { BranchCard, PostCard, ProgrammeRow } from "@/components/PublicCards";
 import { SectionHeading, EditorialQuote, WhatsAppButton } from "@/components/Editorial";
+import {
+  Cloud,
+  Chicken,
+  HillDivider,
+  MudPot,
+  ScribbleField,
+  ScribbleUnderline,
+  Sun,
+  Sunflower,
+  Worm,
+} from "@/components/brand";
+import { branchTone, toneStyle } from "@/lib/tones";
 import {
   ArrowRightIcon,
   FacebookIcon,
@@ -16,6 +28,7 @@ import {
   YouTubeIcon,
   MapPinIcon,
   ClockIcon,
+  CalendarIcon,
 } from "@/components/icons";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -38,7 +51,7 @@ export default async function HomePage() {
     url: siteUrl(),
     description:
       settings?.defaultSeoDescription ??
-      "A nature-based preschool in Randburg and Fourways where children spend most of the day outdoors.",
+      "A small preschool in Randburg and Fourways where children play outside, get muddy and take their time.",
     telephone: featuredBranch?.phone,
     email: featuredBranch?.email ?? "hello@khanyanatureschool.example",
     address: home.branches.map((branch) => ({
@@ -63,34 +76,29 @@ export default async function HomePage() {
       <JsonLd data={organisation} />
 
       <section className="relative overflow-hidden">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-24 top-20 h-[30rem] w-[22rem] text-sage-deep opacity-[0.07] md:right-10 md:top-10"
-        >
-          <svg viewBox="0 0 120 160" fill="none" stroke="currentColor" strokeWidth="0.8" className="h-full w-full">
-            <path d="M60 154C60 108 59 58 60 8" />
-            <path d="M60 132C45 124 34 112 31 98c14 1 25 9 29 22" />
-            <path d="M60 132c15-8 26-20 29-34-14 1-25 9-29 22" />
-            <path d="M60 106C43 98 31 84 30 68c15 1 26 11 30 25" />
-            <path d="M60 106c17-8 29-22 30-38-15 1-26 11-30 25" />
-          </svg>
-        </div>
+        <div aria-hidden className="pointer-events-none absolute -right-24 top-10 h-[34rem] w-[34rem] rounded-full bg-sun-tint/70 blur-3xl" />
+        <Cloud className="pointer-events-none absolute left-[6%] top-16 h-20 w-32 text-paper md:h-28 md:w-44" />
+        <Sun className="animate-sun pointer-events-none absolute right-6 top-8 h-24 w-24 text-sun md:right-[36%] md:h-36 md:w-36" />
+        <ScribbleField className="pointer-events-none absolute -left-20 bottom-16 h-80 w-80 text-sky opacity-20" />
 
-        <div className="page-container relative grid gap-10 pb-14 pt-10 md:pb-20 md:pt-16 lg:grid-cols-12 lg:items-end lg:gap-12">
+        <div className="page-container relative grid gap-12 pb-20 pt-12 md:pt-16 lg:grid-cols-12 lg:items-center lg:gap-10 lg:pb-28">
           <div className="lg:col-span-7">
-            <p className="label-caps flex flex-wrap items-center gap-x-3 gap-y-1 text-sage-deep">
-              <span>Nature-based preschool</span>
-              <span aria-hidden className="h-1 w-1 rounded-full bg-ochre" />
-              <span>Randburg and Fourways</span>
+            <p className="sticker bg-sun text-ink">
+              <span className="h-2.5 w-2.5 rounded-full bg-poppy-deep" aria-hidden />
+              Randburg and Fourways
             </p>
-            <h1 className="display-xl mt-5 max-w-[12ch] text-forest">
-              Let childhood{" "}
-              <span className="italic text-sage-deep">take its time.</span>
+            <h1 className="display-xl mt-6 max-w-[11ch] text-ink">
+              A small school with a{" "}
+              <span className="relative inline-block">
+                very big garden
+                <ScribbleUnderline className="absolute -bottom-3 left-0 h-4 w-full text-poppy" />
+              </span>
+              .
             </h1>
-            <p className="lead mt-7 max-w-xl">
-              A small, outdoor-first preschool where children spend most of the
-              day in the garden. Real weather, real tools, unhurried play and
-              teachers who know every child by name.
+            <p className="lead mt-8 max-w-xl">
+              Children spend most of the day outside here. They dig, build, cook,
+              collect worms and get properly dirty. A teacher is always close by,
+              but never in a hurry.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <ButtonLink href="/admissions#enquiry" size="md">
@@ -98,89 +106,112 @@ export default async function HomePage() {
                 <ArrowRightIcon className="h-4 w-4" />
               </ButtonLink>
               <ButtonLink href="/programmes" variant="outline" size="md">
-                Explore programmes
+                See the programmes
               </ButtonLink>
             </div>
 
-            <dl className="mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-line pt-5">
-              <div>
-                <dt className="label-caps text-sage-deep">Ages</dt>
-                <dd className="mt-1 font-display text-[1.35rem] leading-tight text-forest">
+            <dl className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
+              <div className="paper-card rotate-[-1deg] bg-sun-tint p-4">
+                <dt className="hand text-ink/60">Ages</dt>
+                <dd className="mt-1 font-display text-[1.18rem] font-extrabold leading-tight text-ink">
                   18 months to Grade R
                 </dd>
               </div>
-              <div>
-                <dt className="label-caps text-sage-deep">Gardens</dt>
-                <dd className="mt-1 font-display text-[1.35rem] leading-tight text-forest">
+              <div className="paper-card rotate-[1deg] bg-sky-tint p-4">
+                <dt className="hand text-ink/60">Gardens</dt>
+                <dd className="mt-1 font-display text-[1.18rem] font-extrabold leading-tight text-ink">
                   Two open branches
                 </dd>
               </div>
-              <div>
-                <dt className="label-caps text-sage-deep">The day</dt>
-                <dd className="mt-1 font-display text-[1.35rem] leading-tight text-forest">
+              <div className="paper-card rotate-[-1deg] bg-meadow-tint p-4">
+                <dt className="hand text-ink/60">The day</dt>
+                <dd className="mt-1 font-display text-[1.18rem] font-extrabold leading-tight text-ink">
                   Mostly outside
                 </dd>
               </div>
             </dl>
           </div>
 
-          <div className="lg:col-span-4 lg:col-start-9">
-            <div className="relative">
-              <Photo
-                src={heroPhoto?.url ?? null}
-                alt={heroPhoto?.alt ?? "Children in the Khanya Nature School garden"}
-                ratio="4 / 5"
-                priority
-                shape="wobbly"
-                tone="sun"
-                sizes="(min-width: 1024px) 30vw, 100vw"
-              />
-              <div className="absolute -bottom-5 -left-3 max-w-[15rem] border border-line bg-paper p-4 shadow-[0_1px_0_0_var(--color-line)] sm:-left-5">
-                <p className="label-caps text-sage-deep">Open mornings</p>
-                <p className="mt-1.5 text-[0.82rem] leading-relaxed text-bark">
-                  Walk the garden with us on a weekday morning. Children welcome.
-                </p>
-                <Link
-                  href="/admissions#visit"
-                  className="mark-link mt-2 inline-flex items-center gap-1 text-[0.78rem] text-forest"
-                >
-                  Arrange a visit <ArrowRightIcon className="h-3.5 w-3.5" />
-                </Link>
-              </div>
+          <div className="relative lg:col-span-4 lg:col-start-9">
+            <Sunflower className="absolute -bottom-12 -left-10 z-10 h-32 w-24 rotate-[-8deg] md:h-40 md:w-28" />
+            <Worm className="absolute -right-8 top-8 z-10 h-16 w-24 rotate-6 text-poppy" />
+            <Photo
+              src={heroPhoto?.url ?? null}
+              alt={heroPhoto?.alt ?? "Children in the Khanya Nature School garden"}
+              ratio="4 / 5"
+              priority
+              shape="wobbly"
+              tone="sun"
+              sizes="(min-width: 1024px) 30vw, 100vw"
+            />
+            <div className="paper-card absolute -bottom-8 -left-4 z-20 max-w-[16rem] rotate-[-2deg] bg-paper p-4 sm:-left-8">
+              <p className="hand text-poppy-deep">Open mornings</p>
+              <p className="mt-1 text-[0.88rem] font-semibold leading-relaxed text-ink/75">
+                Come and walk the garden on a weekday morning. Bring the children.
+              </p>
+              <Link
+                href="/admissions#visit"
+                className="squiggle-link mt-2 inline-flex items-center gap-1 text-[0.84rem] font-bold text-ink"
+              >
+                Arrange a visit <ArrowRightIcon className="h-3.5 w-3.5" />
+              </Link>
             </div>
           </div>
         </div>
+        <div aria-hidden className="relative -mb-px">
+          <HillDivider className="h-14 w-full text-meadow sm:h-20" />
+        </div>
       </section>
 
-      <section className="border-y border-line bg-paper">
-        <div className="page-container grid gap-8 py-10 md:grid-cols-3 md:gap-12 md:py-12">
-          <div className="md:col-span-1">
-            <p className="label-caps text-sage-deep">Our starting point</p>
-            <p className="mt-3 font-display text-[1.65rem] leading-[1.2] text-forest">
-              Children are capable. The garden gives them something worth doing.
+      <section className="bg-meadow-tint/50 pb-20 pt-4 md:pb-24">
+        <div className="page-container">
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-5">
+              <p className="sticker bg-paper text-ink">What we believe</p>
+              <h2 className="display-lg mt-3 text-ink">
+                Children are capable. Give them something worth doing.
+              </h2>
+            </div>
+            <p className="lead lg:col-span-5 lg:col-start-8">
+              We are not a worksheet school. We are a garden school. The work is
+              real, the weather is real, and the children are trusted to get on
+              with it.
             </p>
           </div>
-          <div className="grid gap-6 sm:grid-cols-3 md:col-span-2">
+
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
               {
                 title: "Outside every day",
-                body: "Rain, cold or heat, the day begins and ends in the garden. We dress for it and keep going.",
+                body: "Rain, cold or heat, the day starts and ends in the garden. We keep spare boots, hats and jackets. We go out anyway.",
+                tone: "bg-sun-tint",
+                icon: <Sun className="h-9 w-9 text-sun-deep" />,
               },
               {
                 title: "Small groups",
-                body: "Never more than ten toddlers or sixteen older children, with two or three teachers.",
+                body: "Never more than ten toddlers or sixteen older children, with two or three teachers. Everyone gets a turn, and a hand if they need one.",
+                tone: "bg-sky-tint",
+                icon: <Chicken className="h-10 w-10 text-sky-deep" />,
               },
               {
-                title: "Real work",
-                body: "Tools, cooking, compost and growing food. The outcomes are visible and worth finishing.",
+                title: "Proper jobs",
+                body: "Tools, cooking, compost and growing food. The children can see what they made at the end of the day. That matters.",
+                tone: "bg-poppy-tint",
+                icon: <MudPot className="h-10 w-10 text-poppy-deep" />,
               },
-            ].map((item) => (
-              <div key={item.title} className="border-t border-line pt-4">
-                <h2 className="font-display text-[1.2rem] text-forest">{item.title}</h2>
-                <p className="mt-2 text-[0.84rem] leading-relaxed text-bark-soft">
-                  {item.body}
-                </p>
-              </div>
+            ].map((item, index) => (
+              <article
+                key={item.title}
+                className={`paper-card ${item.tone} p-5 ${index === 1 ? "rotate-[0.8deg]" : "rotate-[-0.6deg]"}`}
+              >
+                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-paper shadow-[0_3px_0_rgb(34_40_74_/_0.12)]">
+                  {item.icon}
+                </div>
+                <h3 className="font-display text-[1.35rem] font-extrabold leading-tight text-ink">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-[0.94rem] leading-relaxed text-ink/70">{item.body}</p>
+              </article>
             ))}
           </div>
         </div>
@@ -189,13 +220,13 @@ export default async function HomePage() {
       <section className="section">
         <div className="page-container">
           <SectionHeading
-            eyebrow="The shape of a day"
+            eyebrow="A day with us"
             title={
               <>
-                A school day that <span className="italic text-sage-deep">breathes.</span>
+                A rhythm, not a <span className="text-sky-deep">timetable</span>.
               </>
             }
-            lead="There is a rhythm, not a timetable. Arrival and free play, a morning circle, a long stretch outside, food, rest and more time to finish what was started."
+            lead="There is always a morning circle and always lunch. The rest of the day has room to breathe. If the children are deep in a game, we let it run."
             action={
               <ButtonLink href="/about" variant="text">
                 How we work <ArrowRightIcon className="h-4 w-4" />
@@ -212,48 +243,47 @@ export default async function HomePage() {
                   "Natural materials and outdoor play at Khanya Nature School"
                 }
                 ratio="3 / 2"
+                shape="paper"
+                tone="sky"
                 sizes="(min-width: 1024px) 50vw, 100vw"
               />
-              <div className="mt-8">
+              <div className="mt-6">
                 <EditorialQuote attribution="A note from our teachers">
-                  The best classroom has mud on the floor, a spider worth
-                  watching and an adult who is not in a hurry.
+                  The best classroom has mud on the floor, a spider worth watching
+                  and an adult who is not in a hurry.
                 </EditorialQuote>
               </div>
             </div>
             <div className="lg:col-span-5 lg:col-start-8">
-              <ol className="space-y-7">
+              <ol className="space-y-4">
                 {[
                   {
                     time: "Morning",
                     title: "Arrive and settle",
-                    body: "A teacher greets each child at the gate. Children find their friends, water a bed, or simply stand and watch until they are ready.",
+                    body: "A teacher meets each child at the gate. Children find their friends, water a bed, or simply stand and watch until they are ready.",
+                    tone: "bg-sun",
                   },
                   {
                     time: "Long middle",
                     title: "Go outside",
-                    body: "The longest part of the day is outdoors. Dens, water, clay, tools, walking, cooking and the slow work of playing with other people.",
+                    body: "The longest part of the day is outdoors. Dens, water, mud, tools, walking, cooking and the slow work of playing with other people.",
+                    tone: "bg-meadow",
                   },
                   {
                     time: "Afternoon",
                     title: "Eat, rest, return",
                     body: "Lunch together, a quiet rest for those who need it, then back outside until collection. Nothing is rushed to make room for the next thing.",
+                    tone: "bg-sky",
                   },
                 ].map((item, index) => (
-                  <li key={item.title} className="grid grid-cols-[2.4rem_1fr] gap-4">
-                    <span className="pt-1 text-[0.72rem] tracking-[0.15em] text-sage-deep">
-                      {String(index + 1).padStart(2, "0")}
+                  <li key={item.title} className="paper-card flex gap-4 bg-paper p-4">
+                    <span className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${item.tone} font-display text-lg font-extrabold text-ink shadow-[0_2px_0_rgb(34_40_74_/_0.12)]`}>
+                      {index + 1}
                     </span>
-                    <div className="border-t border-line pt-3">
-                      <p className="text-[0.68rem] uppercase tracking-[0.16em] text-sage-deep">
-                        {item.time}
-                      </p>
-                      <h3 className="mt-1 font-display text-[1.4rem] text-forest">
-                        {item.title}
-                      </h3>
-                      <p className="mt-2 text-[0.88rem] leading-relaxed text-bark-soft">
-                        {item.body}
-                      </p>
+                    <div>
+                      <p className="hand text-ink/55">{item.time}</p>
+                      <h3 className="mt-0.5 font-display text-[1.25rem] font-extrabold text-ink">{item.title}</h3>
+                      <p className="mt-1 text-[0.92rem] leading-relaxed text-ink/65">{item.body}</p>
                     </div>
                   </li>
                 ))}
@@ -263,30 +293,27 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-line bg-paper section">
-        <div className="page-container">
+      <section className="relative overflow-hidden bg-sky-tint/60 py-16 md:py-20">
+        <ScribbleField className="pointer-events-none absolute -right-16 top-0 h-72 w-72 text-sky opacity-25" />
+        <div className="page-container relative">
           <SectionHeading
             eyebrow="Programmes"
             title="The right room for the right age."
-            lead="Four term-time programmes and a holiday programme. Each one keeps the outdoor day at its centre, with more room to stretch as children grow."
+            lead="Four term-time programmes and a holiday programme. Every one keeps the outdoor day at its centre, with a little more room to stretch as children grow."
             action={
               <ButtonLink href="/programmes" variant="outline" size="sm">
                 All programmes
               </ButtonLink>
             }
           />
-          <div className="mt-10">
-            <div className="hidden grid-cols-[3rem_1fr_8rem_9rem_2rem] gap-6 border-b border-line pb-3 text-[0.65rem] uppercase tracking-[0.16em] text-sage-deep sm:grid">
-              <span>No.</span>
-              <span>Programme</span>
-              <span className="text-right">Age</span>
-              <span className="text-right">Monthly fee</span>
-              <span />
-            </div>
+          <div className="mt-10 space-y-3">
             {home.programmes.map((programme, index) => (
               <ProgrammeRow key={programme.id} programme={programme} index={index} />
             ))}
           </div>
+          <p className="hand mt-5 text-right text-ink/50">
+            Fees for 2027. Monthly, unless the programme says otherwise.
+          </p>
         </div>
       </section>
 
@@ -295,14 +322,14 @@ export default async function HomePage() {
           <SectionHeading
             eyebrow="Two gardens"
             title="Come and stand in the shade."
-            lead="Each branch has its own ground, its own creatures and its own way of using the day. Both are small, and both are outdoors first."
+            lead="Each branch has its own ground, its own creatures and its own way of using the day. Both are small. Both spend most of the day outside."
             action={
               <ButtonLink href="/branches" variant="text">
                 Compare branches <ArrowRightIcon className="h-4 w-4" />
               </ButtonLink>
             }
           />
-          <div className="mt-12 grid gap-12 md:grid-cols-2 md:gap-10">
+          <div className="mt-12 grid gap-8 md:grid-cols-2 md:gap-10">
             {home.branches.map((branch) => (
               <BranchCard key={branch.id} branch={branch} />
             ))}
@@ -311,12 +338,12 @@ export default async function HomePage() {
       </section>
 
       {home.photos.length > 0 ? (
-        <section className="border-y border-line bg-sage-tint/40 py-10 md:py-14">
-          <div className="page-container">
+        <section className="relative overflow-hidden bg-meadow-tint/55 py-14 md:py-20">
+          <div className="page-container relative">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
-                <p className="label-caps text-sage-deep">From the garden</p>
-                <h2 className="display-md mt-2 text-forest">A week in pictures</h2>
+                <p className="sticker bg-paper text-ink">From the garden</p>
+                <h2 className="display-md mt-3 text-ink">A week in pictures</h2>
               </div>
               <ButtonLink href="/gallery" variant="text">
                 Open the gallery <ArrowRightIcon className="h-4 w-4" />
@@ -327,13 +354,15 @@ export default async function HomePage() {
                 <Link
                   key={photo.id}
                   href={`/gallery/${photo.album.slug}`}
-                  className="group"
+                  className={`group ${index % 2 === 0 ? "rotate-[-1deg]" : "rotate-[1deg]"}`}
                   aria-label={`View ${photo.album.title}: ${photo.alt}`}
                 >
                   <Photo
                     src={photo.media.url}
                     alt={photo.media.alt ?? photo.alt}
                     ratio={index % 3 === 0 ? "3 / 4" : "1 / 1"}
+                    shape="paper"
+                    tone={index % 3 === 0 ? "sun" : index % 3 === 1 ? "sky" : "meadow"}
                     sizes="(min-width: 768px) 20vw, 50vw"
                     imageClassName="transition-transform duration-700 group-hover:scale-[1.03]"
                   />
@@ -347,16 +376,16 @@ export default async function HomePage() {
       <section className="section">
         <div className="page-container grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
-            <div className="flex items-end justify-between gap-4 border-b border-line pb-4">
+            <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
-                <p className="label-caps text-sage-deep">From the school</p>
-                <h2 className="display-md mt-2 text-forest">News and notices</h2>
+                <p className="sticker bg-sun-tint text-ink">From the school</p>
+                <h2 className="display-md mt-3 text-ink">News and notices</h2>
               </div>
               <ButtonLink href="/news" variant="text" size="sm">
                 All news <ArrowRightIcon className="h-3.5 w-3.5" />
               </ButtonLink>
             </div>
-            <div className="mt-6 space-y-7">
+            <div className="mt-7 space-y-5">
               {home.posts.slice(0, 2).map((post, index) => (
                 <PostCard key={post.id} post={post} priority={index === 0} />
               ))}
@@ -364,64 +393,65 @@ export default async function HomePage() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="border-t border-line pt-4 lg:border-t-0 lg:pt-0">
-              <div className="flex items-end justify-between gap-4 border-b border-line pb-4">
-                <div>
-                  <p className="label-caps text-sage-deep">What is coming</p>
-                  <h2 className="display-md mt-2 text-forest">Events</h2>
-                </div>
-                <ButtonLink href="/events" variant="text" size="sm">
-                  Calendar <ArrowRightIcon className="h-3.5 w-3.5" />
-                </ButtonLink>
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="sticker bg-poppy-tint text-ink">What is coming</p>
+                <h2 className="display-md mt-3 text-ink">Events</h2>
               </div>
-              {home.events.length > 0 ? (
-                <ul className="divide-y divide-line">
-                  {home.events.map((event) => (
+              <ButtonLink href="/events" variant="text" size="sm">
+                Calendar <ArrowRightIcon className="h-3.5 w-3.5" />
+              </ButtonLink>
+            </div>
+            {home.events.length > 0 ? (
+              <ul className="mt-7 space-y-4">
+                {home.events.map((event) => {
+                  const tone = toneStyle(branchTone(event.branch?.slug ?? event.branch?.name));
+                  return (
                     <li key={event.id}>
                       <Link
                         href={`/events/${event.slug}`}
-                        className="group grid grid-cols-[3.6rem_1fr] gap-4 py-5"
+                        className={`group paper-card grid grid-cols-[4rem_1fr] gap-4 ${tone.tint} p-4 transition-transform hover:-rotate-[0.5deg]`}
                       >
-                        <div>
-                          <p className="font-display text-[1.85rem] leading-none text-forest">
+                        <div className="flex flex-col items-center justify-center rounded-[18px_14px_20px_12px] bg-paper p-2 text-center">
+                          <CalendarIcon className={`h-4 w-4 ${tone.deepText}`} />
+                          <p className="mt-1 font-display text-[1.7rem] font-extrabold leading-none text-ink">
                             {new Date(event.startsAt).getDate()}
                           </p>
-                          <p className="mt-1 text-[0.64rem] uppercase tracking-[0.15em] text-sage-deep">
+                          <p className="mt-0.5 text-[0.64rem] font-bold uppercase tracking-[0.08em] text-ink/55">
                             {formatDate(event.startsAt).split(" ").slice(1).join(" ")}
                           </p>
                         </div>
                         <div>
-                          <p className="text-[0.66rem] uppercase tracking-[0.13em] text-sage-deep">
-                            {event.branch?.name ?? "All branches"}
-                          </p>
-                          <h3 className="mt-1 font-display text-[1.16rem] leading-tight text-forest group-hover:text-sage-deep">
+                          <span className={`tag ${tone.pill}`}>{event.branch?.name ?? "All branches"}</span>
+                          <h3 className="mt-1.5 font-display text-[1.15rem] font-extrabold leading-tight text-ink group-hover:text-poppy-deep">
                             {event.title}
                           </h3>
-                          <p className="mt-1 text-[0.75rem] text-bark-soft">
+                          <p className="mt-1 text-[0.78rem] font-semibold text-ink/60">
                             {formatEventWhen(event)}
                           </p>
                         </div>
                       </Link>
                     </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="py-8 text-sm text-bark-soft">
-                  No events are listed just now. Check back soon.
-                </p>
-              )}
-            </div>
+                  );
+                })}
+              </ul>
+            ) : (
+              <p className="paper-card mt-7 bg-paper p-5 text-[0.94rem] text-ink/60">
+                No events are listed just now. Check back soon, or join us for an
+                ordinary morning in the garden.
+              </p>
+            )}
 
             {nextEvent ? (
-              <div className="mt-7 border border-line bg-paper p-5">
-                <p className="label-caps text-sage-deep">Next at the garden</p>
-                <p className="mt-2 font-display text-[1.25rem] leading-tight text-forest">
+              <div className="paper-card mt-5 rotate-[0.6deg] bg-sun p-5">
+                <p className="hand text-ink/65">Next at the garden</p>
+                <p className="mt-1 font-display text-[1.25rem] font-extrabold leading-tight text-ink">
                   {nextEvent.title}
                 </p>
-                <p className="mt-1.5 text-[0.8rem] text-bark-soft">
+                <p className="mt-1.5 text-[0.84rem] font-semibold text-ink/65">
                   {formatEventWhen(nextEvent)}
                 </p>
-                <ButtonLink href={`/events/${nextEvent.slug}`} variant="text" className="mt-3 text-[0.82rem]">
+                <ButtonLink href={`/events/${nextEvent.slug}`} variant="light" className="mt-4 text-[0.84rem]">
                   Details <ArrowRightIcon className="h-3.5 w-3.5" />
                 </ButtonLink>
               </div>
@@ -430,17 +460,17 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="section-forest bg-forest text-oat">
-        <div className="page-container grid gap-12 py-4 lg:grid-cols-12 lg:gap-16">
+      <section className="relative overflow-hidden bg-poppy-deep text-white">
+        <Worm className="pointer-events-none absolute -right-6 top-8 h-20 w-28 rotate-12 text-sun" />
+        <div className="page-container relative grid gap-12 py-16 lg:grid-cols-12 lg:gap-16 md:py-20">
           <div className="lg:col-span-7">
-            <p className="label-caps text-oat/60">Admissions</p>
-            <h2 className="display-lg mt-3 text-oat">
+            <p className="tag bg-sun text-ink">Admissions</p>
+            <h2 className="display-lg mt-4 text-white">
               Come and see whether it fits.
             </h2>
-            <p className="mt-5 max-w-xl text-[1.05rem] leading-relaxed text-oat/75">
+            <p className="mt-5 max-w-xl text-[1.08rem] leading-relaxed text-white/80">
               The first step is a visit. Walk the garden, meet a teacher, ask the
-              awkward questions. If it feels right, we will help you with the
-              rest.
+              awkward questions. If it feels right, we will help you with the rest.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href="/admissions#enquiry" variant="light" size="md">
@@ -451,13 +481,13 @@ export default async function HomePage() {
                 number={featuredBranch?.whatsapp ?? "27825550100"}
                 message="Hello Khanya Nature School, I would like to arrange a visit to the school."
                 label="WhatsApp the school"
-                className="border-oat/35 text-oat hover:border-oat hover:bg-oat hover:text-forest"
+                onInk
               />
             </div>
           </div>
 
           <div className="lg:col-span-5">
-            <ol className="space-y-5">
+            <ol className="space-y-3">
               {[
                 {
                   title: "Enquire online",
@@ -472,11 +502,15 @@ export default async function HomePage() {
                   body: "We send the form and fee schedule after the visit. Places are offered in order of application.",
                 },
               ].map((step, index) => (
-                <li key={step.title} className="grid grid-cols-[2rem_1fr] gap-4 border-t border-line-inverse pt-4">
-                  <span className="text-[0.72rem] text-ochre">{String(index + 1).padStart(2, "0")}</span>
-                  <div>
-                    <h3 className="font-display text-[1.25rem] text-oat">{step.title}</h3>
-                    <p className="mt-1 text-[0.84rem] leading-relaxed text-oat/65">{step.body}</p>
+                <li key={step.title} className="paper-card-plain bg-paper p-4 text-ink">
+                  <div className="flex gap-3">
+                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sun font-display font-extrabold text-ink">
+                      {index + 1}
+                    </span>
+                    <div>
+                      <h3 className="font-display text-[1.2rem] font-extrabold leading-tight text-ink">{step.title}</h3>
+                      <p className="mt-1 text-[0.9rem] leading-relaxed text-ink/65">{step.body}</p>
+                    </div>
                   </div>
                 </li>
               ))}
@@ -484,39 +518,45 @@ export default async function HomePage() {
           </div>
         </div>
 
-        <div className="page-container mt-12 border-t border-line-inverse py-8">
+        <div className="page-container relative border-t-2 border-white/15 pb-12 pt-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {home.branches.map((branch) => (
-              <div key={branch.id}>
-                <h3 className="font-display text-[1.1rem] text-oat">{branch.name}</h3>
-                <p className="mt-1 flex items-start gap-1.5 text-[0.78rem] text-oat/65">
-                  <MapPinIcon className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-                  {branch.addressLine1}, {branch.suburb}
-                </p>
-                <p className="mt-1 flex items-center gap-1.5 text-[0.78rem] text-oat/65">
-                  <ClockIcon className="h-3.5 w-3.5" />
-                  {summariseHours(branch.hours)}
-                </p>
-                <a href={phoneHref(branch.phone)} className="mt-1 inline-block text-[0.78rem] text-oat/80 hover:text-ochre">
-                  {branch.phone}
-                </a>
-              </div>
-            ))}
-            <div>
-              <h3 className="font-display text-[1.1rem] text-oat">Follow the seasons</h3>
-              <div className="mt-2 flex items-center gap-2">
+            {home.branches.map((branch) => {
+              const tone = toneStyle(branchTone(branch.slug));
+              return (
+                <div key={branch.id} className={`paper-card-plain ${tone.tint} p-4 text-ink`}>
+                  <h3 className="font-display text-[1.1rem] font-extrabold">{branch.name}</h3>
+                  <p className="mt-1 flex items-start gap-1.5 text-[0.82rem] text-ink/65">
+                    <MapPinIcon className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                    {branch.addressLine1}, {branch.suburb}
+                  </p>
+                  <p className="mt-1 flex items-center gap-1.5 text-[0.82rem] text-ink/65">
+                    <ClockIcon className="h-3.5 w-3.5" />
+                    {summariseHours(branch.hours)}
+                  </p>
+                  <a href={phoneHref(branch.phone)} className="mt-1 inline-flex min-h-8 items-center text-[0.82rem] font-bold text-ink/75 hover:text-poppy-deep">
+                    {branch.phone}
+                  </a>
+                </div>
+              );
+            })}
+            <div className="paper-card-plain bg-paper p-4 text-ink">
+              <h3 className="font-display text-[1.1rem] font-extrabold">Follow the seasons</h3>
+              <p className="mt-1 text-[0.82rem] leading-relaxed text-ink/65">
+                Photos, garden news and the odd chicken update.
+              </p>
+              <div className="mt-3 flex items-center gap-2">
                 {settings?.socialFacebook ? (
-                  <a href={settings.socialFacebook} target="_blank" rel="noreferrer" aria-label="Facebook" className="border border-line-inverse p-2 text-oat/70 hover:border-ochre hover:text-ochre">
+                  <a href={settings.socialFacebook} target="_blank" rel="noreferrer" aria-label="Facebook" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sun-tint text-ink hover:bg-sun">
                     <FacebookIcon />
                   </a>
                 ) : null}
                 {settings?.socialInstagram ? (
-                  <a href={settings.socialInstagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="border border-line-inverse p-2 text-oat/70 hover:border-ochre hover:text-ochre">
+                  <a href={settings.socialInstagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-meadow-tint text-ink hover:bg-meadow">
                     <InstagramIcon />
                   </a>
                 ) : null}
                 {settings?.socialYoutube ? (
-                  <a href={settings.socialYoutube} target="_blank" rel="noreferrer" aria-label="YouTube" className="border border-line-inverse p-2 text-oat/70 hover:border-ochre hover:text-ochre">
+                  <a href={settings.socialYoutube} target="_blank" rel="noreferrer" aria-label="YouTube" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-tint text-ink hover:bg-sky">
                     <YouTubeIcon />
                   </a>
                 ) : null}
