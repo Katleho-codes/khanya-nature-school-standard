@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getSessionUser } from "@/lib/auth-server";
-import { Logo, LeafPattern } from "@/components/brand";
+import { Logo, ScribbleField } from "@/components/brand";
 import { LoginForm } from "@/components/admin/LoginForm";
 
 export const metadata = {
@@ -16,7 +16,7 @@ export default async function AdminLoginPage() {
   return (
     <div className="min-h-screen bg-oat lg:grid lg:grid-cols-12">
       <section className="section-forest relative overflow-hidden bg-forest px-6 py-10 text-oat sm:px-10 lg:col-span-5 lg:flex lg:flex-col lg:justify-between lg:px-12 lg:py-14">
-        <LeafPattern className="pointer-events-none absolute -right-20 bottom-0 h-[32rem] w-[24rem] text-oat opacity-[0.06]" />
+        <ScribbleField className="pointer-events-none absolute -right-20 bottom-0 h-[32rem] w-[24rem] text-paper opacity-[0.18]" />
         <div className="relative">
           <Link href="/" aria-label="Khanya Nature School home">
             <Logo inverse />

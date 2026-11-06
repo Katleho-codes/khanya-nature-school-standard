@@ -120,11 +120,17 @@ The public enquiry endpoint is rate limited. The form includes a honeypot field 
 
 ## Design and accessibility
 
-### Calm, earthy editorial design
+### Crayon and paper cut-outs, sunrise
 
-The visual language is built on warm oat, paper, forest, sage and restrained ochre. Fraunces carries display type and DM Sans carries body and UI text. The leaf-vein motif, arched portraits and generous spacing repeat through the site.
+The first visual direction used warm oat, forest green and ochre, with a Fraunces serif, italic accent words, letter-spaced small-cap labels, hairline rules, arched portraits and thin leaf line art. It read as a boutique magazine rather than a preschool. The owner asked for the warmth and play of the sibling Marula Kids demo without copying it.
 
-All brand colours are theme tokens in `web/src/app/globals.css`. Components use token classes only. There are no component-level hex colours.
+The replacement identity is "Crayon and paper cut-outs, sunrise". Khanya means light, so the primary mark is a hand-drawn sun. The page is warm paper, the shapes are flat coloured paper with no ink outlines, the corners are irregular, the shadows are flat 3 px paper edges and the decorations are crayon scribbles. Baloo 2 carries headings, Mulish carries body and interface text, and Gaegu is limited to tiny handwritten annotations. The palette is paper, ink, sun, poppy, sky and meadow, each with one deep and one tint step.
+
+This is deliberately different from Marula Kids. Marula uses ink-outlined stickers with hard offset shadows and a terracotta, yellow and leaf palette. Khanya uses unoutlined paper shapes, softer wobbly edges and a bright primary crayon palette.
+
+Programme and branch colours are fixed so the same entity looks the same everywhere, including calendar dots and admin badges. Little Explorers is sun, Forest Kindy meadow, Bush School sky, Grade R Pathfinders poppy and Holiday Programme sun. Randburg is poppy and Fourways is sky. Only ink text sits on sun, sky and meadow. White text is used only on poppy-deep.
+
+The old tokens, fonts, leaf motifs, arches, numbered labels, small-caps eyebrows, hairline rules and editorial prose class were removed rather than hidden. All colour still lives in theme tokens in `web/src/app/globals.css`. Components use token classes only.
 
 ### Light mode only
 

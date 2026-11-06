@@ -1,29 +1,38 @@
-import type { Metadata } from "next";
-import { DM_Sans, Fraunces } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Baloo_2, Gaegu, Mulish } from "next/font/google";
 import { siteUrl } from "@/lib/site";
+import { PaperFilters } from "@/components/brand";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const baloo = Baloo_2({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-fraunces",
-  axes: ["SOFT", "WONK", "opsz"],
+  variable: "--font-baloo",
+  weight: ["700", "800"],
 });
 
-const dmSans = DM_Sans({
+const mulish = Mulish({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-dm-sans",
+  variable: "--font-mulish",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const gaegu = Gaegu({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-gaegu",
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
   title: {
-    default: "Khanya Nature School | Nature-based preschool in Randburg and Fourways",
+    default: "Khanya Nature School | A small school in the garden",
     template: "%s | Khanya Nature School",
   },
   description:
-    "A nature-based preschool in Randburg and Fourways where children spend most of the day outdoors. Small groups, unhurried time and real materials.",
+    "A small preschool in Randburg and Fourways where children play outside, get muddy and take their time. Real gardens, real tools and teachers who know every child.",
   applicationName: "Khanya Nature School",
   authors: [{ name: "Khanya Nature School" }],
   openGraph: {
@@ -32,17 +41,22 @@ export const metadata: Metadata = {
     siteName: "Khanya Nature School",
     title: "Khanya Nature School",
     description:
-      "A nature-based preschool in Randburg and Fourways where children spend most of the day outdoors.",
+      "A small preschool in Randburg and Fourways where children play outside, get muddy and take their time.",
     images: [{ url: "/images/og-default.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Khanya Nature School",
     description:
-      "A nature-based preschool in Randburg and Fourways where children spend most of the day outdoors.",
+      "A small preschool in Randburg and Fourways where children play outside, get muddy and take their time.",
     images: ["/images/og-default.jpg"],
   },
   robots: { index: true, follow: true },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ffc62e",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -52,9 +66,12 @@ export default function RootLayout({
     <html
       lang="en-ZA"
       data-scroll-behavior="smooth"
-      className={`${fraunces.variable} ${dmSans.variable}`}
+      className={`${baloo.variable} ${mulish.variable} ${gaegu.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <PaperFilters />
+        {children}
+      </body>
     </html>
   );
 }

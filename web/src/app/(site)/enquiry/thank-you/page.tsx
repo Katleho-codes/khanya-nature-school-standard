@@ -102,7 +102,8 @@ export default async function ThankYouPage({ searchParams }: PageProps) {
             src={null}
             alt="The Khanya Nature School garden"
             ratio="4 / 5"
-            arch
+            shape="wobbly"
+            tone="sky"
             placeholder="The garden is waiting for your visit."
             sizes="(min-width: 1024px) 30vw, 100vw"
           />

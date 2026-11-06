@@ -112,7 +112,8 @@ export default async function AboutPage() {
                 src={photoOne?.url ?? null}
                 alt={photoOne?.alt ?? "Children in the Khanya garden"}
                 ratio="4 / 5"
-                arch
+                shape="wobbly"
+                tone="meadow"
                 sizes="(min-width: 1024px) 30vw, 100vw"
               />
               <div className="border-l-2 border-ochre pl-4">

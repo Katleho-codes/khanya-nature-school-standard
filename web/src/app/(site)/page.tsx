@@ -131,7 +131,8 @@ export default async function HomePage() {
                 alt={heroPhoto?.alt ?? "Children in the Khanya Nature School garden"}
                 ratio="4 / 5"
                 priority
-                arch
+                shape="wobbly"
+                tone="sun"
                 sizes="(min-width: 1024px) 30vw, 100vw"
               />
               <div className="absolute -bottom-5 -left-3 max-w-[15rem] border border-line bg-paper p-4 shadow-[0_1px_0_0_var(--color-line)] sm:-left-5">
