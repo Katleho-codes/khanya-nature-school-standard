@@ -12,6 +12,7 @@ import { ButtonLink } from "@/components/Button";
 import { PostCard } from "@/components/PublicCards";
 import { JsonLd } from "@/components/JsonLd";
 import { ArrowRightIcon } from "@/components/icons";
+import { branchTone } from "@/lib/tones";
 
 const categoryLabels = {
   NEWS: "News",
@@ -53,6 +54,7 @@ export default async function NewsDetailPage({ params }: PageProps) {
   const body = await renderMarkdown(post.bodyMd ?? "");
   const latest = await getPosts({ limit: 4 });
   const related = latest.posts.filter((item) => item.id !== post.id).slice(0, 3);
+  const tone = branchTone(post.branch?.slug ?? post.branch?.name);
 
   return (
     <>
@@ -104,20 +106,22 @@ export default async function NewsDetailPage({ params }: PageProps) {
           alt={post.cover?.alt ?? post.title}
           ratio="16 / 8"
           priority
+          shape="paper"
+          tone={tone}
           sizes="(min-width: 1024px) 90vw, 100vw"
         />
       </section>
 
       <section className="page-container pb-16 md:pb-24">
-        <div className="grid gap-10 border-t border-line pt-8 lg:grid-cols-12 lg:gap-16">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <aside className="lg:col-span-3">
-            <div className="sticky top-32 space-y-5">
+            <div className="sticky top-32 space-y-5 paper-card bg-sun-tint p-4">
               <div>
-                <p className="label-caps text-sage-deep">Filed under</p>
-                <p className="mt-1.5 text-[0.86rem] text-forest">{categoryLabels[post.category]}</p>
-                <p className="mt-1 text-[0.8rem] text-bark-soft">
+                <p className="hand text-poppy-deep">Filed under</p>
+                <p className="mt-1 text-[0.86rem] font-bold text-ink">{categoryLabels[post.category]}</p>
+                <p className="mt-1 text-[0.8rem] text-ink/65">
                   {post.branch ? (
-                    <Link href={`/news?branch=${post.branch.slug}`} className="mark-link text-bark-soft">
+                    <Link href={`/news?branch=${post.branch.slug}`} className="squiggle-link font-bold text-ink/65">
                       {post.branch.name}
                     </Link>
                   ) : (
@@ -126,18 +130,18 @@ export default async function NewsDetailPage({ params }: PageProps) {
                 </p>
               </div>
               <div>
-                <p className="label-caps text-sage-deep">Written by</p>
-                <p className="mt-1.5 text-[0.86rem] text-forest">{post.author.name}</p>
+                <p className="hand text-poppy-deep">Written by</p>
+                <p className="mt-1 text-[0.86rem] text-ink">{post.author.name}</p>
               </div>
               <div>
-                <p className="label-caps text-sage-deep">Published</p>
-                <p className="mt-1.5 text-[0.86rem] text-forest">
+                <p className="hand text-poppy-deep">Published</p>
+                <p className="mt-1 text-[0.86rem] text-ink">
                   {formatDate(post.publishedAt ?? post.createdAt)}
                 </p>
               </div>
               <Link
                 href="/news"
-                className="mark-link inline-flex items-center gap-1.5 text-[0.8rem] text-forest"
+                className="squiggle-link inline-flex min-h-8 items-center gap-1.5 text-[0.8rem] font-bold text-ink"
               >
                 All news <ArrowRightIcon className="h-3.5 w-3.5" />
               </Link>
@@ -146,13 +150,13 @@ export default async function NewsDetailPage({ params }: PageProps) {
 
           <article className="lg:col-span-8 lg:col-start-5">
             <div
-              className="prose-editorial"
+              className="prose-playful rounded-[28px_22px_30px_18px] bg-paper p-5 sm:p-7"
               dangerouslySetInnerHTML={{ __html: body }}
             />
-            <div className="mt-12 border-t border-line pt-6">
-              <p className="text-[0.82rem] leading-relaxed text-bark-soft">
+            <div className="mt-8 paper-card-plain bg-sky-tint p-4">
+              <p className="text-[0.82rem] leading-relaxed text-ink/70">
                 Questions about this story?{" "}
-                <Link href="/contact" className="mark-link text-forest">
+                <Link href="/contact" className="squiggle-link font-bold text-ink">
                   Contact the office
                 </Link>{" "}
                 or speak to your branch teacher at collection.
@@ -163,12 +167,12 @@ export default async function NewsDetailPage({ params }: PageProps) {
       </section>
 
       {related.length > 0 ? (
-        <section className="border-t border-line bg-paper section">
+        <section className="border-t border-ink/10 bg-meadow-tint/35 section">
           <div className="page-container">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <p className="label-caps text-sage-deep">Keep reading</p>
-                <h2 className="display-md mt-2 text-forest">More from the school</h2>
+                <p className="sticker bg-paper text-ink">Keep reading</p>
+                <h2 className="display-md mt-2 text-ink">More from the school</h2>
               </div>
               <ButtonLink href="/news" variant="text" size="sm">
                 All news <ArrowRightIcon className="h-3.5 w-3.5" />

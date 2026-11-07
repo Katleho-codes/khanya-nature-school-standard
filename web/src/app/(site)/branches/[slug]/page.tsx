@@ -25,6 +25,7 @@ import {
   MapPinIcon,
   PhoneIcon,
 } from "@/components/icons";
+import { branchTone, toneStyle } from "@/lib/tones";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -63,6 +64,7 @@ export default async function BranchDetailPage({ params }: PageProps) {
       : encodeURIComponent(
           `${branch.addressLine1}, ${branch.suburb}, ${branch.city}, ${branch.postalCode}`,
         );
+  const tone = toneStyle(branchTone(branch.slug));
 
   return (
     <>
@@ -117,7 +119,7 @@ export default async function BranchDetailPage({ params }: PageProps) {
           { label: branch.name },
         ]}
         aside={
-          <div className="mt-6 flex flex-wrap gap-3 border-t border-line pt-4">
+          <div className="mt-6 flex flex-wrap gap-3 paper-card-plain bg-paper p-3">
             <ButtonLink href={`/admissions?branch=${branch.slug}#enquiry`} size="sm">
               Enquire at this branch
             </ButtonLink>
@@ -137,33 +139,35 @@ export default async function BranchDetailPage({ params }: PageProps) {
           alt={branch.heroImage?.alt ?? `The garden at ${branch.name}`}
           ratio="16 / 7"
           priority
+          shape="paper"
+          tone={branchTone(branch.slug)}
           sizes="(min-width: 1024px) 90vw, 100vw"
         />
       </section>
 
       <section className="page-container pb-16 md:pb-24">
-        <div className="grid gap-12 border-t border-line pt-8 lg:grid-cols-12 lg:gap-16">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
             <div
-              className="prose-editorial"
+              className={`prose-playful rounded-[28px_22px_30px_18px] ${tone.tint} p-5 sm:p-7`}
               dangerouslySetInnerHTML={{ __html: body }}
             />
 
-            <div className="mt-12 grid gap-6 border-t border-line pt-8 sm:grid-cols-2">
-              <div>
-                <h2 className="font-display text-[1.45rem] text-forest">Opening hours</h2>
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              <div className="paper-card bg-paper p-4">
+                <h2 className="font-display text-[1.35rem] font-extrabold text-ink">Opening hours</h2>
                 <div className="mt-3">
                   <HoursTable hours={branch.hours} />
                 </div>
-                <p className="mt-3 text-[0.76rem] leading-relaxed text-bark-soft">
+                <p className="mt-3 text-[0.76rem] leading-relaxed text-ink/60">
                   {summariseHours(branch.hours)}. We close on public holidays.
                 </p>
               </div>
-              <div>
-                <h2 className="font-display text-[1.45rem] text-forest">Find us</h2>
+              <div className="paper-card bg-paper p-4">
+                <h2 className="font-display text-[1.35rem] font-extrabold text-ink">Find us</h2>
                 <address className="mt-3 not-italic">
-                  <p className="flex items-start gap-2 text-[0.88rem] leading-relaxed text-bark-soft">
-                    <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0 text-sage-deep" />
+                  <p className="flex items-start gap-2 text-[0.88rem] leading-relaxed text-ink/65">
+                    <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0 text-poppy-deep" />
                     <span>
                       {branch.addressLine1}
                       <br />
@@ -177,11 +181,11 @@ export default async function BranchDetailPage({ params }: PageProps) {
                   href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="mark-link mt-3 inline-flex items-center gap-1.5 text-[0.82rem] text-forest"
+                  className="squiggle-link mt-3 inline-flex min-h-8 items-center gap-1.5 text-[0.82rem] font-bold text-ink"
                 >
                   Get directions <ArrowRightIcon className="h-3.5 w-3.5" />
                 </a>
-                <p className="mt-4 text-[0.78rem] leading-relaxed text-bark-soft">
+                <p className="mt-3 text-[0.78rem] leading-relaxed text-ink/60">
                   Parking is on the street. Please do not block the neighbours&apos;
                   gates at drop-off.
                 </p>
@@ -189,35 +193,35 @@ export default async function BranchDetailPage({ params }: PageProps) {
             </div>
 
             {branch.programmes.length > 0 ? (
-              <div className="mt-12 border-t border-line pt-8">
+              <div className="mt-10">
                 <div className="flex items-end justify-between gap-4">
-                  <h2 className="display-md text-forest">Programmes here</h2>
+                  <h2 className="display-md text-ink">Programmes here</h2>
                   <ButtonLink href="/programmes" variant="text" size="sm">
                     All programmes <ArrowRightIcon className="h-3.5 w-3.5" />
                   </ButtonLink>
                 </div>
-                <ul className="mt-6 divide-y divide-line">
+                <ul className="mt-6 space-y-3">
                   {branch.programmes.map((programme) => (
                     <li key={programme.id}>
                       <Link
                         href={`/programmes/${programme.slug}`}
-                        className="group grid gap-2 py-4 sm:grid-cols-[1fr_9rem_8rem_1.5rem] sm:items-baseline sm:gap-4"
+                        className="group grid gap-2 paper-card-plain bg-paper p-4 transition-transform hover:-rotate-[0.4deg] sm:grid-cols-[1fr_9rem_8rem_1.5rem] sm:items-baseline sm:gap-4"
                       >
                         <span>
-                          <span className="block font-display text-[1.3rem] leading-tight text-forest group-hover:text-sage-deep">
+                          <span className="block font-display text-[1.3rem] leading-tight text-ink group-hover:text-poppy-deep">
                             {programme.name}
                           </span>
-                          <span className="mt-0.5 block text-[0.78rem] text-bark-soft">
+                          <span className="mt-0.5 block text-[0.78rem] text-ink/60">
                             {programme.summary}
                           </span>
                         </span>
-                        <span className="text-[0.78rem] text-bark-soft sm:text-right">
+                        <span className="text-[0.78rem] text-ink/60 sm:text-right">
                           {programme.ageLabel}
                         </span>
-                        <span className="text-[0.78rem] text-forest sm:text-right">
+                        <span className="text-[0.78rem] font-bold text-ink sm:text-right">
                           {formatFee(programme.monthlyFeeCents)}
                         </span>
-                        <ArrowRightIcon className="hidden h-4 w-4 text-forest sm:block" />
+                        <ArrowRightIcon className="hidden h-4 w-4 text-ink sm:block" />
                       </Link>
                     </li>
                   ))}
@@ -228,17 +232,17 @@ export default async function BranchDetailPage({ params }: PageProps) {
 
           <aside className="lg:col-span-4 lg:col-start-9">
             <div className="sticky top-32 space-y-6">
-              <div className="border border-line bg-paper p-5">
-                <p className="label-caps text-sage-deep">Talk to this branch</p>
+              <div className={`paper-card ${tone.tint} p-5`}>
+                <p className="hand text-poppy-deep">Talk to this branch</p>
                 <dl className="mt-4 space-y-4">
                   <div>
-                    <dt className="text-[0.68rem] uppercase tracking-[0.13em] text-sage-deep">
+                    <dt className="text-[0.72rem] font-extrabold text-ink/55">
                       Phone
                     </dt>
                     <dd>
                       <a
                         href={phoneHref(branch.phone)}
-                        className="mt-0.5 inline-flex items-center gap-2 text-[0.9rem] text-forest"
+                        className="mt-0.5 inline-flex min-h-8 items-center gap-2 text-[0.9rem] font-semibold text-ink"
                       >
                         <PhoneIcon className="h-4 w-4" />
                         {branch.phone}
@@ -246,13 +250,13 @@ export default async function BranchDetailPage({ params }: PageProps) {
                     </dd>
                   </div>
                   <div>
-                    <dt className="text-[0.68rem] uppercase tracking-[0.13em] text-sage-deep">
+                    <dt className="text-[0.72rem] font-extrabold text-ink/55">
                       Email
                     </dt>
                     <dd>
                       <a
                         href={`mailto:${branch.email}`}
-                        className="mt-0.5 inline-flex items-start gap-2 break-all text-[0.82rem] text-forest"
+                        className="mt-0.5 inline-flex items-start gap-2 break-all text-[0.82rem] text-ink"
                       >
                         <MailIcon className="mt-0.5 h-4 w-4 shrink-0" />
                         {branch.email}
@@ -260,10 +264,10 @@ export default async function BranchDetailPage({ params }: PageProps) {
                     </dd>
                   </div>
                   <div>
-                    <dt className="text-[0.68rem] uppercase tracking-[0.13em] text-sage-deep">
+                    <dt className="text-[0.72rem] font-extrabold text-ink/55">
                       Visit
                     </dt>
-                    <dd className="mt-0.5 text-[0.82rem] leading-relaxed text-bark-soft">
+                    <dd className="mt-0.5 text-[0.82rem] leading-relaxed text-ink/65">
                       Weekday mornings by arrangement. About one hour.
                     </dd>
                   </div>
@@ -277,7 +281,7 @@ export default async function BranchDetailPage({ params }: PageProps) {
                 </ButtonLink>
               </div>
 
-              <div className="border-t border-line pt-5">
+              <div className="border-t border-ink/10 pt-5">
                 <dl className="grid gap-4">
                   <Fact label="Ages here">
                     {branch.programmes.length > 0
@@ -299,41 +303,41 @@ export default async function BranchDetailPage({ params }: PageProps) {
       </section>
 
       {branch.events.length > 0 ? (
-        <section className="border-y border-line bg-paper section">
+        <section className="border-y border-ink/10 bg-sun-tint/40 section">
           <div className="page-container">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <p className="label-caps text-sage-deep">At this branch</p>
-                <h2 className="display-md mt-2 text-forest">Coming up</h2>
+                <p className="sticker bg-paper text-ink">At this branch</p>
+                <h2 className="display-md mt-2 text-ink">Coming up</h2>
               </div>
               <ButtonLink href="/events" variant="text" size="sm">
                 Full calendar <ArrowRightIcon className="h-3.5 w-3.5" />
               </ButtonLink>
             </div>
-            <ul className="mt-7 divide-y divide-line">
+            <ul className="mt-7 space-y-3">
               {branch.events.map((event) => (
                 <li key={event.id}>
                   <Link
                     href={`/events/${event.slug}`}
-                    className="group grid gap-4 py-5 sm:grid-cols-[7rem_1fr_auto] sm:items-center"
+                    className="group grid gap-4 paper-card-plain bg-paper p-4 transition-transform hover:-rotate-[0.4deg] sm:grid-cols-[7rem_1fr_auto] sm:items-center"
                   >
                     <div className="flex items-baseline gap-2 sm:block">
-                      <p className="font-display text-[1.7rem] leading-none text-forest">
+                      <p className="font-display text-[1.7rem] font-extrabold leading-none text-poppy-deep">
                         {formatDate(event.startsAt).split(" ")[0]}
                       </p>
-                      <p className="text-[0.68rem] uppercase tracking-[0.14em] text-sage-deep">
+                      <p className="text-[0.7rem] font-bold uppercase tracking-[0.08em] text-ink/55">
                         {formatDate(event.startsAt).split(" ").slice(1).join(" ")}
                       </p>
                     </div>
                     <div>
-                      <h3 className="font-display text-[1.25rem] text-forest group-hover:text-sage-deep">
+                      <h3 className="font-display text-[1.25rem] font-extrabold text-ink group-hover:text-poppy-deep">
                         {event.title}
                       </h3>
-                      <p className="mt-1 text-[0.8rem] text-bark-soft">
+                      <p className="mt-1 text-[0.8rem] text-ink/60">
                         {formatEventWhen(event)} · {event.locationText}
                       </p>
                     </div>
-                    <ArrowRightIcon className="hidden h-4 w-4 text-forest sm:block" />
+                    <ArrowRightIcon className="hidden h-4 w-4 text-ink sm:block" />
                   </Link>
                 </li>
               ))}
@@ -347,8 +351,8 @@ export default async function BranchDetailPage({ params }: PageProps) {
           <div className="page-container">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <p className="label-caps text-sage-deep">From this garden</p>
-                <h2 className="display-md mt-2 text-forest">News</h2>
+                <p className="sticker bg-paper text-ink">From this garden</p>
+                <h2 className="display-md mt-2 text-ink">News</h2>
               </div>
               <ButtonLink
                 href={`/news?branch=${branch.slug}`}
@@ -368,12 +372,12 @@ export default async function BranchDetailPage({ params }: PageProps) {
       ) : null}
 
       {branch.albums.length > 0 ? (
-        <section className="border-t border-line bg-paper section">
+        <section className="border-t border-ink/10 bg-meadow-tint/35 section">
           <div className="page-container">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <p className="label-caps text-sage-deep">The picture book</p>
-                <h2 className="display-md mt-2 text-forest">Albums</h2>
+                <p className="sticker bg-paper text-ink">The picture book</p>
+                <h2 className="display-md mt-2 text-ink">Albums</h2>
               </div>
               <ButtonLink href="/gallery" variant="text" size="sm">
                 All albums <ArrowRightIcon className="h-3.5 w-3.5" />
@@ -388,14 +392,14 @@ export default async function BranchDetailPage({ params }: PageProps) {
         </section>
       ) : null}
 
-      <section className="section-forest bg-forest text-oat">
-        <div className="page-container grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
+      <section className="bg-poppy-deep text-white">
+        <div className="page-container grid gap-8 py-14 md:grid-cols-[1fr_auto] md:items-center md:py-16">
           <div>
-            <p className="label-caps text-oat/60">The gate is open</p>
-            <h2 className="display-md mt-2 text-oat">
+            <p className="tag bg-sun text-ink">The gate is open</p>
+            <h2 className="display-md mt-3 text-white">
               Come and walk the {branch.suburb} garden.
             </h2>
-            <p className="mt-3 max-w-xl text-[0.94rem] leading-relaxed text-oat/70">
+            <p className="mt-3 max-w-xl text-[0.94rem] leading-relaxed text-white/80">
               Weekday mornings, by arrangement. Bring your child, wear shoes that
               can get dusty and stay as long as you need.
             </p>
@@ -409,7 +413,7 @@ export default async function BranchDetailPage({ params }: PageProps) {
             </ButtonLink>
             <a
               href={phoneHref(branch.phone)}
-              className="inline-flex items-center gap-2 rounded-sm border border-oat/35 px-5 py-3 text-[0.9rem] text-oat transition-colors hover:border-oat"
+              className="inline-flex min-h-12 items-center gap-2 rounded-full border-2 border-white/30 px-5 py-3 text-[0.9rem] font-bold text-white transition-colors hover:bg-white hover:text-ink"
             >
               <PhoneIcon className="h-4 w-4" />
               {branch.phone}

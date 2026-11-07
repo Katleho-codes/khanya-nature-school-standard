@@ -32,20 +32,21 @@ export default async function ProgrammesPage() {
         eyebrow="Programmes"
         title={
           <>
-            Four years of growing <span className="italic text-sage-deep">outward.</span>
+            Four years of growing <span className="text-poppy-deep">outward.</span>
           </>
         }
         lead="Each programme keeps the outdoor day at its centre. What changes is the size of the project, the length of the walk and how much the children can do for themselves."
         crumbs={[{ label: "Home", href: "/" }, { label: "Programmes" }]}
         aside={
-          <div className="mt-6 border-t border-line pt-4">
-            <p className="text-[0.8rem] leading-relaxed text-bark-soft">
+          <div className="mt-6 paper-card rotate-[-1deg] bg-sun-tint p-4">
+            <p className="hand text-poppy-deep">The money part</p>
+            <p className="mt-1 text-[0.86rem] font-semibold leading-relaxed text-ink/75">
               {feeFrom
                 ? `Term-time fees start at ${formatRand(feeFrom)} per month.`
                 : "Fees are available on request."}{" "}
-              The 2027 fee schedule is available to download on the admissions page.
+              The 2027 fee schedule is on the admissions page.
             </p>
-            <ButtonLink href="/admissions" variant="text" className="mt-3 text-[0.82rem]">
+            <ButtonLink href="/admissions" variant="text" className="mt-2 text-[0.82rem]">
               Fees and admissions <ArrowRightIcon className="h-3.5 w-3.5" />
             </ButtonLink>
           </div>
@@ -53,26 +54,21 @@ export default async function ProgrammesPage() {
       />
 
       <section className="page-container pb-16 md:pb-24">
-        <div className="hidden grid-cols-[3rem_1fr_8rem_9rem_2rem] gap-6 border-b border-line pb-3 text-[0.65rem] uppercase tracking-[0.16em] text-sage-deep sm:grid">
-          <span>No.</span>
-          <span>Programme</span>
-          <span className="text-right">Age</span>
-          <span className="text-right">Monthly fee</span>
-          <span />
+        <div className="space-y-3">
+          {programmes.map((programme, index) => (
+            <ProgrammeRow key={programme.id} programme={programme} index={index} />
+          ))}
         </div>
-        {programmes.map((programme, index) => (
-          <ProgrammeRow key={programme.id} programme={programme} index={index} />
-        ))}
 
         {programmes.length === 0 ? (
-          <p className="border-t border-line py-10 text-sm text-bark-soft">
+          <p className="paper-card bg-sun-tint p-6 text-sm text-ink/70">
             Programme information is being updated. Please contact the school for
             current age groups and fees.
           </p>
         ) : null}
       </section>
 
-      <section className="border-y border-line bg-paper section">
+      <section className="bg-sun-tint/45 section">
         <div className="page-container grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeading
@@ -103,14 +99,14 @@ export default async function ProgrammesPage() {
               </Fact>
             </dl>
 
-            <div className="mt-8 border-l-2 border-ochre pl-5">
-              <p className="font-display text-[1.28rem] leading-snug text-forest">
+            <div className="mt-8 paper-card rotate-[0.7deg] bg-sky-tint p-5">
+              <p className="font-display text-[1.28rem] font-extrabold leading-snug text-ink">
                 The holiday programme is for Khanya families and their friends.
                 Booking opens four weeks before each holiday.
               </p>
               <Link
                 href="/contact"
-                className="mark-link mt-3 inline-flex items-center gap-1.5 text-[0.82rem] text-forest"
+                className="squiggle-link mt-3 inline-flex items-center gap-1.5 text-[0.82rem] font-bold text-ink"
               >
                 Ask about holiday dates <ArrowRightIcon className="h-3.5 w-3.5" />
               </Link>
@@ -121,13 +117,13 @@ export default async function ProgrammesPage() {
 
       <section className="section">
         <div className="page-container">
-          <div className="grid gap-10 border border-line bg-paper p-6 md:grid-cols-[1fr_auto] md:items-center md:p-10">
+          <div className="grid gap-10 paper-card rotate-[-0.4deg] bg-sun p-6 md:grid-cols-[1fr_auto] md:items-center md:p-10">
             <div>
-              <p className="label-caps text-sage-deep">Next step</p>
-              <h2 className="display-md mt-2 max-w-xl text-forest">
+              <p className="hand text-poppy-deep">Next step</p>
+              <h2 className="display-md mt-1 max-w-xl text-ink">
                 See the room your child would spend the year in.
               </h2>
-              <p className="mt-3 max-w-xl text-[0.92rem] leading-relaxed text-bark-soft">
+              <p className="mt-3 max-w-xl text-[0.92rem] leading-relaxed text-ink/70">
                 Visit on a weekday morning, meet a teacher and watch the day
                 without a performance put on for you.
               </p>

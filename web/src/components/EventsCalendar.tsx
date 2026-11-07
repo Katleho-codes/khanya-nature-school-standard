@@ -12,6 +12,7 @@ import {
   parseMonthKey,
 } from "@/lib/format";
 import { ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon } from "./icons";
+import { branchTone, toneStyle } from "@/lib/tones";
 
 const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
@@ -84,11 +85,11 @@ export function EventsCalendar({
   const nowMonth = monthKey(new Date());
 
   return (
-    <section aria-labelledby="calendar-heading" className="border-t border-line pt-8">
+    <section aria-labelledby="calendar-heading" className="paper-card bg-paper p-4 sm:p-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="label-caps text-sage-deep">Month by month</p>
-          <h2 id="calendar-heading" className="display-md mt-2 text-forest">
+          <p className="sticker bg-sun-tint text-ink">Month by month</p>
+          <h2 id="calendar-heading" className="display-md mt-2 text-ink">
             {formatMonth(`${month}-15T12:00:00+02:00`)}
           </h2>
         </div>
@@ -96,7 +97,7 @@ export function EventsCalendar({
           <button
             type="button"
             onClick={() => setMonth((current) => monthOffset(current, -1))}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-line-strong text-forest transition-colors hover:bg-forest-tint"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-ink/15 bg-paper text-ink transition-colors hover:border-ink hover:bg-sky-tint"
             aria-label="Show previous month"
           >
             <ChevronLeftIcon />
@@ -104,14 +105,14 @@ export function EventsCalendar({
           <button
             type="button"
             onClick={() => setMonth(nowMonth)}
-            className="rounded-sm border border-line-strong px-3.5 py-2 text-[0.78rem] text-forest transition-colors hover:bg-forest-tint"
+            className="inline-flex min-h-12 items-center rounded-full border-2 border-ink/15 bg-paper px-4 text-[0.78rem] font-bold text-ink transition-colors hover:border-ink hover:bg-sun-tint"
           >
             This month
           </button>
           <button
             type="button"
             onClick={() => setMonth((current) => monthOffset(current, 1))}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-line-strong text-forest transition-colors hover:bg-forest-tint"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-ink/15 bg-paper text-ink transition-colors hover:border-ink hover:bg-sky-tint"
             aria-label="Show next month"
           >
             <ChevronRightIcon />
@@ -119,12 +120,12 @@ export function EventsCalendar({
         </div>
       </div>
 
-      <div className="mt-6 overflow-hidden rounded-sm border border-line bg-paper">
-        <div className="grid grid-cols-7 border-b border-line bg-sage-tint/55">
+      <div className="mt-6 overflow-hidden rounded-[24px_18px_26px_16px] border-2 border-ink/10 bg-paper">
+        <div className="grid grid-cols-7 bg-sun-tint">
           {WEEKDAYS.map((day) => (
             <div
               key={day}
-              className="px-1 py-2 text-center text-[0.62rem] font-medium uppercase tracking-[0.1em] text-sage-deep sm:text-[0.68rem]"
+              className="px-1 py-2 text-center text-[0.62rem] font-extrabold uppercase tracking-[0.06em] text-ink/70 sm:text-[0.68rem]"
             >
               <span className="hidden sm:inline">{day}</span>
               <span className="sm:hidden">{day.charAt(0)}</span>
@@ -137,17 +138,17 @@ export function EventsCalendar({
             return (
               <div
                 key={`${cell.day}-${index}`}
-                className={`min-h-[4.2rem] border-b border-r border-line p-1 sm:min-h-[7rem] sm:p-2 ${
-                  cell.current ? "bg-paper" : "bg-oat/65"
+                className={`min-h-[4.4rem] border-b border-r border-ink/10 p-1 sm:min-h-[7rem] sm:p-2 ${
+                  cell.current ? "bg-paper" : "bg-paper/60"
                 } ${(index + 1) % 7 === 0 ? "border-r-0" : ""}`}
               >
                 {cell.current ? (
                   <>
                     <span
-                      className={`inline-flex h-6 w-6 items-center justify-center rounded-full text-[0.72rem] ${
+                      className={`inline-flex h-6 w-6 items-center justify-center rounded-full text-[0.72rem] font-bold ${
                         dayEvents.length > 0
-                          ? "bg-forest text-oat"
-                          : "text-bark-soft"
+                          ? "bg-poppy-deep text-white"
+                          : "text-ink/60"
                       }`}
                     >
                       {cell.day}
@@ -157,14 +158,14 @@ export function EventsCalendar({
                         <Link
                           key={event.id}
                           href={`/events/${event.slug}`}
-                          className="block truncate rounded-sm bg-sage-tint px-1.5 py-1 text-[0.62rem] leading-tight text-forest transition-colors hover:bg-forest-tint sm:text-[0.7rem]"
+                          className={`block truncate rounded-[8px] px-1.5 py-1 text-[0.62rem] font-semibold leading-tight text-ink transition-transform hover:-rotate-[1deg] sm:text-[0.7rem] ${toneStyle(branchTone(event.branch?.slug ?? event.branch?.name)).pill}`}
                           title={event.title}
                         >
                           {event.title}
                         </Link>
                       ))}
                       {dayEvents.length > 2 ? (
-                        <span className="block px-1 text-[0.6rem] text-bark-soft">
+                        <span className="block px-1 text-[0.6rem] font-semibold text-ink/60">
                           +{dayEvents.length - 2} more
                         </span>
                       ) : null}
@@ -178,20 +179,20 @@ export function EventsCalendar({
       </div>
 
       <div className="mt-10">
-        <div className="flex items-baseline justify-between gap-4 border-b border-line pb-3">
-          <h3 className="font-display text-[1.45rem] text-forest">
+        <div className="flex items-baseline justify-between gap-4">
+          <h3 className="font-display text-[1.45rem] font-extrabold text-ink">
             {monthEvents.length === 0
               ? "Nothing on this month"
               : `${monthEvents.length} ${monthEvents.length === 1 ? "event" : "events"}`}
           </h3>
-          <span className="text-[0.72rem] uppercase tracking-[0.14em] text-sage-deep">
+          <span className="hand text-[1.02rem] text-ink/55">
             {formatMonth(`${month}-15T12:00:00+02:00`)}
           </span>
         </div>
 
         {monthEvents.length === 0 ? (
-          <div className="py-8">
-            <p className="max-w-xl text-sm leading-relaxed text-bark-soft">
+          <div className="mt-4 paper-card-plain bg-sun-tint/50 p-5">
+            <p className="max-w-xl text-sm leading-relaxed text-ink/70">
               The garden is quiet this month. Try the next month, or send us a
               message if you would like to arrange a visit.
             </p>
@@ -199,7 +200,7 @@ export function EventsCalendar({
               <button
                 type="button"
                 onClick={() => setMonth((current) => monthOffset(current, 1))}
-                className="inline-flex items-center gap-1.5 text-sm text-forest underline decoration-ochre decoration-2 underline-offset-4"
+                className="inline-flex min-h-10 items-center gap-1.5 text-sm font-bold text-ink"
               >
                 Look at the next month
                 <ArrowRightIcon className="h-4 w-4" />
@@ -207,38 +208,39 @@ export function EventsCalendar({
             </div>
           </div>
         ) : (
-          <ul className="divide-y divide-line">
+          <ul className="mt-4 space-y-3">
             {monthEvents.map((event) => {
               const day = southAfricaDay(event.startsAt).day;
+              const tone = toneStyle(branchTone(event.branch?.slug ?? event.branch?.name));
               return (
                 <li key={event.id}>
                   <Link
                     href={`/events/${event.slug}`}
-                    className="group grid gap-3 py-5 transition-colors hover:bg-paper/70 sm:grid-cols-[6rem_1fr_auto] sm:items-baseline sm:gap-6"
+                    className="group grid gap-3 paper-card-plain bg-paper p-4 transition-transform hover:-rotate-[0.4deg] sm:grid-cols-[6rem_1fr_auto] sm:items-baseline sm:gap-6"
                   >
-                    <div>
-                      <p className="font-display text-[1.7rem] leading-none text-forest">
+                    <div className={`rounded-[14px] ${tone.tint} px-2 py-1 text-center`}>
+                      <p className="font-display text-[1.7rem] font-extrabold leading-none text-ink">
                         {day}
                       </p>
-                      <p className="mt-1 text-[0.68rem] uppercase tracking-[0.13em] text-sage-deep">
+                      <p className="mt-1 text-[0.68rem] font-bold uppercase tracking-[0.06em] text-ink/60">
                         {formatDateLong(event.startsAt).split(",")[0]}
                       </p>
                     </div>
                     <div>
-                      <p className="text-[0.68rem] uppercase tracking-[0.14em] text-sage-deep">
+                      <p className="text-[0.68rem] font-bold uppercase tracking-[0.06em] text-ink/55">
                         {event.allDay
                           ? "All day"
                           : `${formatTime(event.startsAt)} to ${formatTime(event.endsAt)}`}
                         {event.branch ? ` · ${event.branch.name}` : " · All branches"}
                       </p>
-                      <h4 className="mt-1 font-display text-[1.28rem] leading-tight text-forest transition-colors group-hover:text-sage-deep">
+                      <h4 className="mt-1 font-display text-[1.28rem] font-extrabold leading-tight text-ink transition-colors group-hover:text-poppy-deep">
                         {event.title}
                       </h4>
-                      <p className="mt-1 text-[0.8rem] text-bark-soft">
+                      <p className="mt-1 text-[0.8rem] text-ink/65">
                         {event.locationText}
                       </p>
                     </div>
-                    <ArrowRightIcon className="hidden h-5 w-5 text-forest transition-transform duration-300 group-hover:translate-x-1 sm:block" />
+                    <ArrowRightIcon className="hidden h-5 w-5 text-ink transition-transform duration-300 group-hover:translate-x-1 sm:block" />
                   </Link>
                 </li>
               );
