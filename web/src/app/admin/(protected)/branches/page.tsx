@@ -4,7 +4,9 @@ import { useState } from "react";
 import type { Branch, WeekHours } from "@/lib/types";
 import { AdminApiError, adminFetch } from "@/lib/auth-server";
 import { formatDate, summariseHours } from "@/lib/format";
+import { branchTone } from "@/lib/tones";
 import {
+  AdminBadge,
   AdminButton,
   AdminError,
   AdminPageHeader,
@@ -269,8 +271,8 @@ export default function AdminBranchesPage() {
           action={<AdminButton onClick={openCreate}>Add branch</AdminButton>}
         />
       ) : (
-        <div className="overflow-hidden rounded-sm border border-line bg-paper">
-          <div className="hidden grid-cols-[4rem_1.3fr_1fr_8rem_9rem_10rem] gap-4 border-b border-line bg-sage-tint/45 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-sage-deep lg:grid">
+        <div className="paper-card-plain overflow-hidden border-2 border-ink/10 bg-paper">
+          <div className="hidden grid-cols-[4rem_1.3fr_1fr_8rem_9rem_10rem] gap-4 border-b-2 border-ink/10 bg-sky-tint/55 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-ink/60 lg:grid">
             <span>Order</span>
             <span>Branch</span>
             <span>Contact</span>
@@ -281,10 +283,10 @@ export default function AdminBranchesPage() {
           {data.branches.map((branch, index) => (
             <div
               key={branch.id}
-              className="grid gap-4 border-b border-line px-4 py-4 last:border-b-0 lg:grid-cols-[4rem_1.3fr_1fr_8rem_9rem_10rem] lg:items-center"
+              className="grid gap-4 border-b-2 border-ink/10 px-4 py-4 last:border-b-0 lg:grid-cols-[4rem_1.3fr_1fr_8rem_9rem_10rem] lg:items-center"
             >
               <div className="flex items-center gap-1 lg:flex-col lg:items-start">
-                <span className="text-[0.68rem] text-bark-soft">
+                <span className="text-[0.68rem] text-ink/60">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div className="flex gap-0.5">
@@ -292,7 +294,7 @@ export default function AdminBranchesPage() {
                     type="button"
                     onClick={() => move(branch, "up")}
                     disabled={index === 0}
-                    className="inline-flex h-7 w-7 items-center justify-center rounded-sm border border-line text-bark-soft transition-colors hover:bg-forest-tint disabled:opacity-30"
+                    className="inline-flex h-7 w-7 items-center justify-center rounded-full border-2 border-ink/15 text-ink/60 transition-colors hover:bg-sun-tint disabled:opacity-30"
                     aria-label={`Move ${branch.name} up`}
                   >
                     <ChevronUpIcon className="h-3.5 w-3.5" />
@@ -301,7 +303,7 @@ export default function AdminBranchesPage() {
                     type="button"
                     onClick={() => move(branch, "down")}
                     disabled={index === data.branches.length - 1}
-                    className="inline-flex h-7 w-7 items-center justify-center rounded-sm border border-line text-bark-soft transition-colors hover:bg-forest-tint disabled:opacity-30"
+                    className="inline-flex h-7 w-7 items-center justify-center rounded-full border-2 border-ink/15 text-ink/60 transition-colors hover:bg-sun-tint disabled:opacity-30"
                     aria-label={`Move ${branch.name} down`}
                   >
                     <ChevronDownIcon className="h-3.5 w-3.5" />
@@ -320,23 +322,25 @@ export default function AdminBranchesPage() {
                   />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[0.78rem] text-bark-soft">{branch.suburb}</p>
-                  <p className="truncate font-display text-[1.15rem] leading-tight text-forest">
+                  <AdminBadge tone={branchTone(branch.slug)}>
+                    {branch.suburb}
+                  </AdminBadge>
+                  <p className="mt-1 truncate font-display text-[1.15rem] leading-tight text-ink">
                     {branch.name}
                   </p>
-                  <p className="mt-0.5 text-[0.68rem] text-bark-soft">
+                  <p className="mt-0.5 text-[0.68rem] text-ink/60">
                     /branches/{branch.slug}
                   </p>
                 </div>
               </div>
 
-              <div className="text-[0.72rem] leading-relaxed text-bark-soft">
+              <div className="text-[0.72rem] leading-relaxed text-ink/60">
                 <p>{branch.phone}</p>
                 <p className="break-all">{branch.email}</p>
                 <p className="mt-1">{summariseHours(branch.hours)}</p>
               </div>
 
-              <div className="text-[0.74rem] text-bark-soft">
+              <div className="text-[0.74rem] text-ink/60">
                 <p>{branch._count?.programmeBranches ?? 0} programmes</p>
                 <p>{branch._count?.enquiries ?? 0} enquiries</p>
               </div>
@@ -350,7 +354,7 @@ export default function AdminBranchesPage() {
                 >
                   <span
                     className={`relative h-5 w-9 rounded-full transition-colors ${
-                      branch.isActive ? "bg-sage-deep" : "bg-line-strong"
+                      branch.isActive ? "bg-meadow-deep" : "bg-ink/30"
                     }`}
                   >
                     <span
@@ -359,11 +363,11 @@ export default function AdminBranchesPage() {
                       }`}
                     />
                   </span>
-                  <span className="text-[0.72rem] text-bark-soft">
+                  <span className="text-[0.72rem] text-ink/60">
                     {branch.isActive ? "Live" : "Hidden"}
                   </span>
                 </button>
-                <p className="mt-1 text-[0.65rem] text-bark-soft">
+                <p className="mt-1 text-[0.65rem] text-ink/60">
                   Updated {formatDate(branch.updatedAt)}
                 </p>
               </div>
@@ -424,7 +428,7 @@ export default function AdminBranchesPage() {
                 <button
                   type="button"
                   onClick={() => set("slug", toSlug(form.name))}
-                  className="mt-1.5 shrink-0 rounded-sm border border-line-strong px-3 py-2 text-[0.72rem] text-forest transition-colors hover:bg-forest-tint"
+                  className="mt-1.5 shrink-0 min-h-10 rounded-full border-2 border-b-4 border-ink/15 px-3.5 py-2 text-[0.78rem] font-bold text-ink transition-colors hover:bg-sun-tint"
                 >
                   From name
                 </button>
@@ -448,7 +452,7 @@ export default function AdminBranchesPage() {
             </Field>
           </div>
 
-          <fieldset className="rounded-sm border border-line p-4">
+          <fieldset className="rounded-[20px] border-2 border-ink/10 bg-sun-tint/20 p-4">
             <legend className={adminLabel}>Address</legend>
             <div className="mt-3 grid gap-4 sm:grid-cols-2">
               <Field label="Street address" htmlFor="branch-address" required error={errors.addressLine1} className="sm:col-span-2">
@@ -475,7 +479,7 @@ export default function AdminBranchesPage() {
             </div>
           </fieldset>
 
-          <fieldset className="rounded-sm border border-line p-4">
+          <fieldset className="rounded-[20px] border-2 border-ink/10 bg-sun-tint/20 p-4">
             <legend className={adminLabel}>Contact</legend>
             <div className="mt-3 grid gap-4 sm:grid-cols-2">
               <Field label="Phone" htmlFor="branch-phone" required error={errors.phone}>
@@ -490,15 +494,15 @@ export default function AdminBranchesPage() {
             </div>
           </fieldset>
 
-          <fieldset className="rounded-sm border border-line p-4">
+          <fieldset className="rounded-[20px] border-2 border-ink/10 bg-sun-tint/20 p-4">
             <legend className={adminLabel}>Opening hours</legend>
             <div className="mt-3 space-y-2">
               {WEEKDAY_LABELS.map(({ key, label }) => {
                 const value = form.hours[key as keyof WeekHours];
                 return (
                   <div key={key} className="grid grid-cols-[5.5rem_auto_1fr] items-center gap-3">
-                    <span className="text-[0.76rem] text-bark-soft">{label}</span>
-                    <label className="inline-flex items-center gap-1.5 text-[0.72rem] text-bark-soft">
+                    <span className="text-[0.76rem] text-ink/60">{label}</span>
+                    <label className="inline-flex min-h-11 cursor-pointer items-center gap-1.5 text-[0.76rem] font-semibold text-ink/70">
                       <input
                         type="checkbox"
                         checked={Boolean(value)}
@@ -510,7 +514,7 @@ export default function AdminBranchesPage() {
                               : null,
                           )
                         }
-                        className="h-3.5 w-3.5 accent-forest"
+                        className="admin-check"
                       />
                       Open
                     </label>
@@ -528,7 +532,7 @@ export default function AdminBranchesPage() {
                           className={`${adminInput} mt-0 w-auto`}
                           aria-label={`${label} opening time`}
                         />
-                        <span className="text-[0.72rem] text-bark-soft">to</span>
+                        <span className="text-[0.72rem] text-ink/60">to</span>
                         <input
                           type="time"
                           value={value.close}
@@ -543,7 +547,7 @@ export default function AdminBranchesPage() {
                         />
                       </div>
                     ) : (
-                      <span className="text-[0.72rem] text-bark-soft">Closed</span>
+                      <span className="text-[0.72rem] text-ink/60">Closed</span>
                     )}
                   </div>
                 );
@@ -580,12 +584,12 @@ export default function AdminBranchesPage() {
               <Field label="Sort order" htmlFor="branch-sort" hint="Lower numbers appear first.">
                 <input id="branch-sort" type="number" min={0} value={form.sortOrder} onChange={(event) => set("sortOrder", event.target.value)} className={adminInput} />
               </Field>
-              <label className="flex items-center gap-2 text-[0.78rem] text-forest">
+              <label className="flex min-h-11 cursor-pointer items-center gap-2.5 text-[0.82rem] font-semibold text-ink">
                 <input
                   type="checkbox"
                   checked={form.isActive}
                   onChange={(event) => set("isActive", event.target.checked)}
-                  className="h-4 w-4 accent-forest"
+                  className="admin-check"
                 />
                 Show this branch on the public website
               </label>
@@ -604,12 +608,12 @@ export default function AdminBranchesPage() {
           />
 
           {Object.keys(errors).length > 0 ? (
-            <p className="text-[0.76rem] text-clay">
+            <p className="text-[0.76rem] text-poppy-deep">
               Some fields need attention. Check the messages above.
             </p>
           ) : null}
 
-          <div className="sticky bottom-0 flex justify-end gap-2 border-t border-line bg-oat py-3">
+          <div className="sticky bottom-0 flex justify-end gap-2 border-t-2 border-ink/10 bg-paper py-3">
             <AdminButton
               variant="outline"
               onClick={() => {

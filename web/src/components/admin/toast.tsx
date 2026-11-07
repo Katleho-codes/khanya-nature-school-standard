@@ -61,22 +61,22 @@ export function ToastProvider({ children }: { children: ReactNode }) {
         {toasts.map((item) => (
           <div
             key={item.id}
-            className={`pointer-events-auto flex w-full max-w-sm items-start gap-3 rounded-sm border px-4 py-3 text-[0.84rem] shadow-[0_8px_24px_rgba(22,39,31,0.12)] ${
+            className={`pointer-events-auto flex w-full max-w-sm items-start gap-3 rounded-[18px] border-2 border-b-4 px-4 py-3 text-[0.86rem] font-semibold shadow-[0_6px_0_rgba(34,40,74,0.12)] ${
               item.tone === "error"
-                ? "border-clay bg-paper text-clay"
+                ? "border-poppy-deep bg-poppy-deep text-white"
                 : item.tone === "info"
-                  ? "border-line-strong bg-paper text-bark"
-                  : "border-forest bg-forest text-oat"
+                  ? "border-sky-deep/30 bg-sky-tint text-ink"
+                  : "border-meadow-deep/30 bg-meadow-tint text-ink"
             }`}
           >
             {item.tone === "success" ? (
-              <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-ochre" />
+              <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-meadow-deep" />
             ) : null}
             <p className="flex-1 leading-relaxed">{item.message}</p>
             <button
               type="button"
               onClick={() => remove(item.id)}
-              className="shrink-0 opacity-65 transition-opacity hover:opacity-100"
+              className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full opacity-75 transition-colors hover:bg-paper/25 hover:opacity-100"
               aria-label="Dismiss notification"
             >
               <CloseIcon className="h-4 w-4" />

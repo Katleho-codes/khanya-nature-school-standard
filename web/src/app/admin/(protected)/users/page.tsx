@@ -191,8 +191,8 @@ export default function AdminUsersPage() {
           action={<AdminButton onClick={openCreate}>Add user</AdminButton>}
         />
       ) : (
-        <div className="overflow-hidden rounded-sm border border-line bg-paper">
-          <div className="hidden grid-cols-[1.4fr_9rem_8rem_9rem_13rem] gap-4 border-b border-line bg-sage-tint/45 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-sage-deep lg:grid">
+        <div className="paper-card-plain overflow-hidden border-2 border-ink/10 bg-paper">
+          <div className="hidden grid-cols-[1.4fr_9rem_8rem_9rem_13rem] gap-4 border-b-2 border-ink/10 bg-sky-tint/55 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-ink/60 lg:grid">
             <span>Person</span>
             <span>Role</span>
             <span>Status</span>
@@ -204,30 +204,30 @@ export default function AdminUsersPage() {
             return (
               <div
                 key={user.id}
-                className="grid gap-4 border-b border-line px-4 py-4 last:border-b-0 lg:grid-cols-[1.4fr_9rem_8rem_9rem_13rem] lg:items-center"
+                className="grid gap-4 border-b-2 border-ink/10 px-4 py-4 last:border-b-0 lg:grid-cols-[1.4fr_9rem_8rem_9rem_13rem] lg:items-center"
               >
                 <div className="min-w-0">
-                  <p className="truncate text-[0.84rem] font-medium text-forest">
+                  <p className="truncate text-[0.84rem] font-medium text-ink">
                     {user.name}
                     {isMe ? (
-                      <span className="ml-2 text-[0.66rem] font-normal text-bark-soft">
+                      <span className="ml-2 text-[0.66rem] font-normal text-ink/60">
                         (you)
                       </span>
                     ) : null}
                   </p>
-                  <p className="truncate text-[0.72rem] text-bark-soft">{user.email}</p>
+                  <p className="truncate text-[0.72rem] text-ink/60">{user.email}</p>
                 </div>
                 <div>
-                  <AdminBadge tone={user.role === "admin" ? "forest" : "neutral"}>
+                  <AdminBadge tone={user.role === "admin" ? "ink" : "neutral"}>
                     {user.role ?? "No role"}
                   </AdminBadge>
                 </div>
                 <div>
-                  <AdminBadge tone={user.isActive ? "green" : "clay"}>
+                  <AdminBadge tone={user.isActive ? "meadow" : "poppy"}>
                     {user.isActive ? "Active" : "Deactivated"}
                   </AdminBadge>
                 </div>
-                <div className="text-[0.74rem] text-bark-soft">
+                <div className="text-[0.74rem] text-ink/60">
                   {formatDate(user.createdAt)}
                 </div>
                 <div className="flex flex-wrap items-center gap-1.5 lg:justify-end">
@@ -280,11 +280,11 @@ export default function AdminUsersPage() {
         </div>
       )}
 
-      <div className="rounded-sm border border-line bg-paper p-4">
-        <p className="text-[0.66rem] uppercase tracking-[0.14em] text-sage-deep">
+      <div className="paper-card-plain border-2 border-ink/10 bg-paper p-4">
+        <p className="text-[0.66rem] uppercase tracking-[0.14em] text-ink/60">
           How accounts work
         </p>
-        <ul className="mt-2 space-y-1 text-[0.76rem] leading-relaxed text-bark-soft">
+        <ul className="mt-2 space-y-1 text-[0.76rem] leading-relaxed text-ink/60">
           <li>There is no public sign up. Accounts are created here by an administrator.</li>
           <li>Deactivating an account signs the person out and keeps their history.</li>
           <li>Resetting a password also signs out every active session for that person.</li>
@@ -360,12 +360,12 @@ export default function AdminUsersPage() {
           </Field>
 
           {Object.keys(errors).length > 0 ? (
-            <p className="text-[0.76rem] text-clay">
+            <p className="text-[0.76rem] text-poppy-deep">
               Some fields need attention. Check the messages above.
             </p>
           ) : null}
 
-          <div className="flex justify-end gap-2 border-t border-line pt-4">
+          <div className="flex justify-end gap-2 border-t-2 border-ink/10 pt-4">
             <AdminButton
               variant="outline"
               onClick={() => {
@@ -409,7 +409,7 @@ export default function AdminUsersPage() {
               required
             />
           </Field>
-          <div className="flex justify-end gap-2 border-t border-line pt-4">
+          <div className="flex justify-end gap-2 border-t-2 border-ink/10 pt-4">
             <AdminButton
               variant="outline"
               onClick={() => setResetting(null)}

@@ -210,7 +210,7 @@ export default function AdminEventsPage() {
 
       <form
         onSubmit={applyFilters}
-        className="grid gap-3 rounded-sm border border-line bg-paper p-4 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_auto]"
+        className="paper-card-plain grid gap-3 border-2 border-ink/10 bg-paper p-4 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_auto]"
       >
         <Field label="Search" htmlFor="event-search">
           <input
@@ -290,8 +290,8 @@ export default function AdminEventsPage() {
           }
         />
       ) : (
-        <div className="overflow-hidden rounded-sm border border-line bg-paper">
-          <div className="hidden grid-cols-[1.5fr_11rem_9rem_8rem_9rem_9rem] gap-4 border-b border-line bg-sage-tint/45 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-sage-deep lg:grid">
+        <div className="paper-card-plain overflow-hidden border-2 border-ink/10 bg-paper">
+          <div className="hidden grid-cols-[1.5fr_11rem_9rem_8rem_9rem_9rem] gap-4 border-b-2 border-ink/10 bg-sky-tint/55 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-ink/60 lg:grid">
             <span>Event</span>
             <span>When</span>
             <span>Branch</span>
@@ -303,7 +303,7 @@ export default function AdminEventsPage() {
             return (
               <div
                 key={event.id}
-                className="grid gap-4 border-b border-line px-4 py-4 last:border-b-0 lg:grid-cols-[1.5fr_11rem_9rem_8rem_9rem_9rem] lg:items-center"
+                className="grid gap-4 border-b-2 border-ink/10 px-4 py-4 last:border-b-0 lg:grid-cols-[1.5fr_11rem_9rem_8rem_9rem_9rem] lg:items-center"
               >
                 <div className="flex items-start gap-3">
                   <div className="hidden w-16 shrink-0 sm:block">
@@ -316,30 +316,30 @@ export default function AdminEventsPage() {
                     />
                   </div>
                   <div className="min-w-0">
-                    <p className="truncate font-display text-[1.08rem] leading-tight text-forest">
+                    <p className="truncate font-display text-[1.08rem] leading-tight text-ink">
                       {event.title}
                     </p>
-                    <p className="mt-0.5 text-[0.7rem] text-bark-soft">
+                    <p className="mt-0.5 text-[0.7rem] text-ink/60">
                       {event.locationText}
                     </p>
-                    <p className="mt-0.5 text-[0.65rem] text-bark-soft">
+                    <p className="mt-0.5 text-[0.65rem] text-ink/60">
                       /events/{event.slug}
                     </p>
                   </div>
                 </div>
 
-                <div className="text-[0.74rem] leading-relaxed text-bark-soft">
+                <div className="text-[0.74rem] leading-relaxed text-ink/60">
                   <p>{formatEventWhen(event)}</p>
                 </div>
-                <div className="text-[0.74rem] text-bark-soft">
+                <div className="text-[0.74rem] text-ink/60">
                   {event.branch?.name ?? "Whole school"}
                 </div>
                 <div>
-                  <AdminBadge tone={event.isPublished ? "green" : "neutral"}>
+                  <AdminBadge tone={event.isPublished ? "meadow" : "neutral"}>
                     {event.isPublished ? "Published" : "Draft"}
                   </AdminBadge>
                 </div>
-                <div className="text-[0.7rem] text-bark-soft">
+                <div className="text-[0.7rem] text-ink/60">
                   {event.allDay ? "All day" : "Timed"}
                 </div>
                 <div className="flex flex-wrap items-center gap-2 lg:justify-end">
@@ -347,7 +347,7 @@ export default function AdminEventsPage() {
                     <Link
                       href={`/events/${event.slug}`}
                       target="_blank"
-                      className="inline-flex items-center gap-1 rounded-sm border border-line-strong px-3 py-1.5 text-[0.76rem] text-forest transition-colors hover:bg-forest-tint"
+                      className="inline-flex items-center gap-1 min-h-9 rounded-full border-2 border-b-4 border-ink/15 px-3.5 py-1.5 text-[0.78rem] font-bold text-ink transition-colors hover:bg-sun-tint"
                     >
                       View
                     </Link>
@@ -400,7 +400,7 @@ export default function AdminEventsPage() {
                 <button
                   type="button"
                   onClick={() => set("slug", toSlug(form.title))}
-                  className="mt-1.5 shrink-0 rounded-sm border border-line-strong px-3 py-2 text-[0.72rem] text-forest transition-colors hover:bg-forest-tint"
+                  className="mt-1.5 shrink-0 min-h-10 rounded-full border-2 border-b-4 border-ink/15 px-3.5 py-2 text-[0.78rem] font-bold text-ink transition-colors hover:bg-sun-tint"
                 >
                   From title
                 </button>
@@ -438,12 +438,12 @@ export default function AdminEventsPage() {
             </Field>
           </div>
 
-          <label className="flex items-center gap-2 text-[0.78rem] text-forest">
+          <label className="flex min-h-11 cursor-pointer items-center gap-2.5 text-[0.82rem] font-semibold text-ink">
             <input
               type="checkbox"
               checked={form.allDay}
               onChange={(event) => set("allDay", event.target.checked)}
-              className="h-4 w-4 accent-forest"
+              className="admin-check"
             />
             This is an all day event
           </label>
@@ -481,12 +481,12 @@ export default function AdminEventsPage() {
                 onChange={(value) => set("branchId", value)}
                 emptyLabel="Whole school"
               />
-              <label className="flex items-center gap-2 text-[0.78rem] text-forest">
+              <label className="flex min-h-11 cursor-pointer items-center gap-2.5 text-[0.82rem] font-semibold text-ink">
                 <input
                   type="checkbox"
                   checked={form.isPublished}
                   onChange={(event) => set("isPublished", event.target.checked)}
-                  className="h-4 w-4 accent-forest"
+                  className="admin-check"
                 />
                 Publish this event
               </label>
@@ -505,12 +505,12 @@ export default function AdminEventsPage() {
           />
 
           {Object.keys(errors).length > 0 ? (
-            <p className="text-[0.76rem] text-clay">
+            <p className="text-[0.76rem] text-poppy-deep">
               Some fields need attention. Check the messages above.
             </p>
           ) : null}
 
-          <div className="sticky bottom-0 flex justify-end gap-2 border-t border-line bg-oat py-3">
+          <div className="sticky bottom-0 flex justify-end gap-2 border-t-2 border-ink/10 bg-paper py-3">
             <AdminButton
               variant="outline"
               onClick={() => {

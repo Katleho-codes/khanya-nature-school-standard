@@ -171,7 +171,7 @@ export default function AdminDocumentsPage() {
 
       <form
         onSubmit={applyFilters}
-        className="grid gap-3 rounded-sm border border-line bg-paper p-4 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_auto]"
+        className="paper-card-plain grid gap-3 border-2 border-ink/10 bg-paper p-4 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_auto]"
       >
         <Field label="Search" htmlFor="document-search">
           <input
@@ -236,8 +236,8 @@ export default function AdminDocumentsPage() {
           }
         />
       ) : (
-        <div className="overflow-hidden rounded-sm border border-line bg-paper">
-          <div className="hidden grid-cols-[1.5fr_9rem_9rem_7rem_7rem_9rem] gap-4 border-b border-line bg-sage-tint/45 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-sage-deep lg:grid">
+        <div className="paper-card-plain overflow-hidden border-2 border-ink/10 bg-paper">
+          <div className="hidden grid-cols-[1.5fr_9rem_9rem_7rem_7rem_9rem] gap-4 border-b-2 border-ink/10 bg-sky-tint/55 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-ink/60 lg:grid">
             <span>Document</span>
             <span>Category</span>
             <span>Branch</span>
@@ -248,32 +248,32 @@ export default function AdminDocumentsPage() {
           {data.documents.map((document) => (
             <div
               key={document.id}
-              className="grid gap-4 border-b border-line px-4 py-4 last:border-b-0 lg:grid-cols-[1.5fr_9rem_9rem_7rem_7rem_9rem] lg:items-center"
+              className="grid gap-4 border-b-2 border-ink/10 px-4 py-4 last:border-b-0 lg:grid-cols-[1.5fr_9rem_9rem_7rem_7rem_9rem] lg:items-center"
             >
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
-                  <p className="truncate font-display text-[1.05rem] leading-tight text-forest">
+                  <p className="truncate font-display text-[1.05rem] leading-tight text-ink">
                     {document.title}
                   </p>
-                  <AdminBadge tone={document.isPublished ? "green" : "neutral"}>
+                  <AdminBadge tone={document.isPublished ? "meadow" : "neutral"}>
                     {document.isPublished ? "Published" : "Draft"}
                   </AdminBadge>
                 </div>
-                <p className="mt-0.5 line-clamp-2 text-[0.72rem] leading-relaxed text-bark-soft">
+                <p className="mt-0.5 line-clamp-2 text-[0.72rem] leading-relaxed text-ink/60">
                   {document.description}
                 </p>
-                <p className="mt-1 truncate text-[0.65rem] text-bark-soft">
+                <p className="mt-1 truncate text-[0.65rem] text-ink/60">
                   {document.media.originalName} · {formatBytes(document.media.sizeBytes)}
                 </p>
               </div>
-              <div className="text-[0.74rem] text-bark-soft">
+              <div className="text-[0.74rem] text-ink/60">
                 {documentCategoryLabels[document.category]}
               </div>
-              <div className="text-[0.74rem] text-bark-soft">
+              <div className="text-[0.74rem] text-ink/60">
                 {document.branch?.name ?? "Whole school"}
               </div>
-              <div className="text-[0.74rem] text-bark-soft">{document.sortOrder}</div>
-              <div className="text-[0.74rem] text-bark-soft">
+              <div className="text-[0.74rem] text-ink/60">{document.sortOrder}</div>
+              <div className="text-[0.74rem] text-ink/60">
                 {document.downloadCount}
               </div>
               <div className="flex flex-wrap items-center gap-2 lg:justify-end">
@@ -281,7 +281,7 @@ export default function AdminDocumentsPage() {
                   href={document.media.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1 rounded-sm border border-line-strong px-3 py-1.5 text-[0.76rem] text-forest transition-colors hover:bg-forest-tint"
+                  className="inline-flex items-center gap-1 min-h-9 rounded-full border-2 border-b-4 border-ink/15 px-3.5 py-1.5 text-[0.78rem] font-bold text-ink transition-colors hover:bg-sun-tint"
                 >
                   <DownloadIcon className="h-3.5 w-3.5" /> File
                 </a>
@@ -375,7 +375,7 @@ export default function AdminDocumentsPage() {
             hint="Upload a PDF under Media if it is not in the list."
           />
           {errors.mediaId ? (
-            <p className="text-[0.74rem] text-clay">{errors.mediaId}</p>
+            <p className="text-[0.74rem] text-poppy-deep">{errors.mediaId}</p>
           ) : null}
 
           <div className="grid gap-4 sm:grid-cols-2">
@@ -386,24 +386,24 @@ export default function AdminDocumentsPage() {
               onChange={(value) => set("branchId", value)}
               emptyLabel="Whole school"
             />
-            <label className="flex items-center gap-2 self-end pb-1 text-[0.78rem] text-forest">
+            <label className="flex items-center gap-2 self-end pb-1 text-[0.78rem] text-ink">
               <input
                 type="checkbox"
                 checked={form.isPublished}
                 onChange={(event) => set("isPublished", event.target.checked)}
-                className="h-4 w-4 accent-forest"
+                className="admin-check"
               />
               Publish this document
             </label>
           </div>
 
           {Object.keys(errors).length > 0 ? (
-            <p className="text-[0.76rem] text-clay">
+            <p className="text-[0.76rem] text-poppy-deep">
               Some fields need attention. Check the messages above.
             </p>
           ) : null}
 
-          <div className="sticky bottom-0 flex justify-end gap-2 border-t border-line bg-oat py-3">
+          <div className="sticky bottom-0 flex justify-end gap-2 border-t-2 border-ink/10 bg-paper py-3">
             <AdminButton
               variant="outline"
               onClick={() => {

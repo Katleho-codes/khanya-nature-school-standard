@@ -398,6 +398,38 @@
     cursor: not-allowed;
   }
 
+  .admin-check {
+    display: grid;
+    place-content: center;
+    width: 1.4rem;
+    height: 1.4rem;
+    flex: 0 0 auto;
+    appearance: none;
+    border: 2px solid rgb(34 40 74 / 0.45);
+    border-radius: 999px;
+    background-color: var(--color-paper);
+    cursor: pointer;
+    transition: background-color 160ms ease, border-color 160ms ease;
+  }
+
+  .admin-check:checked {
+    border-color: var(--color-poppy-deep);
+    background-color: var(--color-sun);
+  }
+
+  .admin-check:checked::after {
+    content: "";
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 999px;
+    background-color: var(--color-ink);
+  }
+
+  .admin-check:focus-visible {
+    outline: 3px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+
   .field-error {
     display: flex;
     align-items: flex-start;

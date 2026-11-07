@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { ArrowRightIcon, CheckIcon } from "@/components/icons";
+import { adminInput, adminLabel } from "./admin-ui";
 
 export function LoginForm() {
   const router = useRouter();
@@ -47,10 +48,7 @@ export function LoginForm() {
   return (
     <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>
       <div>
-        <label
-          htmlFor="login-email"
-          className="block text-[0.76rem] font-medium text-forest"
-        >
+        <label htmlFor="login-email" className={adminLabel}>
           Email address
         </label>
         <input
@@ -60,23 +58,20 @@ export function LoginForm() {
           required
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          className="mt-1.5 w-full rounded-sm border border-line-strong bg-paper px-3.5 py-2.5 text-[0.9rem] text-bark focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/15"
+          className={adminInput}
           placeholder="you@khanyanatureschool.example"
         />
       </div>
 
       <div>
         <div className="flex items-baseline justify-between gap-3">
-          <label
-            htmlFor="login-password"
-            className="block text-[0.76rem] font-medium text-forest"
-          >
+          <label htmlFor="login-password" className={adminLabel}>
             Password
           </label>
           <button
             type="button"
             onClick={() => setShowPassword((current) => !current)}
-            className="text-[0.7rem] text-sage-deep underline underline-offset-2"
+            className="inline-flex min-h-11 items-center px-2 text-[0.76rem] font-bold text-sky-deep underline decoration-wavy underline-offset-4"
           >
             {showPassword ? "Hide" : "Show"}
           </button>
@@ -88,13 +83,16 @@ export function LoginForm() {
           required
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          className="mt-1.5 w-full rounded-sm border border-line-strong bg-paper px-3.5 py-2.5 text-[0.9rem] text-bark focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/15"
+          className={adminInput}
           placeholder="Your password"
         />
       </div>
 
       {error ? (
-        <div role="alert" className="border-l-2 border-clay bg-clay/5 px-3 py-2.5 text-[0.8rem] text-clay">
+        <div
+          role="alert"
+          className="rounded-[16px] border-2 border-poppy-deep bg-poppy-tint px-3.5 py-2.5 text-[0.84rem] field-error text-poppy-deep"
+        >
           {error}
         </div>
       ) : null}
@@ -102,12 +100,12 @@ export function LoginForm() {
       <button
         type="submit"
         disabled={busy}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-sm border border-forest bg-forest px-4 py-3 text-[0.88rem] font-medium text-oat transition-colors hover:border-forest-deep hover:bg-forest-deep disabled:cursor-wait disabled:opacity-60"
+        className="press inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border-b-4 border-sun-deep bg-sun px-5 py-3 text-[0.92rem] font-extrabold text-ink transition-colors hover:bg-sun-deep disabled:cursor-wait disabled:opacity-60"
       >
         {busy ? (
           <>
             <span
-              className="h-4 w-4 animate-spin rounded-full border-2 border-oat/40 border-t-oat"
+              className="h-4 w-4 animate-spin rounded-full border-2 border-ink/25 border-t-poppy-deep"
               aria-hidden
             />
             Signing in
@@ -120,12 +118,15 @@ export function LoginForm() {
         )}
       </button>
 
-      <div className="flex items-center justify-between gap-3 border-t border-line pt-4 text-[0.74rem]">
-        <Link href="/" className="text-bark-soft transition-colors hover:text-forest">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t-2 border-ink/10 pt-4 text-[0.78rem]">
+        <Link
+          href="/"
+          className="inline-flex min-h-11 items-center font-bold text-ink/70 squiggle-link hover:text-poppy-deep"
+        >
           Back to the website
         </Link>
-        <span className="inline-flex items-center gap-1.5 text-sage-deep">
-          <CheckIcon className="h-3.5 w-3.5" />
+        <span className="inline-flex items-center gap-1.5 font-semibold text-ink/60">
+          <CheckIcon className="h-4 w-4 text-meadow-deep" />
           Secure session
         </span>
       </div>

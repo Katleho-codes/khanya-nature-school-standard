@@ -151,7 +151,7 @@ export default function AdminMediaPage() {
 
       <form
         onSubmit={upload}
-        className="grid gap-4 rounded-sm border border-line bg-paper p-4 lg:grid-cols-[1.2fr_1.6fr_auto]"
+        className="paper-card-plain grid gap-4 border-2 border-ink/10 bg-paper p-4 lg:grid-cols-[1.2fr_1.6fr_auto]"
       >
         <Field
           label="File"
@@ -165,7 +165,7 @@ export default function AdminMediaPage() {
             id="media-file"
             type="file"
             accept=".jpg,.jpeg,.png,.webp,.pdf,image/jpeg,image/png,image/webp,application/pdf"
-            className={`${adminInput} file:mr-3 file:rounded-sm file:border-0 file:bg-forest file:px-3 file:py-1.5 file:text-[0.74rem] file:text-oat`}
+            className={`${adminInput} file:mr-3 file:rounded-full file:border-0 file:bg-poppy-deep file:px-3.5 file:py-2 file:text-[0.78rem] file:font-bold file:text-white`}
           />
         </Field>
         <Field
@@ -193,7 +193,7 @@ export default function AdminMediaPage() {
 
       <form
         onSubmit={applyFilters}
-        className="grid gap-3 rounded-sm border border-line bg-paper p-4 sm:grid-cols-[1.6fr_1fr_auto]"
+        className="paper-card-plain grid gap-3 border-2 border-ink/10 bg-paper p-4 sm:grid-cols-[1.6fr_1fr_auto]"
       >
         <Field label="Search" htmlFor="media-search">
           <input
@@ -231,7 +231,7 @@ export default function AdminMediaPage() {
       </form>
 
       {!loading && data ? (
-        <p className="text-[0.76rem] text-bark-soft">
+        <p className="text-[0.76rem] text-ink/60">
           {data.media.length} files shown
           {filtered ? " for these filters" : ""}. {images} images, {documents} documents.
         </p>
@@ -244,7 +244,7 @@ export default function AdminMediaPage() {
           {Array.from({ length: 6 }).map((_, index) => (
             <div
               key={index}
-              className="h-72 animate-pulse rounded-sm border border-line bg-paper"
+              className="h-72 animate-pulse paper-card-plain border-2 border-ink/10 bg-paper"
             />
           ))}
         </div>
@@ -271,7 +271,7 @@ export default function AdminMediaPage() {
             return (
               <article
                 key={item.id}
-                className="overflow-hidden rounded-sm border border-line bg-paper"
+                className="paper-card-plain overflow-hidden border-2 border-ink/10 bg-paper"
               >
                 {isImage ? (
                   <PhotoFrame
@@ -282,35 +282,35 @@ export default function AdminMediaPage() {
                     hasImage
                   />
                 ) : (
-                  <div className="flex aspect-[3/2] flex-col items-center justify-center gap-2 bg-sage-tint/60 p-6 text-center">
-                    <DownloadIcon className="h-7 w-7 text-sage-deep" />
-                    <p className="text-[0.72rem] uppercase tracking-[0.12em] text-sage-deep">
+                  <div className="flex aspect-[3/2] flex-col items-center justify-center gap-2 bg-sky-tint/60 p-6 text-center">
+                    <DownloadIcon className="h-7 w-7 text-ink/60" />
+                    <p className="text-[0.72rem] uppercase tracking-[0.12em] text-ink/60">
                       PDF document
                     </p>
                   </div>
                 )}
                 <div className="space-y-2 p-4">
                   <div className="flex flex-wrap items-center gap-2">
-                    <AdminBadge tone={isImage ? "green" : "neutral"}>
+                    <AdminBadge tone={isImage ? "meadow" : "neutral"}>
                       {isImage ? "Image" : "PDF"}
                     </AdminBadge>
-                    <span className="text-[0.66rem] text-bark-soft">
+                    <span className="text-[0.66rem] text-ink/60">
                       {formatDate(item.createdAt)}
                     </span>
                   </div>
-                  <p className="truncate text-[0.82rem] font-medium text-forest">
+                  <p className="truncate text-[0.82rem] font-medium text-ink">
                     {item.originalName}
                   </p>
-                  <p className="text-[0.7rem] text-bark-soft">
+                  <p className="text-[0.7rem] text-ink/60">
                     {formatBytes(item.sizeBytes)}
                     {item.width && item.height
                       ? ` · ${item.width} × ${item.height} pixels`
                       : ""}
                   </p>
-                  <p className="line-clamp-2 text-[0.7rem] leading-relaxed text-bark-soft">
+                  <p className="line-clamp-2 text-[0.7rem] leading-relaxed text-ink/60">
                     {item.alt ?? "No description yet."}
                   </p>
-                  <p className="truncate rounded-sm bg-oat px-2 py-1 text-[0.65rem] text-bark-soft">
+                  <p className="truncate rounded-full bg-paper px-2 py-1 text-[0.65rem] text-ink/60">
                     {item.url}
                   </p>
                   <div className="flex flex-wrap gap-1.5 pt-1">
@@ -361,7 +361,7 @@ export default function AdminMediaPage() {
               className={adminTextarea}
             />
           </Field>
-          <div className="flex justify-end gap-2 border-t border-line pt-4">
+          <div className="flex justify-end gap-2 border-t-2 border-ink/10 pt-4">
             <AdminButton
               variant="outline"
               onClick={() => setEditing(null)}
@@ -385,9 +385,9 @@ export default function AdminMediaPage() {
         onConfirm={remove}
       />
 
-      <div className="rounded-sm border border-line bg-paper p-4">
+      <div className="paper-card-plain border-2 border-ink/10 bg-paper p-4">
         <p className={adminLabel}>Upload guidance</p>
-        <p className="mt-1 text-[0.76rem] leading-relaxed text-bark-soft">
+        <p className="mt-1 text-[0.76rem] leading-relaxed text-ink/60">
           Landscape photographs work best at 1920 × 1280 pixels. Portraits used
           in arched frames should be at least 1200 × 1600 pixels. Keep files
           under 8 MB so pages stay quick on mobile data.

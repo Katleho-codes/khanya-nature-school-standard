@@ -6,6 +6,7 @@ import type { Programme } from "@/lib/types";
 import { AdminApiError, adminFetch } from "@/lib/auth-server";
 import { centsFromRand, randValue, toSlug } from "@/lib/admin-utils";
 import { formatFee } from "@/lib/format";
+import { programmeTone } from "@/lib/tones";
 import {
   AdminBadge,
   AdminButton,
@@ -264,8 +265,8 @@ export default function AdminProgrammesPage() {
           }
         />
       ) : (
-        <div className="overflow-hidden rounded-sm border border-line bg-paper">
-          <div className="hidden grid-cols-[4rem_1.4fr_1fr_9rem_8rem_10rem] gap-4 border-b border-line bg-sage-tint/45 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-sage-deep lg:grid">
+        <div className="paper-card-plain overflow-hidden border-2 border-ink/10 bg-paper">
+          <div className="hidden grid-cols-[4rem_1.4fr_1fr_9rem_8rem_10rem] gap-4 border-b-2 border-ink/10 bg-sky-tint/55 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-ink/60 lg:grid">
             <span>Order</span>
             <span>Programme</span>
             <span>Fee and branches</span>
@@ -276,10 +277,10 @@ export default function AdminProgrammesPage() {
           {data.programmes.map((programme, index) => (
             <div
               key={programme.id}
-              className="grid gap-4 border-b border-line px-4 py-4 last:border-b-0 lg:grid-cols-[4rem_1.4fr_1fr_9rem_8rem_10rem] lg:items-center"
+              className="grid gap-4 border-b-2 border-ink/10 px-4 py-4 last:border-b-0 lg:grid-cols-[4rem_1.4fr_1fr_9rem_8rem_10rem] lg:items-center"
             >
               <div className="flex items-center gap-1 lg:flex-col lg:items-start">
-                <span className="text-[0.68rem] text-bark-soft">
+                <span className="text-[0.68rem] text-ink/60">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div className="flex gap-0.5">
@@ -287,7 +288,7 @@ export default function AdminProgrammesPage() {
                     type="button"
                     onClick={() => move(programme, "up")}
                     disabled={index === 0}
-                    className="inline-flex h-7 w-7 items-center justify-center rounded-sm border border-line text-bark-soft transition-colors hover:bg-forest-tint disabled:opacity-30"
+                    className="inline-flex h-7 w-7 items-center justify-center rounded-full border-2 border-ink/15 text-ink/60 transition-colors hover:bg-sun-tint disabled:opacity-30"
                     aria-label={`Move ${programme.name} up`}
                   >
                     <ChevronUpIcon className="h-3.5 w-3.5" />
@@ -296,7 +297,7 @@ export default function AdminProgrammesPage() {
                     type="button"
                     onClick={() => move(programme, "down")}
                     disabled={index === data.programmes.length - 1}
-                    className="inline-flex h-7 w-7 items-center justify-center rounded-sm border border-line text-bark-soft transition-colors hover:bg-forest-tint disabled:opacity-30"
+                    className="inline-flex h-7 w-7 items-center justify-center rounded-full border-2 border-ink/15 text-ink/60 transition-colors hover:bg-sun-tint disabled:opacity-30"
                     aria-label={`Move ${programme.name} down`}
                   >
                     <ChevronDownIcon className="h-3.5 w-3.5" />
@@ -315,18 +316,20 @@ export default function AdminProgrammesPage() {
                   />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[0.7rem] text-bark-soft">{programme.ageLabel}</p>
-                  <p className="truncate font-display text-[1.1rem] leading-tight text-forest">
+                  <AdminBadge tone={programmeTone(programme.slug)}>
+                    {programme.ageLabel}
+                  </AdminBadge>
+                  <p className="mt-1 truncate font-display text-[1.1rem] leading-tight text-ink">
                     {programme.name}
                   </p>
-                  <p className="mt-0.5 line-clamp-2 text-[0.7rem] leading-relaxed text-bark-soft">
+                  <p className="mt-0.5 line-clamp-2 text-[0.7rem] leading-relaxed text-ink/60">
                     {programme.summary}
                   </p>
                 </div>
               </div>
 
-              <div className="text-[0.74rem] leading-relaxed text-bark-soft">
-                <p className="font-medium text-forest">
+              <div className="text-[0.74rem] leading-relaxed text-ink/60">
+                <p className="font-medium text-ink">
                   {formatFee(programme.monthlyFeeCents)}
                 </p>
                 <p>
@@ -338,12 +341,12 @@ export default function AdminProgrammesPage() {
               </div>
 
               <div>
-                <AdminBadge tone={programme.isPublished ? "green" : "neutral"}>
+                <AdminBadge tone={programme.isPublished ? "meadow" : "neutral"}>
                   {programme.isPublished ? "Published" : "Draft"}
                 </AdminBadge>
               </div>
 
-              <div className="text-[0.7rem] text-bark-soft">
+              <div className="text-[0.7rem] text-ink/60">
                 <p>/programmes/{programme.slug}</p>
               </div>
 
@@ -351,7 +354,7 @@ export default function AdminProgrammesPage() {
                 <Link
                   href={`/programmes/${programme.slug}`}
                   target="_blank"
-                  className="inline-flex items-center gap-1 rounded-sm border border-line-strong px-3 py-1.5 text-[0.76rem] text-forest transition-colors hover:bg-forest-tint"
+                  className="inline-flex items-center gap-1 min-h-9 rounded-full border-2 border-b-4 border-ink/15 px-3.5 py-1.5 text-[0.78rem] font-bold text-ink transition-colors hover:bg-sun-tint"
                 >
                   View
                 </Link>
@@ -418,7 +421,7 @@ export default function AdminProgrammesPage() {
                 <button
                   type="button"
                   onClick={() => set("slug", toSlug(form.name))}
-                  className="mt-1.5 shrink-0 rounded-sm border border-line-strong px-3 py-2 text-[0.72rem] text-forest transition-colors hover:bg-forest-tint"
+                  className="mt-1.5 shrink-0 min-h-10 rounded-full border-2 border-b-4 border-ink/15 px-3.5 py-2 text-[0.78rem] font-bold text-ink transition-colors hover:bg-sun-tint"
                 >
                   From name
                 </button>
@@ -503,14 +506,14 @@ export default function AdminProgrammesPage() {
             />
           </Field>
 
-          <fieldset className="rounded-sm border border-line p-4">
+          <fieldset className="rounded-[20px] border-2 border-ink/10 bg-sun-tint/20 p-4">
             <legend className={adminLabel}>Daily rhythm</legend>
-            <p className="mt-1 text-[0.72rem] text-bark-soft">
+            <p className="mt-1 text-[0.72rem] text-ink/60">
               The small moments that shape the day. Keep it to six or eight rows.
             </p>
             <div className="mt-3 space-y-2">
               {form.dailyRhythm.length === 0 ? (
-                <p className="text-[0.76rem] text-bark-soft">No moments yet.</p>
+                <p className="text-[0.76rem] text-ink/60">No moments yet.</p>
               ) : null}
               {form.dailyRhythm.map((item, index) => (
                 <div
@@ -534,7 +537,7 @@ export default function AdminProgrammesPage() {
                   <button
                     type="button"
                     onClick={() => removeRhythm(index)}
-                    className="mt-1.5 inline-flex h-9 w-9 items-center justify-center rounded-sm border border-line text-bark-soft transition-colors hover:bg-clay/10 hover:text-clay"
+                    className="mt-1.5 inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-ink/15 text-ink/60 transition-colors hover:bg-poppy-deep/10 hover:text-poppy-deep"
                     aria-label={`Remove rhythm moment ${index + 1}`}
                   >
                     <CloseIcon className="h-3.5 w-3.5" />
@@ -545,7 +548,7 @@ export default function AdminProgrammesPage() {
             <button
               type="button"
               onClick={addRhythm}
-              className="mt-3 rounded-sm border border-line-strong px-3 py-1.5 text-[0.74rem] text-forest transition-colors hover:bg-forest-tint"
+              className="press mt-3 min-h-10 rounded-full border-2 border-b-4 border-ink/15 px-3.5 py-1.5 text-[0.78rem] font-bold text-ink transition-colors hover:bg-sun-tint"
             >
               Add moment
             </button>
@@ -603,12 +606,12 @@ export default function AdminProgrammesPage() {
                   className={adminInput}
                 />
               </Field>
-              <label className="flex items-center gap-2 text-[0.78rem] text-forest">
+              <label className="flex min-h-11 cursor-pointer items-center gap-2.5 text-[0.82rem] font-semibold text-ink">
                 <input
                   type="checkbox"
                   checked={form.isPublished}
                   onChange={(event) => set("isPublished", event.target.checked)}
-                  className="h-4 w-4 accent-forest"
+                  className="admin-check"
                 />
                 Publish this programme
               </label>
@@ -633,12 +636,12 @@ export default function AdminProgrammesPage() {
           />
 
           {Object.keys(errors).length > 0 ? (
-            <p className="text-[0.76rem] text-clay">
+            <p className="text-[0.76rem] text-poppy-deep">
               Some fields need attention. Check the messages above.
             </p>
           ) : null}
 
-          <div className="sticky bottom-0 flex justify-end gap-2 border-t border-line bg-oat py-3">
+          <div className="sticky bottom-0 flex justify-end gap-2 border-t-2 border-ink/10 bg-paper py-3">
             <AdminButton
               variant="outline"
               onClick={() => {

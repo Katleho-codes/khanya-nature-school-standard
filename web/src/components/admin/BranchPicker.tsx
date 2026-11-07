@@ -69,7 +69,7 @@ export function BranchSelect({
           </option>
         ))}
       </select>
-      {hint ? <p className="mt-1 text-[0.7rem] text-bark-soft">{hint}</p> : null}
+      {hint ? <p className="mt-1 text-[0.7rem] text-ink/60">{hint}</p> : null}
     </div>
   );
 }
@@ -97,11 +97,11 @@ export function BranchCheckboxes({
     <fieldset>
       <legend className={adminLabel}>Available at</legend>
       {loading ? (
-        <p className="mt-1 text-[0.74rem] text-bark-soft">Loading branches...</p>
+        <p className="mt-1 text-[0.74rem] text-ink/60">Loading branches...</p>
       ) : error ? (
-        <p className="mt-1 text-[0.74rem] text-clay">{error}</p>
+        <p className="mt-1 text-[0.74rem] text-poppy-deep">{error}</p>
       ) : branches.length === 0 ? (
-        <p className="mt-1 text-[0.74rem] text-bark-soft">
+        <p className="mt-1 text-[0.74rem] text-ink/60">
           Add a branch before linking programmes.
         </p>
       ) : (
@@ -109,23 +109,23 @@ export function BranchCheckboxes({
           {branches.map((branch) => (
             <label
               key={branch.id}
-              className="flex items-center gap-2 rounded-sm border border-line px-3 py-2 text-[0.78rem] text-forest"
+              className="flex min-h-11 cursor-pointer items-center gap-2.5 rounded-full border-2 border-ink/10 px-3.5 py-2 text-[0.82rem] font-semibold text-ink hover:bg-sun-tint/40"
             >
               <input
                 type="checkbox"
                 checked={values.includes(branch.id)}
                 onChange={() => toggle(branch.id)}
-                className="h-4 w-4 accent-forest"
+                className="admin-check"
               />
               {branch.name}
               {branch.isActive ? null : (
-                <span className="text-[0.68rem] text-bark-soft">(hidden)</span>
+                <span className="text-[0.68rem] text-ink/60">(hidden)</span>
               )}
             </label>
           ))}
         </div>
       )}
-      {hint ? <p className="mt-1 text-[0.7rem] text-bark-soft">{hint}</p> : null}
+      {hint ? <p className="mt-1 text-[0.7rem] text-ink/60">{hint}</p> : null}
     </fieldset>
   );
 }

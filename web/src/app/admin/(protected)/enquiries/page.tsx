@@ -178,7 +178,7 @@ export default function AdminEnquiriesPage() {
         actions={
           <a
             href={exportHref}
-            className="inline-flex items-center gap-1.5 rounded-sm border border-line-strong px-4 py-2 text-[0.82rem] text-forest transition-colors hover:bg-forest-tint"
+            className="press inline-flex min-h-11 items-center gap-1.5 rounded-full border-2 border-b-4 border-ink/15 bg-paper px-4 py-2 text-[0.84rem] font-bold text-ink transition-colors hover:bg-sun-tint"
           >
             <DownloadIcon className="h-3.5 w-3.5" /> Export CSV
           </a>
@@ -187,7 +187,7 @@ export default function AdminEnquiriesPage() {
 
       <form
         onSubmit={applyFilters}
-        className="grid gap-3 rounded-sm border border-line bg-paper p-4 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr_auto]"
+        className="paper-card-plain grid gap-3 border-2 border-ink/10 bg-paper p-4 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr_auto]"
       >
         <Field label="Search" htmlFor="enquiry-search">
           <input
@@ -287,8 +287,8 @@ export default function AdminEnquiriesPage() {
           }
         />
       ) : (
-        <div className="overflow-hidden rounded-sm border border-line bg-paper">
-          <div className="hidden grid-cols-[1.4fr_1.2fr_8rem_8rem_9rem_5rem] gap-4 border-b border-line bg-sage-tint/45 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-sage-deep lg:grid">
+        <div className="paper-card-plain overflow-hidden border-2 border-ink/10 bg-paper">
+          <div className="hidden grid-cols-[1.4fr_1.2fr_8rem_8rem_9rem_5rem] gap-4 border-b-2 border-ink/10 bg-sky-tint/55 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-ink/60 lg:grid">
             <span>Family</span>
             <span>Contact</span>
             <span>Branch</span>
@@ -299,27 +299,27 @@ export default function AdminEnquiriesPage() {
           {data.enquiries.map((enquiry) => (
             <div
               key={enquiry.id}
-              className="grid gap-4 border-b border-line px-4 py-4 last:border-b-0 lg:grid-cols-[1.4fr_1.2fr_8rem_8rem_9rem_5rem] lg:items-center"
+              className="grid gap-4 border-b-2 border-ink/10 px-4 py-4 last:border-b-0 lg:grid-cols-[1.4fr_1.2fr_8rem_8rem_9rem_5rem] lg:items-center"
             >
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
-                  <p className="truncate text-[0.84rem] font-medium text-forest">
+                  <p className="truncate text-[0.84rem] font-medium text-ink">
                     {enquiry.parentName}
                   </p>
-                  <span className="text-[0.66rem] text-bark-soft">
+                  <span className="text-[0.66rem] text-ink/60">
                     {enquiry.reference}
                   </span>
                 </div>
-                <p className="mt-0.5 text-[0.74rem] text-bark-soft">
+                <p className="mt-0.5 text-[0.74rem] text-ink/60">
                   {enquiry.childName}
                   {enquiry.programme ? ` · ${enquiry.programme.name}` : ""}
                 </p>
               </div>
-              <div className="min-w-0 text-[0.72rem] text-bark-soft">
+              <div className="min-w-0 text-[0.72rem] text-ink/60">
                 <p className="truncate">{enquiry.email}</p>
                 <p>{enquiry.phone}</p>
               </div>
-              <div className="text-[0.74rem] text-bark-soft">
+              <div className="text-[0.74rem] text-ink/60">
                 {enquiry.branch.name}
               </div>
               <div>
@@ -327,7 +327,7 @@ export default function AdminEnquiriesPage() {
                   {enquiryStatusLabels[enquiry.status]}
                 </AdminBadge>
               </div>
-              <div className="text-[0.72rem] text-bark-soft">
+              <div className="text-[0.72rem] text-ink/60">
                 <p>{formatDate(enquiry.createdAt)}</p>
                 <p className="text-[0.66rem]">{formatTime(enquiry.createdAt)}</p>
               </div>
@@ -335,7 +335,7 @@ export default function AdminEnquiriesPage() {
                 <button
                   type="button"
                   onClick={() => openEnquiry(enquiry.id)}
-                  className="inline-flex items-center gap-1 rounded-sm border border-line-strong px-3 py-1.5 text-[0.76rem] text-forest transition-colors hover:bg-forest-tint"
+                  className="inline-flex items-center gap-1 min-h-9 rounded-full border-2 border-b-4 border-ink/15 px-3.5 py-1.5 text-[0.78rem] font-bold text-ink transition-colors hover:bg-sun-tint"
                 >
                   Open <ArrowUpRightIcon className="h-3.5 w-3.5" />
                 </button>
@@ -366,11 +366,11 @@ export default function AdminEnquiriesPage() {
               <AdminBadge tone={enquiryStatusTones[detail.status]}>
                 {enquiryStatusLabels[detail.status]}
               </AdminBadge>
-              <span className="text-[0.72rem] text-bark-soft">
+              <span className="text-[0.72rem] text-ink/60">
                 {sourceLabels[detail.source]}
               </span>
               {detail.programme ? (
-                <span className="text-[0.72rem] text-bark-soft">
+                <span className="text-[0.72rem] text-ink/60">
                   · {detail.programme.name}
                 </span>
               ) : null}
@@ -379,15 +379,15 @@ export default function AdminEnquiriesPage() {
             <div className="grid gap-5 sm:grid-cols-2">
               <section>
                 <p className={adminLabel}>Parent or guardian</p>
-                <p className="mt-1 text-[0.9rem] text-forest">{detail.parentName}</p>
-                <div className="mt-1 space-y-1 text-[0.78rem] text-bark-soft">
+                <p className="mt-1 text-[0.9rem] text-ink">{detail.parentName}</p>
+                <div className="mt-1 space-y-1 text-[0.78rem] text-ink/60">
                   <p>
-                    <a className="underline underline-offset-2 hover:text-forest" href={`mailto:${detail.email}`}>
+                    <a className="underline underline-offset-2 hover:text-poppy-deep" href={`mailto:${detail.email}`}>
                       {detail.email}
                     </a>
                   </p>
                   <p>
-                    <a className="underline underline-offset-2 hover:text-forest" href={phoneHref(detail.phone)}>
+                    <a className="underline underline-offset-2 hover:text-poppy-deep" href={phoneHref(detail.phone)}>
                       {detail.phone}
                     </a>
                   </p>
@@ -395,8 +395,8 @@ export default function AdminEnquiriesPage() {
               </section>
               <section>
                 <p className={adminLabel}>Child</p>
-                <p className="mt-1 text-[0.9rem] text-forest">{detail.childName}</p>
-                <div className="mt-1 space-y-1 text-[0.78rem] text-bark-soft">
+                <p className="mt-1 text-[0.9rem] text-ink">{detail.childName}</p>
+                <div className="mt-1 space-y-1 text-[0.78rem] text-ink/60">
                   <p>
                     Date of birth:{" "}
                     {detail.childDateOfBirth
@@ -413,36 +413,36 @@ export default function AdminEnquiriesPage() {
               </section>
               <section>
                 <p className={adminLabel}>Branch</p>
-                <p className="mt-1 text-[0.82rem] text-forest">
+                <p className="mt-1 text-[0.82rem] text-ink">
                   {detail.branch.name}
                 </p>
-                <p className="text-[0.74rem] text-bark-soft">
+                <p className="text-[0.74rem] text-ink/60">
                   {detail.branch.suburb}, {detail.branch.city}
                 </p>
               </section>
               <section>
                 <p className={adminLabel}>POPIA consent</p>
-                <p className="mt-1 text-[0.8rem] text-forest">
+                <p className="mt-1 text-[0.8rem] text-ink">
                   {detail.consentPopia ? "Given" : "Not given"}
                 </p>
-                <p className="text-[0.72rem] text-bark-soft">
+                <p className="text-[0.72rem] text-ink/60">
                   {formatDate(detail.consentAt)} at {formatTime(detail.consentAt)}
                 </p>
               </section>
             </div>
 
-            <section className="rounded-sm border border-line bg-paper p-4">
+            <section className="paper-card-plain border-2 border-ink/10 bg-paper p-4">
               <p className={adminLabel}>Message from the family</p>
-              <p className="mt-2 whitespace-pre-line text-[0.84rem] leading-relaxed text-bark">
+              <p className="mt-2 whitespace-pre-line text-[0.84rem] leading-relaxed text-ink">
                 {detail.message}
               </p>
             </section>
 
-            <section className="rounded-sm border border-line bg-paper p-4">
+            <section className="paper-card-plain border-2 border-ink/10 bg-paper p-4">
               <div className="flex flex-wrap items-end justify-between gap-3">
                 <div>
                   <p className={adminLabel}>Follow up status</p>
-                  <p className="mt-1 text-[0.72rem] text-bark-soft">
+                  <p className="mt-1 text-[0.72rem] text-ink/60">
                     This is visible to staff only.
                   </p>
                 </div>
@@ -465,14 +465,14 @@ export default function AdminEnquiriesPage() {
             </section>
 
             <section>
-              <div className="flex items-end justify-between gap-3 border-b border-line pb-2">
+              <div className="flex items-end justify-between gap-3 border-b-2 border-ink/10 pb-2">
                 <p className={adminLabel}>Internal notes</p>
-                <span className="text-[0.68rem] text-bark-soft">
+                <span className="text-[0.68rem] text-ink/60">
                   {detail.notes.length} notes
                 </span>
               </div>
               {detail.notes.length === 0 ? (
-                <p className="py-4 text-[0.8rem] text-bark-soft">
+                <p className="py-4 text-[0.8rem] text-ink/60">
                   No notes yet. Record calls, visits and next steps here.
                 </p>
               ) : (
@@ -480,12 +480,12 @@ export default function AdminEnquiriesPage() {
                   {detail.notes.map((note) => (
                     <li
                       key={note.id}
-                      className="rounded-sm border-l-2 border-sage-deep/40 bg-sage-tint/25 px-3 py-2"
+                      className="rounded-[16px] border-2 border-meadow-deep/25 bg-sky-tint/30 px-3 py-2"
                     >
-                      <p className="whitespace-pre-line text-[0.8rem] leading-relaxed text-bark">
+                      <p className="whitespace-pre-line text-[0.8rem] leading-relaxed text-ink">
                         {note.body}
                       </p>
-                      <p className="mt-1 text-[0.66rem] text-bark-soft">
+                      <p className="mt-1 text-[0.66rem] text-ink/60">
                         {note.author.name} · {formatDate(note.createdAt)} at{" "}
                         {formatTime(note.createdAt)}
                       </p>
@@ -508,7 +508,7 @@ export default function AdminEnquiriesPage() {
                   required
                 />
                 {noteError ? (
-                  <p className="text-[0.74rem] text-clay">{noteError}</p>
+                  <p className="text-[0.74rem] text-poppy-deep">{noteError}</p>
                 ) : null}
                 <div className="flex justify-end">
                   <AdminButton type="submit" size="sm" disabled={savingNote}>
@@ -518,15 +518,15 @@ export default function AdminEnquiriesPage() {
               </form>
             </section>
 
-            <div className="flex flex-wrap items-center justify-between gap-2 border-t border-line pt-4">
-              <p className="text-[0.68rem] text-bark-soft">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-t-2 border-ink/10 pt-4">
+              <p className="text-[0.68rem] text-ink/60">
                 Updated {formatDate(detail.updatedAt)} at {formatTime(detail.updatedAt)}
               </p>
               <a
                 href={`mailto:${detail.email}?subject=${encodeURIComponent(
                   `Your enquiry ${detail.reference} at Khanya Nature School`,
                 )}`}
-                className="inline-flex items-center gap-1.5 rounded-sm border border-forest bg-forest px-4 py-2 text-[0.8rem] font-medium text-oat transition-colors hover:bg-forest-deep"
+                className="press inline-flex min-h-11 items-center gap-1.5 rounded-full border-b-4 border-poppy-deep bg-poppy-deep px-4 py-2 text-[0.84rem] font-bold text-white transition-colors hover:bg-poppy"
               >
                 Reply by email <ArrowUpRightIcon className="h-3.5 w-3.5" />
               </a>
