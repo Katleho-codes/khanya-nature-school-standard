@@ -24,8 +24,8 @@ export function SectionHeading({
       }`}
     >
       <div className={align === "center" ? "mx-auto max-w-3xl" : "max-w-2xl"}>
-        {eyebrow ? <p className="label-caps text-sage-deep">{eyebrow}</p> : null}
-        <h2 className="display-lg mt-3 text-forest">{title}</h2>
+        {eyebrow ? <p className="sticker bg-sun-tint text-ink">{eyebrow}</p> : null}
+        <h2 className="display-lg mt-3 text-ink">{title}</h2>
         {lead ? <p className="lead mt-4 max-w-xl">{lead}</p> : null}
       </div>
       {action ? <div className="shrink-0">{action}</div> : null}
@@ -35,13 +35,16 @@ export function SectionHeading({
 
 export function HoursTable({ hours }: { hours: WeekHours }) {
   return (
-    <dl className="divide-y divide-line border-y border-line">
+    <dl className="overflow-hidden rounded-[20px_16px_22px_14px] border-2 border-ink/10 bg-paper">
       {WEEKDAY_LABELS.map(({ key, label }) => {
         const value = hours[key as keyof WeekHours];
         return (
-          <div key={key} className="grid grid-cols-[1fr_auto] gap-4 py-2.5 text-[0.84rem]">
-            <dt className="text-bark-soft">{label}</dt>
-            <dd className="tabular-nums text-forest">
+          <div
+            key={key}
+            className="grid grid-cols-[1fr_auto] gap-4 border-b border-ink/10 px-4 py-2.5 text-[0.88rem] last:border-b-0"
+          >
+            <dt className="font-semibold text-ink/75">{label}</dt>
+            <dd className="font-bold tabular-nums text-ink">
               {value ? `${value.open} to ${value.close}` : "Closed"}
             </dd>
           </div>
@@ -56,18 +59,24 @@ export function WhatsAppButton({
   message,
   label = "Chat on WhatsApp",
   className,
+  onInk = false,
 }: {
   number: string;
   message: string;
   label?: string;
   className?: string;
+  onInk?: boolean;
 }) {
   return (
     <a
       href={whatsappLink(number, message)}
       target="_blank"
       rel="noreferrer"
-      className={`inline-flex items-center justify-center gap-2 rounded-sm border border-forest px-5 py-3 text-[0.9rem] font-medium text-forest transition-colors hover:bg-forest hover:text-oat ${className ?? ""}`}
+      className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 px-5 py-3 text-[0.9rem] font-extrabold transition-colors ${
+        onInk
+          ? "border-paper/25 bg-paper text-ink hover:bg-sun"
+          : "border-ink/15 bg-paper text-ink hover:bg-meadow-tint"
+      } ${className ?? ""}`}
     >
       <WhatsAppIcon className="h-4 w-4" />
       {label}
@@ -83,9 +92,9 @@ export function Fact({
   children: ReactNode;
 }) {
   return (
-    <div className="border-t border-line pt-3">
-      <dt className="label-caps text-sage-deep">{label}</dt>
-      <dd className="mt-1.5 text-[0.92rem] leading-relaxed text-bark">{children}</dd>
+    <div className="rounded-[18px_14px_20px_12px] bg-sun-tint/60 px-4 py-3">
+      <dt className="text-[0.7rem] font-extrabold uppercase tracking-[0.08em] text-poppy-deep">{label}</dt>
+      <dd className="mt-1 text-[0.92rem] font-semibold leading-relaxed text-ink">{children}</dd>
     </div>
   );
 }
@@ -98,14 +107,15 @@ export function EditorialQuote({
   attribution?: string;
 }) {
   return (
-    <figure className="border-l-2 border-ochre pl-5 md:pl-7">
-      <blockquote className="font-display text-[1.45rem] leading-[1.4] text-forest md:text-[1.8rem]">
+    <figure className="relative rounded-[28px_22px_30px_8px] bg-sky-tint p-5 shadow-[0_3px_0_rgb(34_40_74_/_0.1)] md:p-6">
+      <span aria-hidden className="absolute -top-3 left-5 font-display text-[3.6rem] leading-none text-sky-deep/35">
+        &ldquo;
+      </span>
+      <blockquote className="relative font-display text-[1.4rem] font-bold leading-[1.25] text-ink md:text-[1.65rem]">
         {children}
       </blockquote>
       {attribution ? (
-        <figcaption className="mt-4 text-[0.72rem] uppercase tracking-[0.16em] text-sage-deep">
-          {attribution}
-        </figcaption>
+        <figcaption className="hand mt-3 text-ink/75">{attribution}</figcaption>
       ) : null}
     </figure>
   );

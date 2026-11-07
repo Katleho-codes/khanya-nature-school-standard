@@ -85,14 +85,15 @@ export default async function AlbumPage({ params }: PageProps) {
           { label: album.title },
         ]}
         aside={
-          <div className="mt-6 border-t border-line pt-4">
-            <p className="text-[0.8rem] leading-relaxed text-bark-soft">
+          <div className="mt-6 paper-card rotate-[-0.8deg] bg-sun-tint p-4">
+            <p className="hand text-poppy-deep">The picture book</p>
+            <p className="mt-1 text-[0.82rem] leading-relaxed text-ink/75">
               {photos.length} {photos.length === 1 ? "photograph" : "photographs"}.
               Select any image to open it larger.
             </p>
             <Link
               href="/gallery"
-              className="mark-link mt-3 inline-flex items-center gap-1.5 text-[0.82rem] text-forest"
+              className="squiggle-link mt-2 inline-flex min-h-8 items-center gap-1.5 text-[0.82rem] font-bold text-ink"
             >
               All albums <ArrowRightIcon className="h-3.5 w-3.5" />
             </Link>
@@ -105,12 +106,12 @@ export default async function AlbumPage({ params }: PageProps) {
       </section>
 
       {others.length > 0 ? (
-        <section className="border-t border-line bg-paper section">
+        <section className="border-t border-ink/10 bg-meadow-tint/35 section">
           <div className="page-container">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <p className="label-caps text-sage-deep">More to see</p>
-                <h2 className="display-md mt-2 text-forest">Other albums</h2>
+                <p className="sticker bg-paper text-ink">More to see</p>
+                <h2 className="display-md mt-2 text-ink">Other albums</h2>
               </div>
               <ButtonLink href="/gallery" variant="text" size="sm">
                 All albums <ArrowRightIcon className="h-3.5 w-3.5" />

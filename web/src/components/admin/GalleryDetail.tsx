@@ -163,7 +163,7 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
       <div>
         <Link
           href="/admin/galleries"
-          className="inline-flex items-center gap-1 text-[0.76rem] text-bark-soft transition-colors hover:text-forest"
+          className="inline-flex items-center gap-1 text-[0.76rem] text-ink/75 transition-colors hover:text-poppy-deep"
         >
           <ChevronLeftIcon className="h-3.5 w-3.5" />
           All galleries
@@ -184,7 +184,7 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
               <Link
                 href={`/gallery/${album.slug}`}
                 target="_blank"
-                className="inline-flex items-center gap-1.5 rounded-sm border border-line-strong px-4 py-2 text-[0.82rem] text-forest transition-colors hover:bg-forest-tint"
+                className="press inline-flex min-h-11 items-center gap-1.5 rounded-full border-2 border-b-4 border-ink/15 bg-paper px-4 py-2 text-[0.84rem] font-bold text-ink transition-colors hover:bg-sun-tint"
               >
                 View album
               </Link>
@@ -196,14 +196,14 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
 
       {album ? (
         <div className="flex flex-wrap items-center gap-2">
-          <AdminBadge tone={album.isPublished ? "green" : "neutral"}>
+          <AdminBadge tone={album.isPublished ? "meadow" : "neutral"}>
             {album.isPublished ? "Published" : "Draft"}
           </AdminBadge>
-          <span className="text-[0.74rem] text-bark-soft">
+          <span className="text-[0.74rem] text-ink/75">
             {album.photos.length} photographs
           </span>
-          <span className="text-[0.74rem] text-bark-soft">·</span>
-          <span className="text-[0.74rem] text-bark-soft">/gallery/{album.slug}</span>
+          <span className="text-[0.74rem] text-ink/75">·</span>
+          <span className="text-[0.74rem] text-ink/75">/gallery/{album.slug}</span>
         </div>
       ) : null}
 
@@ -222,7 +222,7 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
           {album.photos.map((photo, index) => (
             <article
               key={photo.id}
-              className="overflow-hidden rounded-sm border border-line bg-paper"
+              className="paper-card-plain overflow-hidden border-2 border-ink/10 bg-paper"
             >
               <PhotoFrame
                 src={photo.media.url}
@@ -233,15 +233,15 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
               />
               <div className="space-y-2 p-4">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-[0.64rem] uppercase tracking-[0.12em] text-sage-deep">
+                  <span className="text-[0.64rem] uppercase tracking-[0.12em] text-ink/75">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   {album.coverId === photo.mediaId ? (
-                    <AdminBadge tone="ochre">Cover</AdminBadge>
+                    <AdminBadge tone="sun">Cover</AdminBadge>
                   ) : null}
                 </div>
-                <p className="text-[0.82rem] leading-snug text-forest">{photo.caption}</p>
-                <p className="text-[0.7rem] leading-relaxed text-bark-soft">
+                <p className="text-[0.82rem] leading-snug text-ink">{photo.caption}</p>
+                <p className="text-[0.7rem] leading-relaxed text-ink/75">
                   Alt: {photo.alt}
                 </p>
                 <div className="flex flex-wrap items-center gap-1.5 pt-1">
@@ -249,7 +249,7 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
                     type="button"
                     onClick={() => movePhoto(photo, "up")}
                     disabled={index === 0}
-                    className="inline-flex h-7 w-7 items-center justify-center rounded-sm border border-line text-bark-soft transition-colors hover:bg-forest-tint disabled:opacity-30"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-ink/15 text-ink/75 transition-colors hover:bg-sun-tint disabled:opacity-30"
                     aria-label={`Move ${photo.caption} earlier`}
                   >
                     <ChevronUpIcon className="h-3.5 w-3.5" />
@@ -258,7 +258,7 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
                     type="button"
                     onClick={() => movePhoto(photo, "down")}
                     disabled={index === album.photos.length - 1}
-                    className="inline-flex h-7 w-7 items-center justify-center rounded-sm border border-line text-bark-soft transition-colors hover:bg-forest-tint disabled:opacity-30"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-ink/15 text-ink/75 transition-colors hover:bg-sun-tint disabled:opacity-30"
                     aria-label={`Move ${photo.caption} later`}
                   >
                     <ChevronDownIcon className="h-3.5 w-3.5" />
@@ -307,7 +307,7 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
             hint="Images only. The file must already be in the media library."
           />
           {photoErrors.mediaId ? (
-            <p className="text-[0.74rem] text-clay">{photoErrors.mediaId}</p>
+            <p className="text-[0.74rem] text-poppy-deep">{photoErrors.mediaId}</p>
           ) : null}
           <Field
             label="Caption"
@@ -345,7 +345,7 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
             />
           </Field>
 
-          <div className="flex justify-end gap-2 border-t border-line pt-4">
+          <div className="flex justify-end gap-2 border-t-2 border-ink/10 pt-4">
             <AdminButton
               variant="outline"
               onClick={() => setAdding(false)}
@@ -401,7 +401,7 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
               required
             />
           </Field>
-          <div className="flex justify-end gap-2 border-t border-line pt-4">
+          <div className="flex justify-end gap-2 border-t-2 border-ink/10 pt-4">
             <AdminButton
               variant="outline"
               onClick={() => setEditingPhoto(null)}
@@ -425,9 +425,9 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
         onConfirm={removePhoto}
       />
 
-      <div className="rounded-sm border border-line bg-paper p-4">
+      <div className="paper-card-plain border-2 border-ink/10 bg-paper p-4">
         <p className={adminLabel}>Album tip</p>
-        <p className="mt-1 text-[0.76rem] leading-relaxed text-bark-soft">
+        <p className="mt-1 text-[0.76rem] leading-relaxed text-ink/75">
           Order photographs as you want families to move through them. The first
           image or the one marked Cover appears on gallery cards.
         </p>

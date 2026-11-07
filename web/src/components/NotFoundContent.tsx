@@ -1,20 +1,26 @@
 import Link from "next/link";
 import { ButtonLink } from "./Button";
-import { LeafPattern } from "./brand";
+import { Cloud, ScribbleField, ScribbleUnderline, Sun } from "./brand";
 import { ArrowRightIcon } from "./icons";
 
 export function NotFoundContent() {
   return (
-    <section className="page-container py-16 md:py-28">
-      <div className="grid gap-10 border-t border-line pt-8 lg:grid-cols-12 lg:items-end">
+    <section className="page-container section relative overflow-hidden">
+      <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
         <div className="lg:col-span-7">
-          <p className="label-caps text-sage-deep">404 · Page not found</p>
-          <h1 className="display-xl mt-4 max-w-[13ch] text-forest">
-            This path has grown over.
+          <p className="sticker bg-poppy-tint text-ink">404 · Page not found</p>
+          <h1 className="display-xl mt-5 max-w-[12ch] text-ink">
+            This path has{" "}
+            <span className="relative inline-block">
+              grown over
+              <ScribbleUnderline className="absolute -bottom-2 left-0 h-3 w-full text-poppy" />
+            </span>
+            .
           </h1>
-          <p className="lead mt-6 max-w-xl">
+          <p className="lead mt-7 max-w-xl">
             The page you were looking for is not here. It may have moved, or the
-            link may have been mistyped. The garden is still open.
+            link may have been mistyped. The garden is still open, and the gate
+            is just over there.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href="/">
@@ -24,9 +30,9 @@ export function NotFoundContent() {
               Browse programmes
             </ButtonLink>
           </div>
-          <nav aria-label="Helpful links" className="mt-10 border-t border-line pt-5">
-            <p className="label-caps text-sage-deep">Try one of these</p>
-            <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-[0.86rem]">
+          <nav aria-label="Helpful links" className="mt-10">
+            <p className="font-display text-lg font-extrabold text-ink">Try one of these</p>
+            <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-[0.9rem] font-semibold">
               {[
                 { href: "/about", label: "About the school" },
                 { href: "/branches", label: "Our branches" },
@@ -37,10 +43,7 @@ export function NotFoundContent() {
                 { href: "/contact", label: "Contact" },
               ].map((item) => (
                 <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-forest transition-colors hover:text-sage-deep"
-                  >
+                  <Link href={item.href} className="squiggle-link text-ink hover:text-poppy-deep">
                     {item.label}
                   </Link>
                 </li>
@@ -49,19 +52,18 @@ export function NotFoundContent() {
           </nav>
         </div>
         <div className="relative lg:col-span-4 lg:col-start-9">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-sage-tint">
-            <LeafPattern className="absolute -right-4 top-0 h-full w-3/4 text-sage-deep opacity-35" />
-            <div className="absolute inset-0 flex flex-col justify-between p-6">
-              <span className="label-caps text-sage-deep">A small detour</span>
-              <div>
-                <span className="mb-3 block h-0.5 w-8 bg-ochre" aria-hidden />
-                <p className="font-display text-[1.35rem] leading-snug text-forest">
-                  Even the best walkers take a wrong turn.
-                </p>
-                <p className="mt-2 text-[0.8rem] leading-relaxed text-bark-soft">
-                  Use the links to find your way back to the school.
-                </p>
-              </div>
+          <div className="paper-card relative aspect-[4/5] overflow-hidden bg-sky-tint text-sky-deep">
+            <ScribbleField className="absolute inset-0 h-full w-full opacity-40" />
+            <Cloud className="absolute -left-6 top-7 h-16 w-32 text-paper opacity-80" />
+            <Sun className="animate-bob absolute right-5 top-5 h-24 w-24 text-sun" />
+            <div className="absolute inset-x-5 bottom-5 rounded-[26px_22px_30px_18px] bg-paper/90 p-5 paper-shadow">
+              <p className="hand text-ink/75">A small detour</p>
+              <p className="mt-1 font-display text-[1.4rem] font-extrabold leading-tight text-ink">
+                Even the best walkers take a wrong turn.
+              </p>
+              <p className="mt-2 text-[0.9rem] leading-relaxed text-ink/75">
+                Use the links to find your way back to the school.
+              </p>
             </div>
           </div>
         </div>

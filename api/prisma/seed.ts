@@ -677,9 +677,9 @@ async function buildPdf(
   const pdf = await PDFDocument.create();
   const regular = await pdf.embedFont(StandardFonts.Helvetica);
   const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
-  const forest = rgb(0.137, 0.224, 0.184);
-  const bark = rgb(0.18, 0.165, 0.141);
-  const ochre = rgb(0.851, 0.643, 0.255);
+  const ink = rgb(0.133, 0.157, 0.29);
+  const sun = rgb(1, 0.776, 0.18);
+  const mutedInk = rgb(0.34, 0.37, 0.45);
 
   let page = pdf.addPage([595.28, 841.89]);
   let cursor = 790;
@@ -691,15 +691,15 @@ async function buildPdf(
     y: 812,
     size: 9,
     font: bold,
-    color: forest,
+    color: ink,
     characterSpacing: 1.5,
   });
-  page.drawRectangle({ x: left, y: 800, width: 54, height: 2.5, color: ochre });
+  page.drawRectangle({ x: left, y: 800, width: 54, height: 2.5, color: sun });
   cursor = 770;
 
   const titleLines = await wrapText(heading, bold, 20, maxWidth);
   for (const line of titleLines) {
-    page.drawText(line, { x: left, y: cursor, size: 20, font: bold, color: forest });
+    page.drawText(line, { x: left, y: cursor, size: 20, font: bold, color: ink });
     cursor -= 25;
   }
   cursor -= 8;
@@ -714,7 +714,7 @@ async function buildPdf(
       y: cursor,
       size: 12,
       font: bold,
-      color: forest,
+      color: ink,
     });
     cursor -= 20;
     for (const paragraph of section.lines) {
@@ -729,7 +729,7 @@ async function buildPdf(
           y: cursor,
           size: 9.5,
           font: regular,
-          color: bark,
+          color: ink,
         });
         cursor -= 14;
       }
@@ -746,14 +746,14 @@ async function buildPdf(
       y: 34,
       size: 7.5,
       font: regular,
-      color: rgb(0.42, 0.47, 0.43),
+      color: mutedInk,
     });
     item.drawText(`${index + 1} / ${pages.length}`, {
       x: 595.28 - left - 24,
       y: 34,
       size: 7.5,
       font: regular,
-      color: rgb(0.42, 0.47, 0.43),
+      color: mutedInk,
     });
   });
 

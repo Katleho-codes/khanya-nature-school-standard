@@ -16,7 +16,7 @@ export function Breadcrumbs({
   return (
     <nav aria-label="Breadcrumb">
       <ol
-        className={`flex flex-wrap items-center gap-1.5 text-[0.72rem] ${inverse ? "text-oat/60" : "text-bark-soft"}`}
+        className={`flex flex-wrap items-center gap-1.5 text-[0.78rem] font-semibold ${inverse ? "text-paper/60" : "text-ink/75"}`}
       >
         {items.map((item, index) => {
           const last = index === items.length - 1;
@@ -25,12 +25,12 @@ export function Breadcrumbs({
               {item.href && !last ? (
                 <Link
                   href={item.href}
-                  className={`transition-colors ${inverse ? "hover:text-ochre" : "hover:text-forest"}`}
+                  className={`transition-colors ${inverse ? "hover:text-sun" : "hover:text-poppy-deep"}`}
                 >
                   {item.label}
                 </Link>
               ) : (
-                <span aria-current={last ? "page" : undefined} className={last ? (inverse ? "text-oat/85" : "text-forest") : ""}>
+                <span aria-current={last ? "page" : undefined} className={last ? (inverse ? "text-paper/85" : "text-ink") : ""}>
                   {item.label}
                 </span>
               )}

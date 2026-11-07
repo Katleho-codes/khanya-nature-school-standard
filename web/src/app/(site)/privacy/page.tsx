@@ -23,8 +23,9 @@ export default function PrivacyPage() {
         lead="This notice explains what we collect when you use this website or enquire about a place, why we need it and what you can ask us to do with it."
         crumbs={[{ label: "Home", href: "/" }, { label: "Privacy" }]}
         aside={
-          <div className="mt-6 border-t border-line pt-4 text-[0.8rem] leading-relaxed text-bark-soft">
-            <p>Last updated: 4 November 2026</p>
+          <div className="mt-6 paper-card rotate-[0.8deg] bg-sun-tint p-4 text-[0.8rem] leading-relaxed text-ink/75">
+            <p className="hand text-poppy-deep">Last updated</p>
+            <p className="mt-1 font-bold text-ink">4 November 2026</p>
             <p className="mt-2">
               This is a demonstration website. Khanya Nature School is a fictional
               school and no real learner information is processed here.
@@ -34,11 +35,11 @@ export default function PrivacyPage() {
       />
 
       <section className="page-container pb-16 md:pb-24">
-        <div className="grid gap-10 border-t border-line pt-8 lg:grid-cols-12 lg:gap-16">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <aside className="lg:col-span-3">
-            <nav aria-label="On this page" className="sticky top-32">
-              <p className="label-caps text-sage-deep">On this page</p>
-              <ul className="mt-3 space-y-2 text-[0.82rem]">
+            <nav aria-label="On this page" className="sticky top-32 paper-card-plain bg-sky-tint/55 p-4">
+              <p className="hand text-poppy-deep">On this page</p>
+              <ul className="mt-3 space-y-1 text-[0.82rem]">
                 {[
                   ["who", "Who we are"],
                   ["collect", "What we collect"],
@@ -49,7 +50,7 @@ export default function PrivacyPage() {
                   ["cookies", "Cookies"],
                 ].map(([id, label]) => (
                   <li key={id}>
-                    <a href={`#${id}`} className="text-bark-soft transition-colors hover:text-forest">
+                    <a href={`#${id}`} className="inline-flex min-h-8 items-center font-semibold text-ink/75 transition-colors hover:text-poppy-deep">
                       {label}
                     </a>
                   </li>
@@ -59,7 +60,7 @@ export default function PrivacyPage() {
           </aside>
 
           <div className="lg:col-span-8 lg:col-start-5">
-            <div className="prose-editorial">
+            <div className="prose-playful rounded-[28px_22px_30px_18px] bg-paper p-5 sm:p-7">
               <h2 id="who">Who we are</h2>
               <p>
                 Khanya Nature School is an independent nature-based preschool with
@@ -179,9 +180,9 @@ export default function PrivacyPage() {
               </p>
             </div>
 
-            <div className="mt-10 border-t border-line pt-6">
+            <div className="mt-8 paper-card-plain bg-meadow-tint/60 p-4">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-[0.84rem] leading-relaxed text-bark-soft">
+                <p className="text-[0.84rem] leading-relaxed text-ink/75">
                   Ready to ask about a place? The admissions page explains the
                   process and fees.
                 </p>
@@ -189,9 +190,9 @@ export default function PrivacyPage() {
                   Admissions <ArrowRightIcon className="h-3.5 w-3.5" />
                 </ButtonLink>
               </div>
-              <p className="mt-4 text-[0.78rem] text-bark-soft">
+              <p className="mt-4 text-[0.78rem] text-ink/75">
                 Prefer to talk it through?{" "}
-                <Link href="/contact" className="mark-link text-forest">
+                <Link href="/contact" className="squiggle-link font-bold text-ink">
                   Contact the office
                 </Link>
                 .

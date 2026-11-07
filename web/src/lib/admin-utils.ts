@@ -91,12 +91,12 @@ export const enquiryStatusLabels: Record<EnquiryStatus, string> = {
 
 export const enquiryStatusTones: Record<
   EnquiryStatus,
-  "green" | "ochre" | "neutral" | "clay"
+  "meadow" | "sun" | "neutral" | "poppy"
 > = {
-  NEW: "ochre",
-  CONTACTED: "green",
-  VISIT_ARRANGED: "green",
-  ENROLLED: "green",
+  NEW: "sun",
+  CONTACTED: "meadow",
+  VISIT_ARRANGED: "meadow",
+  ENROLLED: "meadow",
   NOT_PROCEEDING: "neutral",
 };
 

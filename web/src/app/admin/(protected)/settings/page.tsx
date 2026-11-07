@@ -116,12 +116,12 @@ export default function AdminSettingsPage() {
       {error ? <AdminError message={error} onRetry={reload} /> : null}
 
       {loading && !data ? (
-        <div className="h-96 animate-pulse rounded-sm border border-line bg-paper" />
+        <div className="h-96 animate-pulse paper-card-plain border-2 border-ink/10 bg-paper" />
       ) : (
         <form onSubmit={save} className="space-y-6">
-          <section className="rounded-sm border border-line bg-paper p-5">
-            <h2 className="font-display text-[1.25rem] text-forest">Identity</h2>
-            <p className="mt-1 text-[0.78rem] text-bark-soft">
+          <section className="paper-card-plain border-2 border-ink/10 bg-paper p-5">
+            <h2 className="font-display text-[1.25rem] text-ink">Identity</h2>
+            <p className="mt-1 text-[0.78rem] text-ink/75">
               Used in the header, footer, email templates and structured data.
             </p>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -171,14 +171,14 @@ export default function AdminSettingsPage() {
               seoDescription: errors.defaultSeoDescription,
             }}
           />
-          <p className="-mt-4 text-[0.72rem] text-bark-soft">
+          <p className="-mt-4 text-[0.72rem] text-ink/75">
             These are the site wide defaults. Individual pages can override them
             in their own SEO fields.
           </p>
 
-          <section className="rounded-sm border border-line bg-paper p-5">
-            <h2 className="font-display text-[1.25rem] text-forest">Social links</h2>
-            <p className="mt-1 text-[0.78rem] text-bark-soft">
+          <section className="paper-card-plain border-2 border-ink/10 bg-paper p-5">
+            <h2 className="font-display text-[1.25rem] text-ink">Social links</h2>
+            <p className="mt-1 text-[0.78rem] text-ink/75">
               Leave a field blank to hide that icon in the footer.
             </p>
             <div className="mt-4 grid gap-4">
@@ -215,8 +215,8 @@ export default function AdminSettingsPage() {
             </div>
           </section>
 
-          <section className="rounded-sm border border-line bg-paper p-5">
-            <h2 className="font-display text-[1.25rem] text-forest">
+          <section className="paper-card-plain border-2 border-ink/10 bg-paper p-5">
+            <h2 className="font-display text-[1.25rem] text-ink">
               Sharing and WhatsApp
             </h2>
             <div className="mt-4 grid gap-5 lg:grid-cols-2">
@@ -229,10 +229,10 @@ export default function AdminSettingsPage() {
               />
               <div>
                 <div className="flex items-baseline justify-between gap-3">
-                  <label htmlFor="settings-whatsapp" className="text-[0.74rem] font-medium text-forest">
+                  <label htmlFor="settings-whatsapp" className="text-[0.74rem] font-medium text-ink">
                     Default WhatsApp message
                   </label>
-                  <span className="text-[0.68rem] tabular-nums text-bark-soft">
+                  <span className="text-[0.68rem] tabular-nums text-ink/75">
                     {form.whatsappDefaultMessage.length} / 400
                   </span>
                 </div>
@@ -246,11 +246,11 @@ export default function AdminSettingsPage() {
                   required
                 />
                 {errors.whatsappDefaultMessage ? (
-                  <p className="mt-1 text-[0.72rem] text-clay">
+                  <p className="mt-1 text-[0.72rem] text-poppy-deep">
                     {errors.whatsappDefaultMessage}
                   </p>
                 ) : (
-                  <p className="mt-1 text-[0.7rem] text-bark-soft">
+                  <p className="mt-1 text-[0.7rem] text-ink/75">
                     Used when no more specific context is available. Keep it warm
                     and short.
                   </p>
@@ -260,12 +260,12 @@ export default function AdminSettingsPage() {
           </section>
 
           {Object.keys(errors).length > 0 ? (
-            <p className="text-[0.76rem] text-clay">
+            <p className="text-[0.76rem] text-poppy-deep">
               Some fields need attention. Check the messages above.
             </p>
           ) : null}
 
-          <div className="sticky bottom-0 flex justify-end gap-2 border-t border-line bg-oat py-3">
+          <div className="sticky bottom-0 flex justify-end gap-2 border-t-2 border-ink/10 bg-paper py-3">
             <AdminButton type="submit" disabled={saving}>
               {saving ? "Saving" : "Save settings"}
               {!saving ? <ArrowRightIcon className="h-3.5 w-3.5" /> : null}

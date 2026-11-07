@@ -3,10 +3,10 @@
 import { adminInput, adminLabel } from "./admin-ui";
 
 function counterTone(length: number, max: number): string {
-  if (length === 0) return "text-bark-soft";
-  if (length > max) return "text-clay";
-  if (length > max * 0.9) return "text-ochre-deep";
-  return "text-sage-deep";
+  if (length === 0) return "text-ink/75";
+  if (length > max) return "text-poppy-deep";
+  if (length > max * 0.9) return "text-poppy-deep";
+  return "text-ink/75";
 }
 
 export function SeoFields({
@@ -35,10 +35,10 @@ export function SeoFields({
     "A short description of this page will appear here in search results.";
 
   return (
-    <section className="rounded-sm border border-line bg-paper p-4">
+    <section className="paper-card-plain border-2 border-ink/10 bg-paper p-4">
       <div className="flex items-center justify-between gap-3">
-        <h3 className="text-[0.82rem] font-medium text-forest">Search engine listing</h3>
-        <span className="text-[0.68rem] uppercase tracking-[0.12em] text-sage-deep">
+        <h3 className="text-[0.82rem] font-medium text-ink">Search engine listing</h3>
+        <span className="text-[0.68rem] uppercase tracking-[0.12em] text-ink/75">
           Optional overrides
         </span>
       </div>
@@ -64,9 +64,9 @@ export function SeoFields({
             aria-invalid={Boolean(errors?.seoTitle)}
           />
           {errors?.seoTitle ? (
-            <p className="mt-1 text-[0.72rem] text-clay">{errors.seoTitle}</p>
+            <p className="mt-1 text-[0.72rem] text-poppy-deep">{errors.seoTitle}</p>
           ) : (
-            <p className="mt-1 text-[0.7rem] text-bark-soft">
+            <p className="mt-1 text-[0.7rem] text-ink/75">
               Aim for 50 to 60 characters so the title is not cut off.
             </p>
           )}
@@ -94,24 +94,24 @@ export function SeoFields({
             aria-invalid={Boolean(errors?.seoDescription)}
           />
           {errors?.seoDescription ? (
-            <p className="mt-1 text-[0.72rem] text-clay">{errors.seoDescription}</p>
+            <p className="mt-1 text-[0.72rem] text-poppy-deep">{errors.seoDescription}</p>
           ) : (
-            <p className="mt-1 text-[0.7rem] text-bark-soft">
+            <p className="mt-1 text-[0.7rem] text-ink/75">
               Aim for 140 to 155 characters. This does not affect the page body.
             </p>
           )}
         </div>
       </div>
 
-      <div className="mt-5 rounded-sm border border-line bg-oat p-4">
-        <p className="mb-2 text-[0.65rem] uppercase tracking-[0.14em] text-sage-deep">
+      <div className="mt-5 paper-card-plain border-2 border-ink/10 bg-paper p-4">
+        <p className="mb-2 text-[0.65rem] uppercase tracking-[0.14em] text-ink/75">
           Search preview
         </p>
-        <p className="text-[0.72rem] text-sage-deep">
+        <p className="text-[0.72rem] text-ink/75">
           khanyanatureschool.example{path}
         </p>
-        <p className="mt-1 line-clamp-1 text-[1rem] text-forest">{previewTitle}</p>
-        <p className="mt-1 line-clamp-2 text-[0.78rem] leading-relaxed text-bark-soft">
+        <p className="mt-1 line-clamp-1 text-[1rem] text-ink">{previewTitle}</p>
+        <p className="mt-1 line-clamp-2 text-[0.78rem] leading-relaxed text-ink/75">
           {previewDescription}
         </p>
       </div>

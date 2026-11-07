@@ -45,10 +45,10 @@ export function WhatsAppFloat({
       target="_blank"
       rel="noreferrer"
       aria-label={`Chat to Khanya Nature School on WhatsApp about ${message.replace("Hello ", "")}`}
-      className="fixed bottom-5 right-5 z-30 inline-flex h-14 w-14 items-center justify-center rounded-full border border-forest-deep bg-forest text-oat shadow-[0_2px_0_0_var(--color-forest-deep)] transition-colors hover:bg-forest-deep md:hidden"
+      className="hover-wobble fixed bottom-5 right-5 z-30 inline-flex h-14 w-14 items-center justify-center rounded-full border-b-4 border-meadow-deep bg-meadow text-ink shadow-[0_3px_0_rgb(34_40_74_/_0.16)] transition-colors hover:bg-sun md:hidden"
     >
       <WhatsAppIcon className="h-6 w-6" />
-      <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-ochre" aria-hidden />
+      <span className="absolute right-1 top-1 h-2.5 w-2.5 rounded-full border-2 border-paper bg-poppy-deep" aria-hidden />
     </a>
   );
 }

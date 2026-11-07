@@ -13,6 +13,7 @@ export interface GalleryPhoto {
 }
 
 const ratios = ["3 / 4", "3 / 2", "1 / 1", "4 / 5", "3 / 2", "1 / 1"];
+const tones = ["sun", "sky", "meadow", "poppy"] as const;
 
 export function GalleryGrid({
   photos,
@@ -37,7 +38,7 @@ export function GalleryGrid({
 
   if (photos.length === 0) {
     return (
-      <p className="border-t border-line py-10 text-sm text-bark-soft">
+      <p className="paper-card bg-sun-tint p-6 text-sm text-ink/75">
         Photographs for this album are still being sorted. Please check back soon.
       </p>
     );
@@ -61,10 +62,12 @@ export function GalleryGrid({
                 sizes="(min-width: 768px) 33vw, 50vw"
                 hasImage={photo.hasImage}
                 asFigure={false}
+                shape="paper"
+                tone={tones[photoIndex % tones.length]}
                 className="w-full"
                 imageClassName="transition-transform duration-700 group-hover:scale-[1.03]"
               />
-              <span className="mt-2 block text-[0.72rem] leading-snug text-bark-soft">
+              <span className="hand mt-2 block text-[1.02rem] leading-snug text-ink/75">
                 {photo.caption}
               </span>
             </button>
@@ -74,9 +77,9 @@ export function GalleryGrid({
 
       <Dialog.Root open={open} onOpenChange={(value) => setIndex(value ? (index ?? 0) : null)}>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 z-50 bg-forest-deep/85" />
+          <Dialog.Overlay className="fixed inset-0 z-50 bg-ink/85" />
           <Dialog.Content
-            className="fixed inset-x-4 top-1/2 z-50 mx-auto max-h-[90vh] max-w-4xl -translate-y-1/2 overflow-y-auto rounded-sm bg-oat p-4 sm:inset-x-8 sm:p-6"
+            className="fixed inset-x-4 top-1/2 z-50 mx-auto max-h-[90vh] max-w-4xl -translate-y-1/2 overflow-y-auto rounded-[28px_22px_30px_18px] bg-paper p-4 sm:inset-x-8 sm:p-6"
             onKeyDown={(event) => {
               if (event.key === "ArrowLeft") {
                 event.preventDefault();
@@ -90,17 +93,17 @@ export function GalleryGrid({
           >
             <div className="mb-4 flex items-center justify-between gap-4">
               <div>
-                <Dialog.Title className="font-display text-[1.2rem] text-forest">
+                <Dialog.Title className="font-display text-[1.2rem] font-extrabold text-ink">
                   {albumTitle}
                 </Dialog.Title>
-                <p className="mt-0.5 text-[0.72rem] uppercase tracking-[0.14em] text-sage-deep">
+                <p className="mt-0.5 font-hand text-[1.02rem] text-ink/75">
                   Photograph {index !== null ? index + 1 : 0} of {photos.length}
                 </p>
               </div>
               <Dialog.Close asChild>
                 <button
                   type="button"
-                  className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-line-strong text-forest transition-colors hover:bg-forest-tint"
+                  className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-ink/15 text-ink transition-colors hover:bg-poppy-tint"
                   aria-label="Close photograph"
                 >
                   <CloseIcon />
@@ -120,16 +123,18 @@ export function GalleryGrid({
                   ratio="3 / 2"
                   sizes="90vw"
                   hasImage={current.hasImage}
+                  shape="paper"
+                  tone="sky"
                   className="w-full"
                 />
                 <div className="mt-4 flex items-center justify-between gap-4">
-                  <p className="text-sm text-bark-soft">{current.caption}</p>
+                  <p className="hand text-[1.08rem] text-ink/75">{current.caption}</p>
                   <div className="flex shrink-0 items-center gap-2">
                     <button
                       type="button"
                       onClick={() => move(-1)}
                       aria-label="Previous photograph"
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-line-strong text-forest transition-colors hover:bg-forest-tint"
+                      className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-ink/15 text-ink transition-colors hover:bg-sun-tint"
                     >
                       <ChevronLeftIcon />
                     </button>
@@ -137,7 +142,7 @@ export function GalleryGrid({
                       type="button"
                       onClick={() => move(1)}
                       aria-label="Next photograph"
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-line-strong text-forest transition-colors hover:bg-forest-tint"
+                      className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-ink/15 text-ink transition-colors hover:bg-sun-tint"
                     >
                       <ChevronRightIcon />
                     </button>

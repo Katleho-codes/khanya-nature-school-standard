@@ -192,7 +192,7 @@ export default function AdminGalleriesPage() {
           {data.albums.map((album) => (
             <article
               key={album.id}
-              className="overflow-hidden rounded-sm border border-line bg-paper"
+              className="paper-card-plain overflow-hidden border-2 border-ink/10 bg-paper"
             >
               <Link href={`/admin/galleries/${album.id}`} className="block">
                 <PhotoFrame
@@ -205,30 +205,30 @@ export default function AdminGalleriesPage() {
               </Link>
               <div className="p-4">
                 <div className="flex flex-wrap items-center gap-2">
-                  <AdminBadge tone={album.isPublished ? "green" : "neutral"}>
+                  <AdminBadge tone={album.isPublished ? "meadow" : "neutral"}>
                     {album.isPublished ? "Published" : "Draft"}
                   </AdminBadge>
-                  <span className="text-[0.68rem] text-bark-soft">
+                  <span className="text-[0.68rem] text-ink/75">
                     {album._count?.photos ?? 0} photos
                   </span>
                 </div>
                 <Link
                   href={`/admin/galleries/${album.id}`}
-                  className="mt-2 block font-display text-[1.2rem] leading-tight text-forest hover:text-sage-deep"
+                  className="mt-2 block font-display text-[1.2rem] leading-tight text-ink hover:text-ink/75"
                 >
                   {album.title}
                 </Link>
-                <p className="mt-1 line-clamp-2 text-[0.74rem] leading-relaxed text-bark-soft">
+                <p className="mt-1 line-clamp-2 text-[0.74rem] leading-relaxed text-ink/75">
                   {album.description}
                 </p>
-                <p className="mt-2 text-[0.68rem] text-bark-soft">
+                <p className="mt-2 text-[0.68rem] text-ink/75">
                   {album.branch?.name ?? "Whole school"}
                   {album.takenOn ? ` · ${formatDate(album.takenOn)}` : ""}
                 </p>
                 <div className="mt-3 flex flex-wrap items-center gap-2">
                   <Link
                     href={`/admin/galleries/${album.id}`}
-                    className="inline-flex items-center gap-1 rounded-sm border border-line-strong px-3 py-1.5 text-[0.76rem] text-forest transition-colors hover:bg-forest-tint"
+                    className="inline-flex items-center gap-1 min-h-9 rounded-full border-2 border-b-4 border-ink/15 px-3.5 py-1.5 text-[0.78rem] font-bold text-ink transition-colors hover:bg-sun-tint"
                   >
                     Manage photos <ArrowRightIcon className="h-3.5 w-3.5" />
                   </Link>
@@ -292,7 +292,7 @@ export default function AdminGalleriesPage() {
                 <button
                   type="button"
                   onClick={() => set("slug", toSlug(form.title))}
-                  className="mt-1.5 shrink-0 rounded-sm border border-line-strong px-3 py-2 text-[0.72rem] text-forest transition-colors hover:bg-forest-tint"
+                  className="mt-1.5 shrink-0 min-h-10 rounded-full border-2 border-b-4 border-ink/15 px-3.5 py-2 text-[0.78rem] font-bold text-ink transition-colors hover:bg-sun-tint"
                 >
                   From title
                 </button>
@@ -342,12 +342,12 @@ export default function AdminGalleriesPage() {
                 onChange={(value) => set("branchId", value)}
                 emptyLabel="Whole school"
               />
-              <label className="flex items-center gap-2 text-[0.78rem] text-forest">
+              <label className="flex min-h-11 cursor-pointer items-center gap-2.5 text-[0.82rem] font-semibold text-ink">
                 <input
                   type="checkbox"
                   checked={form.isPublished}
                   onChange={(event) => set("isPublished", event.target.checked)}
-                  className="h-4 w-4 accent-forest"
+                  className="admin-check"
                 />
                 Publish this album
               </label>
@@ -355,12 +355,12 @@ export default function AdminGalleriesPage() {
           </div>
 
           {Object.keys(errors).length > 0 ? (
-            <p className="text-[0.76rem] text-clay">
+            <p className="text-[0.76rem] text-poppy-deep">
               Some fields need attention. Check the messages above.
             </p>
           ) : null}
 
-          <div className="sticky bottom-0 flex justify-end gap-2 border-t border-line bg-oat py-3">
+          <div className="sticky bottom-0 flex justify-end gap-2 border-t-2 border-ink/10 bg-paper py-3">
             <AdminButton
               variant="outline"
               onClick={() => {
