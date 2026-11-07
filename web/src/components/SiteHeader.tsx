@@ -41,7 +41,7 @@ export async function SiteHeader() {
             })}
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-ink/65">Visits by arrangement</span>
+            <span className="text-ink/75">Visits by arrangement</span>
             {branches[0] ? (
               <a
                 href={phoneHref(branches[0].phone)}

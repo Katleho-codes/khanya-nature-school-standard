@@ -51,6 +51,8 @@ pnpm smoke
 - TypeScript strict. Source files are `.ts` and `.tsx`; do not add `.js` or `.jsx` source.
 - Validate external input with Zod. Do not use `any` without a written reason. The generated Prisma client is excluded from source checks.
 - Brand colours live in `web/src/app/globals.css` as Tailwind theme tokens. Components use token classes only. Do not add hex colours outside the theme.
+- The visual identity is crayon and paper cut-outs: Baloo 2 headings, Mulish body and interface text, Gaegu only for small handwritten annotations, flat paper shapes, 3 px shadows and about 4% grain. Do not reintroduce the old editorial tokens, leaf motifs or portrait shapes.
+- Programme and branch colours live in `web/src/lib/tones.ts` and stay fixed across cards, calendars and admin badges. Ink text sits on sun, sky and meadow; white text only on poppy-deep. Text-bearing poppy surfaces use `poppy-deep`, not the bright base poppy.
 - Use `formatRand`, `formatDate`, `formatEventWhen`, `formatTime` and related helpers for South African formatting. Do not hand-format dates, times or money in components.
 - The school uses South African English and Africa/Johannesburg. Write `R3 200`, `3 March 2027` and `07:00`.
 - Do not use em dashes or en dashes in copy. Use a comma, colon, full stop or hyphen.
@@ -110,7 +112,7 @@ After a full smoke run, reseed before taking screenshots or handing over:
 pnpm db:seed
 ```
 
-If you change the design, re-run the axe and responsive suites, not only the happy path.
+If you change the design, re-run the axe and responsive suites, not only the happy path. Check 360, 768 and 1280 px and refresh `docs/screenshots/` when the layout changes.
 
 ## Scope
 

@@ -52,12 +52,12 @@ export default async function AdminLoginPage() {
         <div className="mx-auto w-full max-w-md">
           <p className="sticker bg-sky-tint text-ink">Sign in</p>
           <h2 className="display-md mt-3 text-ink">Welcome back.</h2>
-          <p className="mt-2 text-[0.92rem] leading-relaxed text-ink/65">
+          <p className="mt-2 text-[0.92rem] leading-relaxed text-ink/75">
             Use your school email address and password. Sessions expire after
             seven days of inactivity.
           </p>
           <LoginForm />
-          <p className="mt-8 text-[0.78rem] leading-relaxed text-ink/65">
+          <p className="mt-8 text-[0.78rem] leading-relaxed text-ink/75">
             Public sign up is disabled. If you need an account, ask an
             administrator.{" "}
             <Link
@@ -68,7 +68,7 @@ export default async function AdminLoginPage() {
             </Link>
             .
           </p>
-          <div className="mt-5 flex items-center gap-2 text-[0.72rem] text-ink/60">
+          <div className="mt-5 flex items-center gap-2 text-[0.72rem] text-ink/75">
             <span className="h-2 w-2 rounded-full bg-sun" aria-hidden />
             Demo website by LSQD Studios. Khanya Nature School is a fictional school.
           </div>

@@ -125,7 +125,7 @@ export function EventsCalendar({
           {WEEKDAYS.map((day) => (
             <div
               key={day}
-              className="px-1 py-2 text-center text-[0.62rem] font-extrabold uppercase tracking-[0.06em] text-ink/70 sm:text-[0.68rem]"
+              className="px-1 py-2 text-center text-[0.62rem] font-extrabold uppercase tracking-[0.06em] text-ink/75 sm:text-[0.68rem]"
             >
               <span className="hidden sm:inline">{day}</span>
               <span className="sm:hidden">{day.charAt(0)}</span>
@@ -148,7 +148,7 @@ export function EventsCalendar({
                       className={`inline-flex h-6 w-6 items-center justify-center rounded-full text-[0.72rem] font-bold ${
                         dayEvents.length > 0
                           ? "bg-poppy-deep text-white"
-                          : "text-ink/60"
+                          : "text-ink/75"
                       }`}
                     >
                       {cell.day}
@@ -165,7 +165,7 @@ export function EventsCalendar({
                         </Link>
                       ))}
                       {dayEvents.length > 2 ? (
-                        <span className="block px-1 text-[0.6rem] font-semibold text-ink/60">
+                        <span className="block px-1 text-[0.6rem] font-semibold text-ink/75">
                           +{dayEvents.length - 2} more
                         </span>
                       ) : null}
@@ -185,14 +185,14 @@ export function EventsCalendar({
               ? "Nothing on this month"
               : `${monthEvents.length} ${monthEvents.length === 1 ? "event" : "events"}`}
           </h3>
-          <span className="hand text-[1.02rem] text-ink/55">
+          <span className="hand text-[1.02rem] text-ink/75">
             {formatMonth(`${month}-15T12:00:00+02:00`)}
           </span>
         </div>
 
         {monthEvents.length === 0 ? (
           <div className="mt-4 paper-card-plain bg-sun-tint/50 p-5">
-            <p className="max-w-xl text-sm leading-relaxed text-ink/70">
+            <p className="max-w-xl text-sm leading-relaxed text-ink/75">
               The garden is quiet this month. Try the next month, or send us a
               message if you would like to arrange a visit.
             </p>
@@ -222,12 +222,12 @@ export function EventsCalendar({
                       <p className="font-display text-[1.7rem] font-extrabold leading-none text-ink">
                         {day}
                       </p>
-                      <p className="mt-1 text-[0.68rem] font-bold uppercase tracking-[0.06em] text-ink/60">
+                      <p className="mt-1 text-[0.68rem] font-bold uppercase tracking-[0.06em] text-ink/75">
                         {formatDateLong(event.startsAt).split(",")[0]}
                       </p>
                     </div>
                     <div>
-                      <p className="text-[0.68rem] font-bold uppercase tracking-[0.06em] text-ink/55">
+                      <p className="text-[0.68rem] font-bold uppercase tracking-[0.06em] text-ink/75">
                         {event.allDay
                           ? "All day"
                           : `${formatTime(event.startsAt)} to ${formatTime(event.endsAt)}`}
@@ -236,7 +236,7 @@ export function EventsCalendar({
                       <h4 className="mt-1 font-display text-[1.28rem] font-extrabold leading-tight text-ink transition-colors group-hover:text-poppy-deep">
                         {event.title}
                       </h4>
-                      <p className="mt-1 text-[0.8rem] text-ink/65">
+                      <p className="mt-1 text-[0.8rem] text-ink/75">
                         {event.locationText}
                       </p>
                     </div>

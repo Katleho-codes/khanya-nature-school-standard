@@ -37,7 +37,7 @@ export function MobileMenu({ branches }: { branches: Branch[] }) {
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-ink/45" />
-        <Dialog.Content className="fixed inset-0 z-50 overflow-y-auto bg-paper p-5 sm:p-8">
+        <Dialog.Content className="fixed inset-0 z-50 overflow-y-auto overflow-x-hidden bg-paper p-5 sm:p-8">
           <ScribbleField className="pointer-events-none fixed -right-24 -top-10 h-80 w-80 text-sun opacity-20" />
           <div className="relative mx-auto flex max-w-3xl items-center justify-between">
             <Dialog.Title className="sr-only">Khanya Nature School menu</Dialog.Title>
@@ -93,11 +93,11 @@ export function MobileMenu({ branches }: { branches: Branch[] }) {
                       className="flex items-baseline justify-between gap-4 font-display text-lg font-extrabold text-ink"
                     >
                       <span>{branch.name}</span>
-                      <span className="hand text-sm text-ink/55">{branch.suburb}</span>
+                      <span className="hand text-sm text-ink/75">{branch.suburb}</span>
                     </Link>
                     <a
                       href={phoneHref(branch.phone)}
-                      className="mt-2 inline-flex min-h-9 items-center gap-1.5 text-sm font-semibold text-ink/65 hover:text-poppy-deep"
+                      className="mt-2 inline-flex min-h-9 items-center gap-1.5 text-sm font-semibold text-ink/75 hover:text-poppy-deep"
                     >
                       <PhoneIcon className="h-3.5 w-3.5" />
                       {branch.phone}
@@ -109,7 +109,7 @@ export function MobileMenu({ branches }: { branches: Branch[] }) {
             <ButtonLink href="/admissions#enquiry" className="mt-7 w-full" size="md">
               Start an enquiry
             </ButtonLink>
-            <p className="hand mt-6 text-center text-ink/55">
+            <p className="hand mt-6 text-center text-ink/75">
               We usually reply within one working day.
             </p>
           </div>

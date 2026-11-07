@@ -7,7 +7,7 @@ const styles: Record<Variant, string> = {
   solid:
     "bg-sun text-ink border-b-4 border-sun-deep hover:bg-sun-deep hover:border-ink/25",
   secondary:
-    "bg-poppy-deep text-white border-b-4 border-ink/30 hover:bg-poppy hover:border-poppy-deep",
+    "bg-poppy-deep text-white border-b-4 border-ink/30 hover:bg-poppy-deep hover:brightness-110 hover:border-poppy-deep",
   outline:
     "bg-paper text-ink border-2 border-ink/20 border-b-4 border-b-ink/25 hover:bg-sun-tint",
   light:

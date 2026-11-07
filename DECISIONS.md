@@ -122,7 +122,7 @@ The public enquiry endpoint is rate limited. The form includes a honeypot field 
 
 ### Crayon and paper cut-outs, sunrise
 
-The first visual direction used warm oat, forest green and ochre, with a Fraunces serif, italic accent words, letter-spaced small-cap labels, hairline rules, arched portraits and thin leaf line art. It read as a boutique magazine rather than a preschool. The owner asked for the warmth and play of the sibling Marula Kids demo without copying it.
+The first visual direction used a muted heritage palette, a serif display face, italic accent words, letter-spaced small-cap labels, hairline rules, arched portraits and thin leaf line art. It read as a boutique magazine rather than a preschool. The owner asked for the warmth and play of the sibling Marula Kids demo without copying it.
 
 The replacement identity is "Crayon and paper cut-outs, sunrise". Khanya means light, so the primary mark is a hand-drawn sun. The page is warm paper, the shapes are flat coloured paper with no ink outlines, the corners are irregular, the shadows are flat 3 px paper edges and the decorations are crayon scribbles. Baloo 2 carries headings, Mulish carries body and interface text, and Gaegu is limited to tiny handwritten annotations. The palette is paper, ink, sun, poppy, sky and meadow, each with one deep and one tint step.
 
@@ -131,6 +131,10 @@ This is deliberately different from Marula Kids. Marula uses ink-outlined sticke
 Programme and branch colours are fixed so the same entity looks the same everywhere, including calendar dots and admin badges. Little Explorers is sun, Forest Kindy meadow, Bush School sky, Grade R Pathfinders poppy and Holiday Programme sun. Randburg is poppy and Fourways is sky. Only ink text sits on sun, sky and meadow. White text is used only on poppy-deep.
 
 The old tokens, fonts, leaf motifs, arches, numbered labels, small-caps eyebrows, hairline rules and editorial prose class were removed rather than hidden. All colour still lives in theme tokens in `web/src/app/globals.css`. Components use token classes only.
+
+Poppy surfaces that carry text use `poppy-deep` with white text. Base poppy is reserved for accents and decoration, because neither ink nor white reaches AA on the bright base tone. The deep poppy and meadow tokens were darkened slightly so coloured labels and admin badge text also pass on their tints.
+
+Paper grain and crayon filters are small inline SVGs rendered once from `PaperFilters`. `PhotoFrame` takes `shape` and `tone` props instead of a portrait-only flag. The admin keeps the same palette but uses plain rounded panels; irregular cut-out shapes are reserved for public pages so the workspace stays legible.
 
 ### Light mode only
 
@@ -142,7 +146,7 @@ Layouts start at small widths and expand. The header uses a desktop navigation a
 
 ### WCAG AA and reduced motion
 
-The site targets WCAG AA. Focus states are visible, the skip link is the first keyboard stop, images have alt text through the CMS, and axe scans cover public pages plus admin login and dashboard. Footer and admin text on dark green were increased in opacity after axe found contrast failures.
+The site targets WCAG AA. Focus states are visible, the skip link is the first keyboard stop, images have alt text through the CMS, and axe scans cover public pages plus admin login and dashboard. Muted ink text, poppy and meadow surfaces, and admin badge text were adjusted after axe found contrast failures. Decorative scribbles are clipped inside their sections so they cannot create horizontal scroll.
 
 Motion is restrained and respects `prefers-reduced-motion`. There are no autoplay videos or unnecessary animations.
 

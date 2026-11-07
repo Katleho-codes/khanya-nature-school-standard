@@ -29,7 +29,7 @@ export function DesktopNav() {
             className={`rounded-full px-3 py-2 text-[0.88rem] font-bold transition-colors ${
               active
                 ? "bg-sun text-ink"
-                : "text-ink/70 hover:bg-sun-tint hover:text-ink"
+                : "text-ink/75 hover:bg-sun-tint hover:text-ink"
             }`}
           >
             {link.label}

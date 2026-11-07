@@ -43,7 +43,7 @@ export default async function GalleryPage({ searchParams }: PageProps) {
         aside={
           <div className="mt-6 paper-card rotate-[1deg] bg-meadow-tint p-4">
             <p className="hand text-poppy-deep">A small promise</p>
-            <p className="mt-1 text-[0.82rem] leading-relaxed text-ink/70">
+            <p className="mt-1 text-[0.82rem] leading-relaxed text-ink/75">
               We only publish photographs with family permission. Faces are shown
               only where consent is current.
             </p>
@@ -53,14 +53,14 @@ export default async function GalleryPage({ searchParams }: PageProps) {
 
       <section className="page-container pb-8">
         <div className="flex flex-wrap items-center gap-2 rounded-[24px] bg-sky-tint/60 px-4 py-4">
-          <span className="mr-2 font-hand text-[1.05rem] text-ink/65">Branch</span>
+          <span className="mr-2 font-hand text-[1.05rem] text-ink/75">Branch</span>
           <Link
             href="/gallery"
             aria-current={!branch ? "page" : undefined}
             className={`inline-flex min-h-9 items-center rounded-full border-2 px-3.5 py-1.5 text-[0.78rem] font-bold transition-colors ${
               !branch
                 ? "border-ink bg-sun text-ink"
-                : "border-ink/15 bg-paper text-ink/70 hover:border-ink hover:bg-sun-tint hover:text-ink"
+                : "border-ink/15 bg-paper text-ink/75 hover:border-ink hover:bg-sun-tint hover:text-ink"
             }`}
           >
             All
@@ -75,7 +75,7 @@ export default async function GalleryPage({ searchParams }: PageProps) {
                 className={`inline-flex min-h-9 items-center rounded-full border-2 px-3.5 py-1.5 text-[0.78rem] font-bold transition-colors ${
                   active
                     ? "border-ink bg-sun text-ink"
-                    : "border-ink/15 bg-paper text-ink/70 hover:border-ink hover:bg-sun-tint hover:text-ink"
+                    : "border-ink/15 bg-paper text-ink/75 hover:border-ink hover:bg-sun-tint hover:text-ink"
                 }`}
               >
                 {item.name}
@@ -83,7 +83,7 @@ export default async function GalleryPage({ searchParams }: PageProps) {
             );
           })}
           {activeBranch ? (
-            <span className="ml-auto text-[0.74rem] text-ink/65">
+            <span className="ml-auto text-[0.74rem] text-ink/75">
               Showing {activeBranch.name} albums
             </span>
           ) : null}
@@ -96,7 +96,7 @@ export default async function GalleryPage({ searchParams }: PageProps) {
             <h2 className="font-display text-[1.8rem] font-extrabold text-ink">
               No albums for that branch yet.
             </h2>
-            <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink/65">
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink/75">
               The next set of photographs is probably still being sorted. Try all
               branches in the meantime.
             </p>
@@ -121,7 +121,7 @@ export default async function GalleryPage({ searchParams }: PageProps) {
               <h2 className="display-md mt-1 text-ink">
                 These are real days, not a photo shoot.
               </h2>
-              <p className="mt-2 max-w-2xl text-[0.92rem] leading-relaxed text-ink/65">
+              <p className="mt-2 max-w-2xl text-[0.92rem] leading-relaxed text-ink/75">
                 We photograph the work, the weather and the small moments that
                 make up a week. If you are a current family and would like an
                 image of your child removed, contact the office and we will do it

@@ -87,7 +87,7 @@ export default async function AlbumPage({ params }: PageProps) {
         aside={
           <div className="mt-6 paper-card rotate-[-0.8deg] bg-sun-tint p-4">
             <p className="hand text-poppy-deep">The picture book</p>
-            <p className="mt-1 text-[0.82rem] leading-relaxed text-ink/70">
+            <p className="mt-1 text-[0.82rem] leading-relaxed text-ink/75">
               {photos.length} {photos.length === 1 ? "photograph" : "photographs"}.
               Select any image to open it larger.
             </p>

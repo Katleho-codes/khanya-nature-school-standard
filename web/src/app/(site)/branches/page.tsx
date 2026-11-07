@@ -35,7 +35,7 @@ export default async function BranchesPage() {
         lead="Randburg has the big trees, the chickens and the corner-shop walk. Fourways has the wetland, the fire circle and the Grade R room. Both are small. Both are outside first."
         crumbs={[{ label: "Home", href: "/" }, { label: "Branches" }]}
         aside={
-          <div className="mt-6 paper-card rotate-[0.8deg] bg-sky-tint p-4 text-[0.84rem] leading-relaxed text-ink/70">
+          <div className="mt-6 paper-card rotate-[0.8deg] bg-sky-tint p-4 text-[0.84rem] leading-relaxed text-ink/75">
             <p>
               We welcome visits on weekday mornings during term time. A visit
               takes about an hour and children are welcome.
@@ -56,14 +56,14 @@ export default async function BranchesPage() {
               <BranchCard branch={branch} />
               <dl className={`mt-6 grid gap-3 paper-card-plain ${tone.tint} p-4 text-[0.84rem]`}>
                 <div className="grid grid-cols-[6rem_1fr] gap-3">
-                  <dt className="font-bold text-ink/55">Address</dt>
-                  <dd className="text-ink/70">
+                  <dt className="font-bold text-ink/75">Address</dt>
+                  <dd className="text-ink/75">
                     {branch.addressLine1}, {branch.suburb}, {branch.city},{" "}
                     {branch.postalCode}
                   </dd>
                 </div>
                 <div className="grid grid-cols-[6rem_1fr] gap-3">
-                  <dt className="font-bold text-ink/55">Phone</dt>
+                  <dt className="font-bold text-ink/75">Phone</dt>
                   <dd>
                     <a href={phoneHref(branch.phone)} className="squiggle-link font-bold text-ink">
                       {branch.phone}
@@ -71,7 +71,7 @@ export default async function BranchesPage() {
                   </dd>
                 </div>
                 <div className="grid grid-cols-[6rem_1fr] gap-3">
-                  <dt className="font-bold text-ink/55">Email</dt>
+                  <dt className="font-bold text-ink/75">Email</dt>
                   <dd>
                     <a href={`mailto:${branch.email}`} className="squiggle-link font-bold break-all text-ink">
                       {branch.email}
@@ -79,8 +79,8 @@ export default async function BranchesPage() {
                   </dd>
                 </div>
                 <div className="grid grid-cols-[6rem_1fr] gap-3">
-                  <dt className="font-bold text-ink/55">Programmes</dt>
-                  <dd className="text-ink/70">
+                  <dt className="font-bold text-ink/75">Programmes</dt>
+                  <dd className="text-ink/75">
                     {branch.programmes.map((programme) => programme.name).join(", ") ||
                       "Speak to the branch"}
                   </dd>
@@ -134,19 +134,19 @@ export default async function BranchesPage() {
             ].map((item) => (
               <div key={item.title} className={`paper-card ${item.tone} p-4`}>
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-paper">
-                  <item.icon className="h-5 w-5 text-ink/70" />
+                  <item.icon className="h-5 w-5 text-ink/75" />
                 </span>
                 <h3 className="mt-3 font-display text-[1.25rem] font-extrabold text-ink">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-[0.86rem] leading-relaxed text-ink/65">
+                <p className="mt-2 text-[0.86rem] leading-relaxed text-ink/75">
                   {item.body}
                 </p>
               </div>
             ))}
           </div>
           <div className="mt-10 paper-card-plain bg-paper p-4">
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-[0.82rem] text-ink/65">
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-[0.82rem] text-ink/75">
               {branches.map((branch) => (
                 <span key={branch.id} className="inline-flex items-center gap-2">
                   <span className="sticker bg-sun-tint text-ink">{branch.name}</span>
@@ -162,11 +162,11 @@ export default async function BranchesPage() {
         <div className="page-container">
           <div className="grid gap-8 paper-card rotate-[0.4deg] bg-sun p-6 md:grid-cols-[1fr_auto] md:items-center md:p-10">
             <div>
-              <p className="hand text-poppy-deep">Not sure which branch?</p>
+              <p className="hand text-ink">Not sure which branch?</p>
               <h2 className="display-md mt-1 text-ink">
                 Tell us where you live and we will be honest.
               </h2>
-              <p className="mt-2 text-[0.92rem] leading-relaxed text-ink/70">
+              <p className="mt-2 text-[0.92rem] leading-relaxed text-ink/75">
                 The drive matters. Send an enquiry and we will help you choose
                 the branch that will work on an ordinary Tuesday.
               </p>
@@ -175,7 +175,7 @@ export default async function BranchesPage() {
               Start an enquiry <ArrowRightIcon className="h-4 w-4" />
             </ButtonLink>
           </div>
-          <p className="mt-6 text-[0.8rem] text-ink/65">
+          <p className="mt-6 text-[0.8rem] text-ink/75">
             Midstream is opening soon.{" "}
             <Link href="/contact" className="squiggle-link font-bold text-ink">
               Ask to join the Midstream list

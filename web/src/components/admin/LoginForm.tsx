@@ -121,11 +121,11 @@ export function LoginForm() {
       <div className="flex flex-wrap items-center justify-between gap-3 border-t-2 border-ink/10 pt-4 text-[0.78rem]">
         <Link
           href="/"
-          className="inline-flex min-h-11 items-center font-bold text-ink/70 squiggle-link hover:text-poppy-deep"
+          className="inline-flex min-h-11 items-center font-bold text-ink/75 squiggle-link hover:text-poppy-deep"
         >
           Back to the website
         </Link>
-        <span className="inline-flex items-center gap-1.5 font-semibold text-ink/60">
+        <span className="inline-flex items-center gap-1.5 font-semibold text-ink/75">
           <CheckIcon className="h-4 w-4 text-meadow-deep" />
           Secure session
         </span>

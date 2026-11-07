@@ -100,11 +100,11 @@ export default function DashboardPage() {
               className="paper-card-plain relative overflow-hidden border-2 border-ink/10 bg-paper p-5"
             >
               <span className={`absolute inset-y-0 left-0 w-1.5 ${stat.accent}`} aria-hidden />
-              <p className="text-[0.8rem] font-bold text-ink/70">{stat.label}</p>
+              <p className="text-[0.8rem] font-bold text-ink/75">{stat.label}</p>
               <p className="mt-2 font-display text-[2.6rem] font-extrabold leading-none text-ink">
                 {stat.value}
               </p>
-              <p className="mt-2 text-[0.78rem] text-ink/60">{stat.note}</p>
+              <p className="mt-2 text-[0.78rem] text-ink/75">{stat.note}</p>
             </div>
           ))}
         </div>
@@ -135,7 +135,7 @@ export default function DashboardPage() {
               <p className="font-display text-[1.2rem] font-extrabold text-ink">
                 The enquiry list is quiet.
               </p>
-              <p className="hand mt-1 text-[1.1rem] text-ink/60">
+              <p className="hand mt-1 text-[1.1rem] text-ink/75">
                 A family will land here soon.
               </p>
             </div>
@@ -143,7 +143,7 @@ export default function DashboardPage() {
             <div className="paper-card-plain mt-4 overflow-x-auto border-2 border-ink/10 bg-paper">
               <table className="w-full min-w-[38rem] text-left">
                 <thead>
-                  <tr className="border-b-2 border-ink/10 bg-sky-tint/55 text-[0.66rem] font-bold uppercase tracking-[0.1em] text-ink/60">
+                  <tr className="border-b-2 border-ink/10 bg-sky-tint/55 text-[0.66rem] font-bold uppercase tracking-[0.1em] text-ink/75">
                     <th scope="col" className="px-3 py-2.5">Family</th>
                     <th scope="col" className="px-3 py-2.5">Branch</th>
                     <th scope="col" className="px-3 py-2.5">Received</th>
@@ -160,14 +160,14 @@ export default function DashboardPage() {
                         >
                           {enquiry.parentName}
                         </Link>
-                        <p className="text-[0.7rem] text-ink/60">
+                        <p className="text-[0.7rem] text-ink/75">
                           {enquiry.childName} · {enquiry.reference}
                         </p>
                       </td>
-                      <td className="px-3 py-3 text-[0.78rem] text-ink/60">
+                      <td className="px-3 py-3 text-[0.78rem] text-ink/75">
                         {enquiry.branch.name}
                       </td>
-                      <td className="px-3 py-3 text-[0.75rem] text-ink/60">
+                      <td className="px-3 py-3 text-[0.75rem] text-ink/75">
                         {formatDate(enquiry.createdAt)}
                         <span className="block text-[0.68rem]">{formatTime(enquiry.createdAt)}</span>
                       </td>
@@ -206,7 +206,7 @@ export default function DashboardPage() {
               <p className="font-display text-[1.15rem] font-extrabold text-ink">
                 No letters in the outbox.
               </p>
-              <p className="hand mt-1 text-[1.05rem] text-ink/60">
+              <p className="hand mt-1 text-[1.05rem] text-ink/75">
                 Send one when a family writes in.
               </p>
             </div>
@@ -221,10 +221,10 @@ export default function DashboardPage() {
                     <p className="line-clamp-1 text-[0.84rem] font-bold text-ink">
                       {email.subject}
                     </p>
-                    <p className="mt-0.5 truncate text-[0.7rem] text-ink/60">
+                    <p className="mt-0.5 truncate text-[0.7rem] text-ink/75">
                       To {email.to}
                     </p>
-                    <p className="mt-0.5 text-[0.65rem] text-ink/60">
+                    <p className="mt-0.5 text-[0.65rem] text-ink/75">
                       {formatDate(email.createdAt)} · {formatTime(email.createdAt)}
                     </p>
                   </Link>
@@ -234,7 +234,7 @@ export default function DashboardPage() {
           )}
 
           <div className="paper-card mt-6 rotate-[0.6deg] bg-sky-tint/45 p-4">
-            <p className="hand text-[1.15rem] text-ink/65">Quick links</p>
+            <p className="hand text-[1.15rem] text-ink/75">Quick links</p>
             <div className="mt-3 grid gap-2">
               {[
                 { href: "/admin/branches", label: "Branch opening hours" },

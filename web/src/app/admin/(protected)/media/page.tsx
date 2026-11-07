@@ -231,7 +231,7 @@ export default function AdminMediaPage() {
       </form>
 
       {!loading && data ? (
-        <p className="text-[0.76rem] text-ink/60">
+        <p className="text-[0.76rem] text-ink/75">
           {data.media.length} files shown
           {filtered ? " for these filters" : ""}. {images} images, {documents} documents.
         </p>
@@ -283,8 +283,8 @@ export default function AdminMediaPage() {
                   />
                 ) : (
                   <div className="flex aspect-[3/2] flex-col items-center justify-center gap-2 bg-sky-tint/60 p-6 text-center">
-                    <DownloadIcon className="h-7 w-7 text-ink/60" />
-                    <p className="text-[0.72rem] uppercase tracking-[0.12em] text-ink/60">
+                    <DownloadIcon className="h-7 w-7 text-ink/75" />
+                    <p className="text-[0.72rem] uppercase tracking-[0.12em] text-ink/75">
                       PDF document
                     </p>
                   </div>
@@ -294,23 +294,23 @@ export default function AdminMediaPage() {
                     <AdminBadge tone={isImage ? "meadow" : "neutral"}>
                       {isImage ? "Image" : "PDF"}
                     </AdminBadge>
-                    <span className="text-[0.66rem] text-ink/60">
+                    <span className="text-[0.66rem] text-ink/75">
                       {formatDate(item.createdAt)}
                     </span>
                   </div>
                   <p className="truncate text-[0.82rem] font-medium text-ink">
                     {item.originalName}
                   </p>
-                  <p className="text-[0.7rem] text-ink/60">
+                  <p className="text-[0.7rem] text-ink/75">
                     {formatBytes(item.sizeBytes)}
                     {item.width && item.height
                       ? ` · ${item.width} × ${item.height} pixels`
                       : ""}
                   </p>
-                  <p className="line-clamp-2 text-[0.7rem] leading-relaxed text-ink/60">
+                  <p className="line-clamp-2 text-[0.7rem] leading-relaxed text-ink/75">
                     {item.alt ?? "No description yet."}
                   </p>
-                  <p className="truncate rounded-full bg-paper px-2 py-1 text-[0.65rem] text-ink/60">
+                  <p className="truncate rounded-full bg-paper px-2 py-1 text-[0.65rem] text-ink/75">
                     {item.url}
                   </p>
                   <div className="flex flex-wrap gap-1.5 pt-1">
@@ -387,7 +387,7 @@ export default function AdminMediaPage() {
 
       <div className="paper-card-plain border-2 border-ink/10 bg-paper p-4">
         <p className={adminLabel}>Upload guidance</p>
-        <p className="mt-1 text-[0.76rem] leading-relaxed text-ink/60">
+        <p className="mt-1 text-[0.76rem] leading-relaxed text-ink/75">
           Landscape photographs work best at 1920 × 1280 pixels. Portraits used
           in arched frames should be at least 1200 × 1600 pixels. Keep files
           under 8 MB so pages stay quick on mobile data.

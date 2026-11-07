@@ -16,7 +16,7 @@ export function Breadcrumbs({
   return (
     <nav aria-label="Breadcrumb">
       <ol
-        className={`flex flex-wrap items-center gap-1.5 text-[0.78rem] font-semibold ${inverse ? "text-paper/60" : "text-ink/50"}`}
+        className={`flex flex-wrap items-center gap-1.5 text-[0.78rem] font-semibold ${inverse ? "text-paper/60" : "text-ink/75"}`}
       >
         {items.map((item, index) => {
           const last = index === items.length - 1;

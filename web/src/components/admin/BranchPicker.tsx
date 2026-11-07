@@ -69,7 +69,7 @@ export function BranchSelect({
           </option>
         ))}
       </select>
-      {hint ? <p className="mt-1 text-[0.7rem] text-ink/60">{hint}</p> : null}
+      {hint ? <p className="mt-1 text-[0.7rem] text-ink/75">{hint}</p> : null}
     </div>
   );
 }
@@ -97,11 +97,11 @@ export function BranchCheckboxes({
     <fieldset>
       <legend className={adminLabel}>Available at</legend>
       {loading ? (
-        <p className="mt-1 text-[0.74rem] text-ink/60">Loading branches...</p>
+        <p className="mt-1 text-[0.74rem] text-ink/75">Loading branches...</p>
       ) : error ? (
         <p className="mt-1 text-[0.74rem] text-poppy-deep">{error}</p>
       ) : branches.length === 0 ? (
-        <p className="mt-1 text-[0.74rem] text-ink/60">
+        <p className="mt-1 text-[0.74rem] text-ink/75">
           Add a branch before linking programmes.
         </p>
       ) : (
@@ -119,13 +119,13 @@ export function BranchCheckboxes({
               />
               {branch.name}
               {branch.isActive ? null : (
-                <span className="text-[0.68rem] text-ink/60">(hidden)</span>
+                <span className="text-[0.68rem] text-ink/75">(hidden)</span>
               )}
             </label>
           ))}
         </div>
       )}
-      {hint ? <p className="mt-1 text-[0.7rem] text-ink/60">{hint}</p> : null}
+      {hint ? <p className="mt-1 text-[0.7rem] text-ink/75">{hint}</p> : null}
     </fieldset>
   );
 }

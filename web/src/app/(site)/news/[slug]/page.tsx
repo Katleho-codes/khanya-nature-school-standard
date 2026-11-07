@@ -119,9 +119,9 @@ export default async function NewsDetailPage({ params }: PageProps) {
               <div>
                 <p className="hand text-poppy-deep">Filed under</p>
                 <p className="mt-1 text-[0.86rem] font-bold text-ink">{categoryLabels[post.category]}</p>
-                <p className="mt-1 text-[0.8rem] text-ink/65">
+                <p className="mt-1 text-[0.8rem] text-ink/75">
                   {post.branch ? (
-                    <Link href={`/news?branch=${post.branch.slug}`} className="squiggle-link font-bold text-ink/65">
+                    <Link href={`/news?branch=${post.branch.slug}`} className="squiggle-link font-bold text-ink/75">
                       {post.branch.name}
                     </Link>
                   ) : (
@@ -154,7 +154,7 @@ export default async function NewsDetailPage({ params }: PageProps) {
               dangerouslySetInnerHTML={{ __html: body }}
             />
             <div className="mt-8 paper-card-plain bg-sky-tint p-4">
-              <p className="text-[0.82rem] leading-relaxed text-ink/70">
+              <p className="text-[0.82rem] leading-relaxed text-ink/75">
                 Questions about this story?{" "}
                 <Link href="/contact" className="squiggle-link font-bold text-ink">
                   Contact the office

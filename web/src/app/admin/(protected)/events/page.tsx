@@ -291,7 +291,7 @@ export default function AdminEventsPage() {
         />
       ) : (
         <div className="paper-card-plain overflow-hidden border-2 border-ink/10 bg-paper">
-          <div className="hidden grid-cols-[1.5fr_11rem_9rem_8rem_9rem_9rem] gap-4 border-b-2 border-ink/10 bg-sky-tint/55 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-ink/60 lg:grid">
+          <div className="hidden grid-cols-[1.5fr_11rem_9rem_8rem_9rem_9rem] gap-4 border-b-2 border-ink/10 bg-sky-tint/55 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-ink/75 lg:grid">
             <span>Event</span>
             <span>When</span>
             <span>Branch</span>
@@ -319,19 +319,19 @@ export default function AdminEventsPage() {
                     <p className="truncate font-display text-[1.08rem] leading-tight text-ink">
                       {event.title}
                     </p>
-                    <p className="mt-0.5 text-[0.7rem] text-ink/60">
+                    <p className="mt-0.5 text-[0.7rem] text-ink/75">
                       {event.locationText}
                     </p>
-                    <p className="mt-0.5 text-[0.65rem] text-ink/60">
+                    <p className="mt-0.5 text-[0.65rem] text-ink/75">
                       /events/{event.slug}
                     </p>
                   </div>
                 </div>
 
-                <div className="text-[0.74rem] leading-relaxed text-ink/60">
+                <div className="text-[0.74rem] leading-relaxed text-ink/75">
                   <p>{formatEventWhen(event)}</p>
                 </div>
-                <div className="text-[0.74rem] text-ink/60">
+                <div className="text-[0.74rem] text-ink/75">
                   {event.branch?.name ?? "Whole school"}
                 </div>
                 <div>
@@ -339,7 +339,7 @@ export default function AdminEventsPage() {
                     {event.isPublished ? "Published" : "Draft"}
                   </AdminBadge>
                 </div>
-                <div className="text-[0.7rem] text-ink/60">
+                <div className="text-[0.7rem] text-ink/75">
                   {event.allDay ? "All day" : "Timed"}
                 </div>
                 <div className="flex flex-wrap items-center gap-2 lg:justify-end">

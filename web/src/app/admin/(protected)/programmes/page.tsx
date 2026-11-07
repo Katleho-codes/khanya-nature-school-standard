@@ -266,7 +266,7 @@ export default function AdminProgrammesPage() {
         />
       ) : (
         <div className="paper-card-plain overflow-hidden border-2 border-ink/10 bg-paper">
-          <div className="hidden grid-cols-[4rem_1.4fr_1fr_9rem_8rem_10rem] gap-4 border-b-2 border-ink/10 bg-sky-tint/55 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-ink/60 lg:grid">
+          <div className="hidden grid-cols-[4rem_1.4fr_1fr_9rem_8rem_10rem] gap-4 border-b-2 border-ink/10 bg-sky-tint/55 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-ink/75 lg:grid">
             <span>Order</span>
             <span>Programme</span>
             <span>Fee and branches</span>
@@ -280,7 +280,7 @@ export default function AdminProgrammesPage() {
               className="grid gap-4 border-b-2 border-ink/10 px-4 py-4 last:border-b-0 lg:grid-cols-[4rem_1.4fr_1fr_9rem_8rem_10rem] lg:items-center"
             >
               <div className="flex items-center gap-1 lg:flex-col lg:items-start">
-                <span className="text-[0.68rem] text-ink/60">
+                <span className="text-[0.68rem] text-ink/75">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div className="flex gap-0.5">
@@ -288,7 +288,7 @@ export default function AdminProgrammesPage() {
                     type="button"
                     onClick={() => move(programme, "up")}
                     disabled={index === 0}
-                    className="inline-flex h-7 w-7 items-center justify-center rounded-full border-2 border-ink/15 text-ink/60 transition-colors hover:bg-sun-tint disabled:opacity-30"
+                    className="inline-flex h-7 w-7 items-center justify-center rounded-full border-2 border-ink/15 text-ink/75 transition-colors hover:bg-sun-tint disabled:opacity-30"
                     aria-label={`Move ${programme.name} up`}
                   >
                     <ChevronUpIcon className="h-3.5 w-3.5" />
@@ -297,7 +297,7 @@ export default function AdminProgrammesPage() {
                     type="button"
                     onClick={() => move(programme, "down")}
                     disabled={index === data.programmes.length - 1}
-                    className="inline-flex h-7 w-7 items-center justify-center rounded-full border-2 border-ink/15 text-ink/60 transition-colors hover:bg-sun-tint disabled:opacity-30"
+                    className="inline-flex h-7 w-7 items-center justify-center rounded-full border-2 border-ink/15 text-ink/75 transition-colors hover:bg-sun-tint disabled:opacity-30"
                     aria-label={`Move ${programme.name} down`}
                   >
                     <ChevronDownIcon className="h-3.5 w-3.5" />
@@ -322,13 +322,13 @@ export default function AdminProgrammesPage() {
                   <p className="mt-1 truncate font-display text-[1.1rem] leading-tight text-ink">
                     {programme.name}
                   </p>
-                  <p className="mt-0.5 line-clamp-2 text-[0.7rem] leading-relaxed text-ink/60">
+                  <p className="mt-0.5 line-clamp-2 text-[0.7rem] leading-relaxed text-ink/75">
                     {programme.summary}
                   </p>
                 </div>
               </div>
 
-              <div className="text-[0.74rem] leading-relaxed text-ink/60">
+              <div className="text-[0.74rem] leading-relaxed text-ink/75">
                 <p className="font-medium text-ink">
                   {formatFee(programme.monthlyFeeCents)}
                 </p>
@@ -346,7 +346,7 @@ export default function AdminProgrammesPage() {
                 </AdminBadge>
               </div>
 
-              <div className="text-[0.7rem] text-ink/60">
+              <div className="text-[0.7rem] text-ink/75">
                 <p>/programmes/{programme.slug}</p>
               </div>
 
@@ -508,12 +508,12 @@ export default function AdminProgrammesPage() {
 
           <fieldset className="rounded-[20px] border-2 border-ink/10 bg-sun-tint/20 p-4">
             <legend className={adminLabel}>Daily rhythm</legend>
-            <p className="mt-1 text-[0.72rem] text-ink/60">
+            <p className="mt-1 text-[0.72rem] text-ink/75">
               The small moments that shape the day. Keep it to six or eight rows.
             </p>
             <div className="mt-3 space-y-2">
               {form.dailyRhythm.length === 0 ? (
-                <p className="text-[0.76rem] text-ink/60">No moments yet.</p>
+                <p className="text-[0.76rem] text-ink/75">No moments yet.</p>
               ) : null}
               {form.dailyRhythm.map((item, index) => (
                 <div
@@ -537,7 +537,7 @@ export default function AdminProgrammesPage() {
                   <button
                     type="button"
                     onClick={() => removeRhythm(index)}
-                    className="mt-1.5 inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-ink/15 text-ink/60 transition-colors hover:bg-poppy-deep/10 hover:text-poppy-deep"
+                    className="mt-1.5 inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-ink/15 text-ink/75 transition-colors hover:bg-poppy-deep/10 hover:text-poppy-deep"
                     aria-label={`Remove rhythm moment ${index + 1}`}
                   >
                     <CloseIcon className="h-3.5 w-3.5" />

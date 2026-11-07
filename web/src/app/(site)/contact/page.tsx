@@ -41,7 +41,7 @@ export default async function ContactPage() {
         aside={
           <div className="mt-6 paper-card rotate-[0.6deg] bg-sky-tint p-4">
             <p className="hand text-poppy-deep">For a place at school</p>
-            <p className="mt-1 text-[0.82rem] leading-relaxed text-ink/70">
+            <p className="mt-1 text-[0.82rem] leading-relaxed text-ink/75">
               The{" "}
               <a href="/admissions#enquiry" className="squiggle-link font-bold text-ink">
                 enquiry form
@@ -57,7 +57,7 @@ export default async function ContactPage() {
           <div className="lg:col-span-5">
             <p className="sticker bg-paper text-ink">The office</p>
             <h2 className="display-lg mt-3 text-ink">General enquiries.</h2>
-            <p className="mt-4 text-[0.94rem] leading-relaxed text-ink/65">
+            <p className="mt-4 text-[0.94rem] leading-relaxed text-ink/75">
               Use the office email for documents, accounts, press or anything
               that does not belong to a single branch. We aim to reply within one
               working day.
@@ -70,7 +70,7 @@ export default async function ContactPage() {
                 <MailIcon className="mt-0.5 h-5 w-5 shrink-0 text-poppy-deep" />
                 <span>
                   hello@khanyanatureschool.example
-                  <span className="mt-0.5 block text-[0.74rem] font-normal text-ink/60">
+                  <span className="mt-0.5 block text-[0.74rem] font-normal text-ink/75">
                     General and new family enquiries
                   </span>
                 </span>
@@ -83,7 +83,7 @@ export default async function ContactPage() {
                   <PhoneIcon className="mt-0.5 h-5 w-5 shrink-0 text-poppy-deep" />
                   <span>
                     {branches[0].phone}
-                    <span className="mt-0.5 block text-[0.74rem] font-normal text-ink/60">
+                    <span className="mt-0.5 block text-[0.74rem] font-normal text-ink/75">
                       General office line, {branches[0].name}
                     </span>
                   </span>
@@ -93,7 +93,7 @@ export default async function ContactPage() {
                 <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-poppy-deep" />
                 <span>
                   Two branches, Randburg and Fourways
-                  <span className="mt-0.5 block text-[0.74rem] font-normal text-ink/60">
+                  <span className="mt-0.5 block text-[0.74rem] font-normal text-ink/75">
                     Postal address available on request
                   </span>
                 </span>
@@ -110,9 +110,9 @@ export default async function ContactPage() {
 
           <div className="lg:col-span-6 lg:col-start-7">
             <div className="paper-card bg-sun p-5 md:p-7">
-              <p className="hand text-poppy-deep">Visiting</p>
+              <p className="hand text-ink">Visiting</p>
               <h2 className="display-md mt-1 text-ink">Weekday mornings, by arrangement.</h2>
-              <p className="mt-3 text-[0.9rem] leading-relaxed text-ink/70">
+              <p className="mt-3 text-[0.9rem] leading-relaxed text-ink/75">
                 We do not run formal open days every week. Instead, families visit
                 on an ordinary weekday morning when the garden is in use. A visit
                 takes about an hour.
@@ -146,7 +146,7 @@ export default async function ContactPage() {
               <p className="sticker bg-paper text-ink">Direct lines</p>
               <h2 className="display-md mt-2 text-ink">Find your branch.</h2>
             </div>
-            <p className="text-[0.78rem] text-ink/65">
+            <p className="text-[0.78rem] text-ink/75">
               Use the branch details for collections, absences and day-to-day
               questions.
             </p>
@@ -161,7 +161,7 @@ export default async function ContactPage() {
                 <h3 className="mt-1 font-display text-[1.65rem] font-extrabold text-ink">
                   {branch.name}
                 </h3>
-                <p className="mt-2 text-[0.88rem] leading-relaxed text-ink/65">
+                <p className="mt-2 text-[0.88rem] leading-relaxed text-ink/75">
                   {branch.tagline}
                 </p>
                 <div className="mt-5 grid gap-5 sm:grid-cols-2">
@@ -189,7 +189,7 @@ export default async function ContactPage() {
                       <WhatsAppIcon className="h-4 w-4 text-poppy-deep" />
                       WhatsApp
                     </a>
-                    <p className="mt-4 flex items-start gap-2 text-[0.8rem] leading-relaxed text-ink/65">
+                    <p className="mt-4 flex items-start gap-2 text-[0.8rem] leading-relaxed text-ink/75">
                       <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0 text-poppy-deep" />
                       <span>
                         {branch.addressLine1}
@@ -205,7 +205,7 @@ export default async function ContactPage() {
                     <div className="mt-2">
                       <HoursTable hours={branch.hours} />
                     </div>
-                    <p className="mt-2 text-[0.72rem] text-ink/60">
+                    <p className="mt-2 text-[0.72rem] text-ink/75">
                       {summariseHours(branch.hours)}
                     </p>
                   </div>
@@ -238,11 +238,11 @@ export default async function ContactPage() {
         <div className="page-container">
           <div className="grid gap-8 paper-card rotate-[-0.3deg] bg-poppy-deep p-6 text-white md:grid-cols-[1fr_auto] md:items-center md:p-10">
             <div>
-              <p className="hand text-sun">Not sure who to ask?</p>
+              <p className="hand text-white">Not sure who to ask?</p>
               <h2 className="display-md mt-1 text-white">
                 Send one message. We will route it.
               </h2>
-              <p className="mt-2 max-w-2xl text-[0.92rem] leading-relaxed text-white/80">
+              <p className="mt-2 max-w-2xl text-[0.92rem] leading-relaxed text-white">
                 Use the admissions form for a place, or the office email for
                 anything else. We would rather redirect you than have you phone
                 three numbers.

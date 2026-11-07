@@ -107,7 +107,7 @@ export default async function AdmissionsPage({ searchParams }: PageProps) {
         aside={
           <div className="mt-6 paper-card rotate-[-1deg] bg-sun-tint p-4">
             <p className="hand text-poppy-deep">Places for 2027</p>
-            <p className="mt-1 text-[0.82rem] leading-relaxed text-ink/70">
+            <p className="mt-1 text-[0.82rem] leading-relaxed text-ink/75">
               Enquiries for 2027 are open. Places are offered in order of
               application after a visit.
               {cheapest ? ` Term-time fees start at ${formatRand(cheapest)} per month.` : ""}
@@ -150,7 +150,7 @@ export default async function AdmissionsPage({ searchParams }: PageProps) {
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h2 className="mt-3 font-display text-[1.35rem] font-extrabold text-ink">{step.title}</h2>
-                <p className="mt-2 text-[0.84rem] leading-relaxed text-ink/65">{step.body}</p>
+                <p className="mt-2 text-[0.84rem] leading-relaxed text-ink/75">{step.body}</p>
               </div>
             ))}
           </div>
@@ -175,7 +175,7 @@ export default async function AdmissionsPage({ searchParams }: PageProps) {
             <div className="grid gap-4">
               <div className="paper-card bg-paper p-4">
                 <h3 className="font-display text-[1.3rem] font-extrabold text-ink">What to expect</h3>
-                <p className="mt-2 text-[0.88rem] leading-relaxed text-ink/65">
+                <p className="mt-2 text-[0.88rem] leading-relaxed text-ink/75">
                   Allow about an hour. Wear shoes that can handle a garden. Bring
                   your child if you can; watching them in the space tells you
                   more than any conversation.
@@ -183,14 +183,14 @@ export default async function AdmissionsPage({ searchParams }: PageProps) {
               </div>
               <div className="paper-card bg-paper p-4">
                 <h3 className="font-display text-[1.3rem] font-extrabold text-ink">When</h3>
-                <p className="mt-2 text-[0.88rem] leading-relaxed text-ink/65">
+                <p className="mt-2 text-[0.88rem] leading-relaxed text-ink/75">
                   Weekday mornings during term, usually 09:00 to 10:00. We avoid
                   the first week of term and rest time.
                 </p>
               </div>
               <div className="paper-card bg-paper p-4">
                 <h3 className="font-display text-[1.3rem] font-extrabold text-ink">Who you will meet</h3>
-                <p className="mt-2 text-[0.88rem] leading-relaxed text-ink/65">
+                <p className="mt-2 text-[0.88rem] leading-relaxed text-ink/75">
                   The branch principal, the teacher who would work with your
                   child and, if you are lucky, whichever chicken is currently
                   broody.
@@ -209,7 +209,7 @@ export default async function AdmissionsPage({ searchParams }: PageProps) {
                 </a>
               ))}
             </div>
-            <p className="mt-3 text-[0.78rem] text-ink/65">
+            <p className="mt-3 text-[0.78rem] text-ink/75">
               {branches[0]
                 ? `Open ${summariseHours(branches[0].hours)}.`
                 : "Weekday visits by arrangement."}
@@ -249,12 +249,12 @@ export default async function AdmissionsPage({ searchParams }: PageProps) {
                         {programme.name}
                       </Link>
                     </th>
-                    <td className="py-4 pr-4 text-ink/65">{programme.ageLabel}</td>
-                    <td className="py-4 pr-4 text-ink/65">{programme.hoursLabel}</td>
+                    <td className="py-4 pr-4 text-ink/75">{programme.ageLabel}</td>
+                    <td className="py-4 pr-4 text-ink/75">{programme.hoursLabel}</td>
                     <td className="py-4 pr-4 text-right font-bold tabular-nums text-ink">
                       {formatFee(programme.monthlyFeeCents)}
                     </td>
-                    <td className="py-4 pr-3 text-[0.8rem] leading-relaxed text-ink/65">
+                    <td className="py-4 pr-3 text-[0.8rem] leading-relaxed text-ink/75">
                       {programme.feeNote ?? "Materials and the ordinary school day."}
                     </td>
                   </tr>
@@ -262,7 +262,7 @@ export default async function AdmissionsPage({ searchParams }: PageProps) {
               </tbody>
             </table>
           </div>
-          <div className="mt-5 grid gap-3 paper-card-plain bg-meadow-tint/60 p-4 text-[0.8rem] leading-relaxed text-ink/70 sm:grid-cols-3">
+          <div className="mt-5 grid gap-3 paper-card-plain bg-meadow-tint/60 p-4 text-[0.8rem] leading-relaxed text-ink/75 sm:grid-cols-3">
             <p>
               <span className="font-extrabold text-ink">Registration fee:</span>{" "}
               R2 500 once off, on acceptance of a place.
@@ -304,7 +304,7 @@ export default async function AdmissionsPage({ searchParams }: PageProps) {
                 Tell us a little about your child. We will reply within one
                 working day, usually sooner.
               </p>
-              <div className="mt-7 space-y-3 paper-card-plain bg-sun-tint/60 p-4 text-[0.84rem] leading-relaxed text-ink/70">
+              <div className="mt-7 space-y-3 paper-card-plain bg-sun-tint/60 p-4 text-[0.84rem] leading-relaxed text-ink/75">
                 <p className="flex items-start gap-2">
                   <CheckIcon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-meadow-deep" />
                   No obligation and no automatic mailing list.
@@ -338,7 +338,7 @@ export default async function AdmissionsPage({ searchParams }: PageProps) {
                   initialProgrammeId={initialProgramme?.id ?? ""}
                 />
               </div>
-              <p className="mt-3 text-[0.74rem] leading-relaxed text-ink/65">
+              <p className="mt-3 text-[0.74rem] leading-relaxed text-ink/75">
                 By sending this form you agree to the{" "}
                 <Link href="/privacy" className="squiggle-link font-bold text-ink">
                   privacy notice
@@ -367,7 +367,7 @@ export default async function AdmissionsPage({ searchParams }: PageProps) {
                     +
                   </span>
                 </summary>
-                <p className="mt-3 max-w-2xl text-[0.88rem] leading-relaxed text-ink/65">
+                <p className="mt-3 max-w-2xl text-[0.88rem] leading-relaxed text-ink/75">
                   {item.answer}
                 </p>
               </details>

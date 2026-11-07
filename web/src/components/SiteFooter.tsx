@@ -92,10 +92,10 @@ export async function SiteFooter() {
                       >
                         {branch.name}
                       </Link>
-                      <p className="mt-1.5 text-[0.82rem] leading-relaxed text-ink/65">
+                      <p className="mt-1.5 text-[0.82rem] leading-relaxed text-ink/75">
                         {branch.addressLine1}, {branch.suburb}
                       </p>
-                      <p className="mt-1 text-[0.82rem] font-semibold text-ink/65">
+                      <p className="mt-1 text-[0.82rem] font-semibold text-ink/75">
                         {summariseHours(branch.hours)}
                       </p>
                       <a

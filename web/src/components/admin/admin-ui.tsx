@@ -30,7 +30,7 @@ export function AdminPageHeader({
         {eyebrow ? <p className="sticker bg-sun text-ink">{eyebrow}</p> : null}
         <h1 className="display-md mt-2 text-ink">{title}</h1>
         {description ? (
-          <p className="mt-2 max-w-2xl text-[0.86rem] leading-relaxed text-ink/60">
+          <p className="mt-2 max-w-2xl text-[0.86rem] leading-relaxed text-ink/75">
             {description}
           </p>
         ) : null}
@@ -67,7 +67,7 @@ export function Field({
       {error ? (
         <p className="mt-1.5 text-[0.76rem] font-semibold field-error text-poppy-deep">{error}</p>
       ) : hint ? (
-        <p className="mt-1 text-[0.74rem] leading-relaxed text-ink/60">{hint}</p>
+        <p className="mt-1 text-[0.74rem] leading-relaxed text-ink/75">{hint}</p>
       ) : null}
     </div>
   );
@@ -78,7 +78,7 @@ const badgeTones = {
   sun: "border-sun-deep/30 bg-sun-tint text-ink",
   sky: "border-sky-deep/25 bg-sky-tint text-sky-deep",
   poppy: "border-poppy-deep/25 bg-poppy-tint text-poppy-deep",
-  neutral: "border-ink/15 bg-paper text-ink/60",
+  neutral: "border-ink/15 bg-paper text-ink/75",
   ink: "border-ink bg-ink text-paper",
 } as const;
 
@@ -113,7 +113,7 @@ export function EmptyState({
         *
       </p>
       <p className="mt-3 font-display text-[1.35rem] font-extrabold text-ink">{title}</p>
-      <p className="mx-auto mt-2 max-w-md text-[0.86rem] leading-relaxed text-ink/65">
+      <p className="mx-auto mt-2 max-w-md text-[0.86rem] leading-relaxed text-ink/75">
         {body}
       </p>
       {action ? <div className="mt-5 flex justify-center">{action}</div> : null}
@@ -193,7 +193,7 @@ export function Modal({
                 {title}
               </Dialog.Title>
               {description ? (
-                <Dialog.Description className="mt-1 text-[0.8rem] leading-relaxed text-ink/60">
+                <Dialog.Description className="mt-1 text-[0.8rem] leading-relaxed text-ink/75">
                   {description}
                 </Dialog.Description>
               ) : null}
@@ -250,7 +250,7 @@ export function ConfirmDialog({
           <Dialog.Title className="font-display text-[1.35rem] font-extrabold text-ink">
             {title}
           </Dialog.Title>
-          <Dialog.Description className="mt-2 text-[0.88rem] leading-relaxed text-ink/65">
+          <Dialog.Description className="mt-2 text-[0.88rem] leading-relaxed text-ink/75">
             {body}
           </Dialog.Description>
           <div className="mt-6 flex justify-end gap-2">
@@ -267,7 +267,7 @@ export function ConfirmDialog({
               type="button"
               onClick={handleConfirm}
               disabled={busy}
-              className="inline-flex min-h-11 items-center rounded-full border-b-4 border-poppy-deep bg-poppy-deep px-4 py-2 text-[0.84rem] font-bold text-white transition-colors hover:bg-poppy disabled:cursor-wait disabled:opacity-60"
+              className="inline-flex min-h-11 items-center rounded-full border-b-4 border-poppy-deep bg-poppy-deep px-4 py-2 text-[0.84rem] font-bold text-white transition-colors hover:bg-poppy-deep hover:brightness-110 disabled:cursor-wait disabled:opacity-60"
             >
               {busy ? "Working" : confirmLabel}
             </button>
@@ -303,7 +303,7 @@ export function AdminButton({
     ghost:
       "border-transparent bg-transparent text-ink hover:bg-sun-tint",
     danger:
-      "border-b-4 border-poppy-deep bg-poppy-deep text-white hover:bg-poppy",
+      "border-b-4 border-poppy-deep bg-poppy-deep text-white hover:bg-poppy-deep hover:brightness-110",
   };
   return (
     <button

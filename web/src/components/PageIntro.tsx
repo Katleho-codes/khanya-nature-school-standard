@@ -20,7 +20,7 @@ export function PageIntro({
   children,
 }: PageIntroProps) {
   return (
-    <section className="page-container relative pb-10 pt-6 md:pb-16 md:pt-10">
+    <section className="page-container relative overflow-hidden pb-10 pt-6 md:pb-16 md:pt-10">
       <ScribbleField className="pointer-events-none absolute -right-20 top-0 h-72 w-72 text-sun opacity-20" />
       {crumbs ? <div className="relative mb-6"><Breadcrumbs items={crumbs} /></div> : null}
       <div className="relative grid gap-7 lg:grid-cols-12 lg:items-end lg:gap-12">

@@ -77,13 +77,13 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
         aside={
           <div className={`mt-6 paper-card ${tone.tint} p-4`}>
             <p className="flex items-baseline justify-between gap-4 text-[0.84rem]">
-              <span className="font-bold text-ink/60">Monthly fee</span>
+              <span className="font-bold text-ink/75">Monthly fee</span>
               <span className="font-display text-[1.35rem] font-extrabold text-ink">
                 {formatFee(programme.monthlyFeeCents)}
               </span>
             </p>
             {programme.monthlyFeeCents === null && programme.feeNote ? (
-              <p className="mt-1 text-[0.78rem] leading-relaxed text-ink/65">
+              <p className="mt-1 text-[0.78rem] leading-relaxed text-ink/75">
                 {programme.feeNote}
               </p>
             ) : null}
@@ -120,7 +120,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
                 <Fact label="Fee">
                   {formatFee(programme.monthlyFeeCents)}
                   {programme.feeNote ? (
-                    <span className="mt-1 block text-[0.8rem] text-ink/65">
+                    <span className="mt-1 block text-[0.8rem] text-ink/75">
                       {programme.feeNote}
                     </span>
                   ) : null}
@@ -150,7 +150,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
                 <p className="mt-1 font-display text-[1.3rem] font-extrabold leading-tight text-ink">
                   See the garden before you decide.
                 </p>
-                <p className="mt-2 text-[0.82rem] leading-relaxed text-ink/65">
+                <p className="mt-2 text-[0.82rem] leading-relaxed text-ink/75">
                   A weekday visit takes about an hour. Bring your child and your
                   questions.
                 </p>
@@ -171,12 +171,12 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
               <h2 className="display-lg mt-3 text-ink">
                 Predictable, not rigid.
               </h2>
-              <p className="mt-4 text-[0.94rem] leading-relaxed text-ink/65">
+              <p className="mt-4 text-[0.94rem] leading-relaxed text-ink/75">
                 Times are a guide. A good game, a visitor or a sudden interest in
                 a beetle can move the morning along. Teachers protect the long
                 outdoor block.
               </p>
-              <p className="mt-4 inline-flex items-center gap-2 text-[0.78rem] text-ink/65">
+              <p className="mt-4 inline-flex items-center gap-2 text-[0.78rem] text-ink/75">
                 <ClockIcon className="h-4 w-4" />
                 {programme.hoursLabel}
               </p>
@@ -206,7 +206,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
         <div className="page-container">
           <div className="grid gap-10 lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <p className="text-[0.72rem] font-bold uppercase tracking-[0.08em] text-ink/65">What to expect</p>
+              <p className="text-[0.72rem] font-bold uppercase tracking-[0.08em] text-ink/75">What to expect</p>
               <h2 className="display-lg mt-3 text-ink">
                 The practical things.
               </h2>
@@ -220,7 +220,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
                 "A named bag that your child can carry themselves.",
                 "Space to separate slowly in the first weeks.",
               ].map((item) => (
-                <p key={item} className="paper-card-plain flex items-start gap-2 bg-sun-tint/55 p-3 text-[0.86rem] leading-relaxed text-ink/70">
+                <p key={item} className="paper-card-plain flex items-start gap-2 bg-sun-tint/55 p-3 text-[0.86rem] leading-relaxed text-ink/75">
                   <CheckIcon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-meadow-deep" />
                   {item}
                 </p>
@@ -228,7 +228,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
             </div>
           </div>
           {programme.monthlyFeeCents !== null ? (
-            <p className="mt-8 text-[0.78rem] text-ink/65">
+            <p className="mt-8 text-[0.78rem] text-ink/75">
               Fees shown are monthly for 2027. A once-off registration fee
               applies on acceptance and is listed in the{" "}
               <Link href="/admissions#documents" className="squiggle-link font-bold text-ink">
@@ -268,13 +268,13 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
                     tone={programmeTone(other.slug)}
                   />
                   <div>
-                    <p className="hand text-ink/55">
+                    <p className="hand text-ink/75">
                       {other.ageLabel}
                     </p>
                     <h3 className="mt-1 font-display text-[1.4rem] leading-tight text-ink group-hover:text-poppy-deep">
                       {other.name}
                     </h3>
-                    <p className="mt-1.5 line-clamp-2 text-[0.84rem] leading-relaxed text-ink/65">
+                    <p className="mt-1.5 line-clamp-2 text-[0.84rem] leading-relaxed text-ink/75">
                       {other.summary}
                     </p>
                   </div>

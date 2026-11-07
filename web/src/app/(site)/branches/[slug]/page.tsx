@@ -159,14 +159,14 @@ export default async function BranchDetailPage({ params }: PageProps) {
                 <div className="mt-3">
                   <HoursTable hours={branch.hours} />
                 </div>
-                <p className="mt-3 text-[0.76rem] leading-relaxed text-ink/60">
+                <p className="mt-3 text-[0.76rem] leading-relaxed text-ink/75">
                   {summariseHours(branch.hours)}. We close on public holidays.
                 </p>
               </div>
               <div className="paper-card bg-paper p-4">
                 <h2 className="font-display text-[1.35rem] font-extrabold text-ink">Find us</h2>
                 <address className="mt-3 not-italic">
-                  <p className="flex items-start gap-2 text-[0.88rem] leading-relaxed text-ink/65">
+                  <p className="flex items-start gap-2 text-[0.88rem] leading-relaxed text-ink/75">
                     <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0 text-poppy-deep" />
                     <span>
                       {branch.addressLine1}
@@ -185,7 +185,7 @@ export default async function BranchDetailPage({ params }: PageProps) {
                 >
                   Get directions <ArrowRightIcon className="h-3.5 w-3.5" />
                 </a>
-                <p className="mt-3 text-[0.78rem] leading-relaxed text-ink/60">
+                <p className="mt-3 text-[0.78rem] leading-relaxed text-ink/75">
                   Parking is on the street. Please do not block the neighbours&apos;
                   gates at drop-off.
                 </p>
@@ -211,11 +211,11 @@ export default async function BranchDetailPage({ params }: PageProps) {
                           <span className="block font-display text-[1.3rem] leading-tight text-ink group-hover:text-poppy-deep">
                             {programme.name}
                           </span>
-                          <span className="mt-0.5 block text-[0.78rem] text-ink/60">
+                          <span className="mt-0.5 block text-[0.78rem] text-ink/75">
                             {programme.summary}
                           </span>
                         </span>
-                        <span className="text-[0.78rem] text-ink/60 sm:text-right">
+                        <span className="text-[0.78rem] text-ink/75 sm:text-right">
                           {programme.ageLabel}
                         </span>
                         <span className="text-[0.78rem] font-bold text-ink sm:text-right">
@@ -236,7 +236,7 @@ export default async function BranchDetailPage({ params }: PageProps) {
                 <p className="hand text-poppy-deep">Talk to this branch</p>
                 <dl className="mt-4 space-y-4">
                   <div>
-                    <dt className="text-[0.72rem] font-extrabold text-ink/55">
+                    <dt className="text-[0.72rem] font-extrabold text-ink/75">
                       Phone
                     </dt>
                     <dd>
@@ -250,7 +250,7 @@ export default async function BranchDetailPage({ params }: PageProps) {
                     </dd>
                   </div>
                   <div>
-                    <dt className="text-[0.72rem] font-extrabold text-ink/55">
+                    <dt className="text-[0.72rem] font-extrabold text-ink/75">
                       Email
                     </dt>
                     <dd>
@@ -264,10 +264,10 @@ export default async function BranchDetailPage({ params }: PageProps) {
                     </dd>
                   </div>
                   <div>
-                    <dt className="text-[0.72rem] font-extrabold text-ink/55">
+                    <dt className="text-[0.72rem] font-extrabold text-ink/75">
                       Visit
                     </dt>
-                    <dd className="mt-0.5 text-[0.82rem] leading-relaxed text-ink/65">
+                    <dd className="mt-0.5 text-[0.82rem] leading-relaxed text-ink/75">
                       Weekday mornings by arrangement. About one hour.
                     </dd>
                   </div>
@@ -325,7 +325,7 @@ export default async function BranchDetailPage({ params }: PageProps) {
                       <p className="font-display text-[1.7rem] font-extrabold leading-none text-poppy-deep">
                         {formatDate(event.startsAt).split(" ")[0]}
                       </p>
-                      <p className="text-[0.7rem] font-bold uppercase tracking-[0.08em] text-ink/55">
+                      <p className="text-[0.7rem] font-bold uppercase tracking-[0.08em] text-ink/75">
                         {formatDate(event.startsAt).split(" ").slice(1).join(" ")}
                       </p>
                     </div>
@@ -333,7 +333,7 @@ export default async function BranchDetailPage({ params }: PageProps) {
                       <h3 className="font-display text-[1.25rem] font-extrabold text-ink group-hover:text-poppy-deep">
                         {event.title}
                       </h3>
-                      <p className="mt-1 text-[0.8rem] text-ink/60">
+                      <p className="mt-1 text-[0.8rem] text-ink/75">
                         {formatEventWhen(event)} · {event.locationText}
                       </p>
                     </div>
@@ -399,7 +399,7 @@ export default async function BranchDetailPage({ params }: PageProps) {
             <h2 className="display-md mt-3 text-white">
               Come and walk the {branch.suburb} garden.
             </h2>
-            <p className="mt-3 max-w-xl text-[0.94rem] leading-relaxed text-white/80">
+            <p className="mt-3 max-w-xl text-[0.94rem] leading-relaxed text-white">
               Weekday mornings, by arrangement. Bring your child, wear shoes that
               can get dusty and stay as long as you need.
             </p>

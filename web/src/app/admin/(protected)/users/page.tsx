@@ -192,7 +192,7 @@ export default function AdminUsersPage() {
         />
       ) : (
         <div className="paper-card-plain overflow-hidden border-2 border-ink/10 bg-paper">
-          <div className="hidden grid-cols-[1.4fr_9rem_8rem_9rem_13rem] gap-4 border-b-2 border-ink/10 bg-sky-tint/55 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-ink/60 lg:grid">
+          <div className="hidden grid-cols-[1.4fr_9rem_8rem_9rem_13rem] gap-4 border-b-2 border-ink/10 bg-sky-tint/55 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-ink/75 lg:grid">
             <span>Person</span>
             <span>Role</span>
             <span>Status</span>
@@ -210,12 +210,12 @@ export default function AdminUsersPage() {
                   <p className="truncate text-[0.84rem] font-medium text-ink">
                     {user.name}
                     {isMe ? (
-                      <span className="ml-2 text-[0.66rem] font-normal text-ink/60">
+                      <span className="ml-2 text-[0.66rem] font-normal text-ink/75">
                         (you)
                       </span>
                     ) : null}
                   </p>
-                  <p className="truncate text-[0.72rem] text-ink/60">{user.email}</p>
+                  <p className="truncate text-[0.72rem] text-ink/75">{user.email}</p>
                 </div>
                 <div>
                   <AdminBadge tone={user.role === "admin" ? "ink" : "neutral"}>
@@ -227,7 +227,7 @@ export default function AdminUsersPage() {
                     {user.isActive ? "Active" : "Deactivated"}
                   </AdminBadge>
                 </div>
-                <div className="text-[0.74rem] text-ink/60">
+                <div className="text-[0.74rem] text-ink/75">
                   {formatDate(user.createdAt)}
                 </div>
                 <div className="flex flex-wrap items-center gap-1.5 lg:justify-end">
@@ -281,10 +281,10 @@ export default function AdminUsersPage() {
       )}
 
       <div className="paper-card-plain border-2 border-ink/10 bg-paper p-4">
-        <p className="text-[0.66rem] uppercase tracking-[0.14em] text-ink/60">
+        <p className="text-[0.66rem] uppercase tracking-[0.14em] text-ink/75">
           How accounts work
         </p>
-        <ul className="mt-2 space-y-1 text-[0.76rem] leading-relaxed text-ink/60">
+        <ul className="mt-2 space-y-1 text-[0.76rem] leading-relaxed text-ink/75">
           <li>There is no public sign up. Accounts are created here by an administrator.</li>
           <li>Deactivating an account signs the person out and keeps their history.</li>
           <li>Resetting a password also signs out every active session for that person.</li>

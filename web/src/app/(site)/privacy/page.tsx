@@ -23,7 +23,7 @@ export default function PrivacyPage() {
         lead="This notice explains what we collect when you use this website or enquire about a place, why we need it and what you can ask us to do with it."
         crumbs={[{ label: "Home", href: "/" }, { label: "Privacy" }]}
         aside={
-          <div className="mt-6 paper-card rotate-[0.8deg] bg-sun-tint p-4 text-[0.8rem] leading-relaxed text-ink/70">
+          <div className="mt-6 paper-card rotate-[0.8deg] bg-sun-tint p-4 text-[0.8rem] leading-relaxed text-ink/75">
             <p className="hand text-poppy-deep">Last updated</p>
             <p className="mt-1 font-bold text-ink">4 November 2026</p>
             <p className="mt-2">
@@ -182,7 +182,7 @@ export default function PrivacyPage() {
 
             <div className="mt-8 paper-card-plain bg-meadow-tint/60 p-4">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-[0.84rem] leading-relaxed text-ink/70">
+                <p className="text-[0.84rem] leading-relaxed text-ink/75">
                   Ready to ask about a place? The admissions page explains the
                   process and fees.
                 </p>
@@ -190,7 +190,7 @@ export default function PrivacyPage() {
                   Admissions <ArrowRightIcon className="h-3.5 w-3.5" />
                 </ButtonLink>
               </div>
-              <p className="mt-4 text-[0.78rem] text-ink/60">
+              <p className="mt-4 text-[0.78rem] text-ink/75">
                 Prefer to talk it through?{" "}
                 <Link href="/contact" className="squiggle-link font-bold text-ink">
                   Contact the office

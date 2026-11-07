@@ -101,7 +101,7 @@ export default async function EventDetailPage({ params }: PageProps) {
           <div className="mt-6 flex flex-wrap gap-3 paper-card-plain bg-paper p-3">
             <a
               href={`/api/public/events/${event.slug}/ics`}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-b-4 border-ink/30 bg-poppy-deep px-5 py-3 text-[0.9rem] font-extrabold text-white transition-colors hover:bg-poppy"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-b-4 border-ink/30 bg-poppy-deep px-5 py-3 text-[0.9rem] font-extrabold text-white transition-colors hover:bg-poppy-deep hover:brightness-110"
             >
               <DownloadIcon className="h-4 w-4" />
               Add to calendar
@@ -138,12 +138,12 @@ export default async function EventDetailPage({ params }: PageProps) {
                 <p className="mt-1 font-display text-[1.35rem] font-extrabold leading-tight text-ink">
                   {formatDateLong(event.startsAt)}
                 </p>
-                <p className="mt-1 text-[0.86rem] text-ink/65">
+                <p className="mt-1 text-[0.86rem] text-ink/75">
                   {event.allDay
                     ? "All day"
                     : `${formatTime(event.startsAt)} to ${formatTime(event.endsAt)}`}
                 </p>
-                <p className="mt-1 text-[0.76rem] text-ink/55">
+                <p className="mt-1 text-[0.76rem] text-ink/75">
                   Times are South African Standard Time.
                 </p>
 
@@ -174,7 +174,7 @@ export default async function EventDetailPage({ params }: PageProps) {
 
               <div className="paper-card-plain bg-paper p-4">
                 <p className="hand text-poppy-deep">Need to ask?</p>
-                <p className="mt-1 text-[0.84rem] leading-relaxed text-ink/65">
+                <p className="mt-1 text-[0.84rem] leading-relaxed text-ink/75">
                   The office can help with accessibility, parking, children or
                   anything else that would make the event easier.
                 </p>
@@ -210,7 +210,7 @@ export default async function EventDetailPage({ params }: PageProps) {
                       <p className="font-display text-[1.7rem] font-extrabold leading-none text-poppy-deep">
                         {formatDateLong(item.startsAt).split(" ")[1]}
                       </p>
-                      <p className="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-ink/55">
+                      <p className="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-ink/75">
                         {formatDateLong(item.startsAt).split(" ")[2]}
                       </p>
                     </div>
@@ -218,7 +218,7 @@ export default async function EventDetailPage({ params }: PageProps) {
                       <h3 className="font-display text-[1.25rem] font-extrabold text-ink group-hover:text-poppy-deep">
                         {item.title}
                       </h3>
-                      <p className="mt-1 text-[0.8rem] text-ink/60">
+                      <p className="mt-1 text-[0.8rem] text-ink/75">
                         {formatEventWhen(item)} · {item.locationText}
                       </p>
                     </div>

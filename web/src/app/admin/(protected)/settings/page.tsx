@@ -121,7 +121,7 @@ export default function AdminSettingsPage() {
         <form onSubmit={save} className="space-y-6">
           <section className="paper-card-plain border-2 border-ink/10 bg-paper p-5">
             <h2 className="font-display text-[1.25rem] text-ink">Identity</h2>
-            <p className="mt-1 text-[0.78rem] text-ink/60">
+            <p className="mt-1 text-[0.78rem] text-ink/75">
               Used in the header, footer, email templates and structured data.
             </p>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -171,14 +171,14 @@ export default function AdminSettingsPage() {
               seoDescription: errors.defaultSeoDescription,
             }}
           />
-          <p className="-mt-4 text-[0.72rem] text-ink/60">
+          <p className="-mt-4 text-[0.72rem] text-ink/75">
             These are the site wide defaults. Individual pages can override them
             in their own SEO fields.
           </p>
 
           <section className="paper-card-plain border-2 border-ink/10 bg-paper p-5">
             <h2 className="font-display text-[1.25rem] text-ink">Social links</h2>
-            <p className="mt-1 text-[0.78rem] text-ink/60">
+            <p className="mt-1 text-[0.78rem] text-ink/75">
               Leave a field blank to hide that icon in the footer.
             </p>
             <div className="mt-4 grid gap-4">
@@ -232,7 +232,7 @@ export default function AdminSettingsPage() {
                   <label htmlFor="settings-whatsapp" className="text-[0.74rem] font-medium text-ink">
                     Default WhatsApp message
                   </label>
-                  <span className="text-[0.68rem] tabular-nums text-ink/60">
+                  <span className="text-[0.68rem] tabular-nums text-ink/75">
                     {form.whatsappDefaultMessage.length} / 400
                   </span>
                 </div>
@@ -250,7 +250,7 @@ export default function AdminSettingsPage() {
                     {errors.whatsappDefaultMessage}
                   </p>
                 ) : (
-                  <p className="mt-1 text-[0.7rem] text-ink/60">
+                  <p className="mt-1 text-[0.7rem] text-ink/75">
                     Used when no more specific context is available. Keep it warm
                     and short.
                   </p>

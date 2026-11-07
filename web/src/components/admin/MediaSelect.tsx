@@ -62,10 +62,10 @@ export function MediaSelect({
           </option>
         ))}
       </select>
-      {hint ? <p className="mt-1 text-[0.7rem] text-ink/60">{hint}</p> : null}
+      {hint ? <p className="mt-1 text-[0.7rem] text-ink/75">{hint}</p> : null}
       {error ? <p className="mt-1 text-[0.72rem] text-poppy-deep">{error}</p> : null}
       {value && !selected && !media ? (
-        <p className="mt-1 text-[0.7rem] text-ink/60">Current selection is loading.</p>
+        <p className="mt-1 text-[0.7rem] text-ink/75">Current selection is loading.</p>
       ) : null}
       {selected ? (
         <div className="mt-3 flex items-start gap-3">
@@ -80,7 +80,7 @@ export function MediaSelect({
               />
             </div>
           ) : null}
-          <div className="min-w-0 text-[0.72rem] leading-relaxed text-ink/60">
+          <div className="min-w-0 text-[0.72rem] leading-relaxed text-ink/75">
             <p className="truncate font-medium text-ink">{selected.originalName}</p>
             {selected.width && selected.height ? (
               <p>
@@ -92,7 +92,7 @@ export function MediaSelect({
         </div>
       ) : null}
       {media && media.length === 0 ? (
-        <p className="mt-1 text-[0.72rem] text-ink/60">
+        <p className="mt-1 text-[0.72rem] text-ink/75">
           Nothing in the library yet. Upload files under Media first.
         </p>
       ) : null}

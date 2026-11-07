@@ -61,7 +61,7 @@ export default async function ProgrammesPage() {
         </div>
 
         {programmes.length === 0 ? (
-          <p className="paper-card bg-sun-tint p-6 text-sm text-ink/70">
+          <p className="paper-card bg-sun-tint p-6 text-sm text-ink/75">
             Programme information is being updated. Please contact the school for
             current age groups and fees.
           </p>
@@ -119,11 +119,11 @@ export default async function ProgrammesPage() {
         <div className="page-container">
           <div className="grid gap-10 paper-card rotate-[-0.4deg] bg-sun p-6 md:grid-cols-[1fr_auto] md:items-center md:p-10">
             <div>
-              <p className="hand text-poppy-deep">Next step</p>
+              <p className="hand text-ink">Next step</p>
               <h2 className="display-md mt-1 max-w-xl text-ink">
                 See the room your child would spend the year in.
               </h2>
-              <p className="mt-3 max-w-xl text-[0.92rem] leading-relaxed text-ink/70">
+              <p className="mt-3 max-w-xl text-[0.92rem] leading-relaxed text-ink/75">
                 Visit on a weekday morning, meet a teacher and watch the day
                 without a performance put on for you.
               </p>

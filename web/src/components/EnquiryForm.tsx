@@ -181,7 +181,7 @@ export function EnquiryForm({
   if (branches.length === 0) {
     return (
       <div className="border-t-2 border-ink/10 py-8">
-        <p className="text-sm leading-relaxed text-ink/65">
+        <p className="text-sm leading-relaxed text-ink/75">
           Online enquiries are temporarily unavailable. Please phone or email the
           school and we will help you directly.
         </p>
@@ -339,7 +339,7 @@ export function EnquiryForm({
 
         <div>
           <label htmlFor="enquiry-programmeId" className={labelClass}>
-            Programme <span className="font-normal text-ink/65">(optional)</span>
+            Programme <span className="font-normal text-ink/75">(optional)</span>
           </label>
           <select
             id="enquiry-programmeId"
@@ -363,7 +363,7 @@ export function EnquiryForm({
         <div>
           <label htmlFor="enquiry-preferredStart" className={labelClass}>
             Preferred start{" "}
-            <span className="font-normal text-ink/65">(optional)</span>
+            <span className="font-normal text-ink/75">(optional)</span>
           </label>
           <input
             id="enquiry-preferredStart"
@@ -396,11 +396,11 @@ export function EnquiryForm({
                 {errors.message}
               </p>
             ) : (
-              <p id="enquiry-message-hint" className="text-[0.75rem] text-ink/65">
+              <p id="enquiry-message-hint" className="text-[0.75rem] text-ink/75">
                 A sentence or two is enough.
               </p>
             )}
-            <span className="shrink-0 text-[0.72rem] tabular-nums text-ink/65">
+            <span className="shrink-0 text-[0.72rem] tabular-nums text-ink/75">
               {values.message.length} / 2 000
             </span>
           </div>
@@ -426,7 +426,7 @@ export function EnquiryForm({
             }
             className="mt-1 h-6 w-6 shrink-0 rounded-full border-2 border-ink/30 accent-sun"
           />
-          <label htmlFor="enquiry-consentPopia" className="text-[0.9rem] leading-relaxed text-ink/70">
+          <label htmlFor="enquiry-consentPopia" className="text-[0.9rem] leading-relaxed text-ink/75">
             I agree that Khanya Nature School may keep these details to reply to
             my enquiry, as explained in the{" "}
             <Link href="/privacy" className="squiggle-link text-ink">
@@ -435,7 +435,7 @@ export function EnquiryForm({
             .
           </label>
         </div>
-        <p id="enquiry-consent-hint" className="mt-1 pl-9 text-[0.76rem] text-ink/60">
+        <p id="enquiry-consent-hint" className="mt-1 pl-9 text-[0.76rem] text-ink/75">
           We do not share your details with anyone else.
         </p>
         {errors.consentPopia ? (
@@ -475,7 +475,7 @@ export function EnquiryForm({
             </>
           )}
         </button>
-        <p className="inline-flex items-center gap-1.5 text-[0.78rem] text-ink/65">
+        <p className="inline-flex items-center gap-1.5 text-[0.78rem] text-ink/75">
           <CheckIcon className="h-4 w-4 text-meadow-deep" />
           We usually reply within one working day.
         </p>

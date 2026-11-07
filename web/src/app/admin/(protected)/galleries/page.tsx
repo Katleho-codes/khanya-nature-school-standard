@@ -208,20 +208,20 @@ export default function AdminGalleriesPage() {
                   <AdminBadge tone={album.isPublished ? "meadow" : "neutral"}>
                     {album.isPublished ? "Published" : "Draft"}
                   </AdminBadge>
-                  <span className="text-[0.68rem] text-ink/60">
+                  <span className="text-[0.68rem] text-ink/75">
                     {album._count?.photos ?? 0} photos
                   </span>
                 </div>
                 <Link
                   href={`/admin/galleries/${album.id}`}
-                  className="mt-2 block font-display text-[1.2rem] leading-tight text-ink hover:text-ink/60"
+                  className="mt-2 block font-display text-[1.2rem] leading-tight text-ink hover:text-ink/75"
                 >
                   {album.title}
                 </Link>
-                <p className="mt-1 line-clamp-2 text-[0.74rem] leading-relaxed text-ink/60">
+                <p className="mt-1 line-clamp-2 text-[0.74rem] leading-relaxed text-ink/75">
                   {album.description}
                 </p>
-                <p className="mt-2 text-[0.68rem] text-ink/60">
+                <p className="mt-2 text-[0.68rem] text-ink/75">
                   {album.branch?.name ?? "Whole school"}
                   {album.takenOn ? ` · ${formatDate(album.takenOn)}` : ""}
                 </p>

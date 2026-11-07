@@ -22,8 +22,8 @@ const styles: Record<Tone, ToneStyle> = {
   },
   poppy: {
     tint: "bg-poppy-tint",
-    solid: "bg-poppy",
-    text: "text-ink",
+    solid: "bg-poppy-deep",
+    text: "text-white",
     deepText: "text-poppy-deep",
     border: "border-poppy-deep",
     dot: "bg-poppy-deep",

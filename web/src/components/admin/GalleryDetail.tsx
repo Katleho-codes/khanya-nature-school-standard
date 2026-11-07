@@ -163,7 +163,7 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
       <div>
         <Link
           href="/admin/galleries"
-          className="inline-flex items-center gap-1 text-[0.76rem] text-ink/60 transition-colors hover:text-poppy-deep"
+          className="inline-flex items-center gap-1 text-[0.76rem] text-ink/75 transition-colors hover:text-poppy-deep"
         >
           <ChevronLeftIcon className="h-3.5 w-3.5" />
           All galleries
@@ -199,11 +199,11 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
           <AdminBadge tone={album.isPublished ? "meadow" : "neutral"}>
             {album.isPublished ? "Published" : "Draft"}
           </AdminBadge>
-          <span className="text-[0.74rem] text-ink/60">
+          <span className="text-[0.74rem] text-ink/75">
             {album.photos.length} photographs
           </span>
-          <span className="text-[0.74rem] text-ink/60">·</span>
-          <span className="text-[0.74rem] text-ink/60">/gallery/{album.slug}</span>
+          <span className="text-[0.74rem] text-ink/75">·</span>
+          <span className="text-[0.74rem] text-ink/75">/gallery/{album.slug}</span>
         </div>
       ) : null}
 
@@ -233,7 +233,7 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
               />
               <div className="space-y-2 p-4">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-[0.64rem] uppercase tracking-[0.12em] text-ink/60">
+                  <span className="text-[0.64rem] uppercase tracking-[0.12em] text-ink/75">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   {album.coverId === photo.mediaId ? (
@@ -241,7 +241,7 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
                   ) : null}
                 </div>
                 <p className="text-[0.82rem] leading-snug text-ink">{photo.caption}</p>
-                <p className="text-[0.7rem] leading-relaxed text-ink/60">
+                <p className="text-[0.7rem] leading-relaxed text-ink/75">
                   Alt: {photo.alt}
                 </p>
                 <div className="flex flex-wrap items-center gap-1.5 pt-1">
@@ -249,7 +249,7 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
                     type="button"
                     onClick={() => movePhoto(photo, "up")}
                     disabled={index === 0}
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-ink/15 text-ink/60 transition-colors hover:bg-sun-tint disabled:opacity-30"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-ink/15 text-ink/75 transition-colors hover:bg-sun-tint disabled:opacity-30"
                     aria-label={`Move ${photo.caption} earlier`}
                   >
                     <ChevronUpIcon className="h-3.5 w-3.5" />
@@ -258,7 +258,7 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
                     type="button"
                     onClick={() => movePhoto(photo, "down")}
                     disabled={index === album.photos.length - 1}
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-ink/15 text-ink/60 transition-colors hover:bg-sun-tint disabled:opacity-30"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-ink/15 text-ink/75 transition-colors hover:bg-sun-tint disabled:opacity-30"
                     aria-label={`Move ${photo.caption} later`}
                   >
                     <ChevronDownIcon className="h-3.5 w-3.5" />
@@ -427,7 +427,7 @@ export function GalleryDetail({ albumId }: { albumId: string }) {
 
       <div className="paper-card-plain border-2 border-ink/10 bg-paper p-4">
         <p className={adminLabel}>Album tip</p>
-        <p className="mt-1 text-[0.76rem] leading-relaxed text-ink/60">
+        <p className="mt-1 text-[0.76rem] leading-relaxed text-ink/75">
           Order photographs as you want families to move through them. The first
           image or the one marked Cover appears on gallery cards.
         </p>

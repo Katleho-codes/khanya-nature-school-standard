@@ -1,6 +1,6 @@
 # Khanya Nature School
 
-A complete demo website and content management system for a fictional nature-based preschool in Randburg and Fourways, South Africa. The public site is calm and editorial. The admin is a practical working CMS, not a mock-up.
+A complete demo website and content management system for a fictional nature-based preschool in Randburg and Fourways, South Africa. The public site is warm and playful, built from crayon textures and paper cut-outs. The admin is a practical working CMS, not a mock-up.
 
 Everything is demo data. Khanya Nature School does not exist, the contact details are fictional, and the enquiry emails are written to a local outbox rather than sent.
 
@@ -212,6 +212,8 @@ The checks cover:
 
 Tests that submit an enquiry, add notes or change a seeded enquiry leave data behind. Run `pnpm db:seed` after a full smoke run if you want the demo to look untouched.
 
+Design verification screenshots are kept in `docs/screenshots/`. They cover the main public routes, the 404, the admin dashboard and enquiries at 360, 768 and 1280 px.
+
 ## Images and media
 
 No photographs are checked in. The seed points at `/images/...` names that are intentionally absent, and the `Photo` and `PhotoFrame` components fall back to branded placeholders with the right aspect ratio. The site therefore looks finished while the school collects real photographs.
@@ -244,6 +246,7 @@ The seed also writes six small PDFs into `api/uploads/` so document downloads wo
 │       ├── components/      public and admin components
 │       └── lib/             API client, formatting, WhatsApp and SEO helpers
 ├── tests/                   Playwright suites
+├── docs/screenshots/        Responsive design verification screenshots
 ├── docker-compose.yml       PostgreSQL 16 for local development
 ├── playwright.config.ts     shared test configuration
 ├── AGENTS.md                working notes for future contributors

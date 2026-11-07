@@ -91,13 +91,13 @@ export function PhotoFrame({
                 <p className="font-display text-[1.05rem] font-bold leading-snug text-ink">
                   {placeholder ?? `Photo: ${alt}`}
                 </p>
-                <p className="hand mt-1 text-ink/60">We will pop a real photo here.</p>
+                <p className="hand mt-1 text-ink/75">We will pop a real photo here.</p>
               </div>
             </div>
           </div>
         )}
       </div>
-      {caption ? <p className="hand mt-3 text-ink/65">{caption}</p> : null}
+      {caption ? <p className="hand mt-3 text-ink/75">{caption}</p> : null}
     </div>
   );
 

@@ -237,7 +237,7 @@ export default function AdminDocumentsPage() {
         />
       ) : (
         <div className="paper-card-plain overflow-hidden border-2 border-ink/10 bg-paper">
-          <div className="hidden grid-cols-[1.5fr_9rem_9rem_7rem_7rem_9rem] gap-4 border-b-2 border-ink/10 bg-sky-tint/55 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-ink/60 lg:grid">
+          <div className="hidden grid-cols-[1.5fr_9rem_9rem_7rem_7rem_9rem] gap-4 border-b-2 border-ink/10 bg-sky-tint/55 px-4 py-2.5 text-[0.62rem] uppercase tracking-[0.12em] text-ink/75 lg:grid">
             <span>Document</span>
             <span>Category</span>
             <span>Branch</span>
@@ -259,21 +259,21 @@ export default function AdminDocumentsPage() {
                     {document.isPublished ? "Published" : "Draft"}
                   </AdminBadge>
                 </div>
-                <p className="mt-0.5 line-clamp-2 text-[0.72rem] leading-relaxed text-ink/60">
+                <p className="mt-0.5 line-clamp-2 text-[0.72rem] leading-relaxed text-ink/75">
                   {document.description}
                 </p>
-                <p className="mt-1 truncate text-[0.65rem] text-ink/60">
+                <p className="mt-1 truncate text-[0.65rem] text-ink/75">
                   {document.media.originalName} · {formatBytes(document.media.sizeBytes)}
                 </p>
               </div>
-              <div className="text-[0.74rem] text-ink/60">
+              <div className="text-[0.74rem] text-ink/75">
                 {documentCategoryLabels[document.category]}
               </div>
-              <div className="text-[0.74rem] text-ink/60">
+              <div className="text-[0.74rem] text-ink/75">
                 {document.branch?.name ?? "Whole school"}
               </div>
-              <div className="text-[0.74rem] text-ink/60">{document.sortOrder}</div>
-              <div className="text-[0.74rem] text-ink/60">
+              <div className="text-[0.74rem] text-ink/75">{document.sortOrder}</div>
+              <div className="text-[0.74rem] text-ink/75">
                 {document.downloadCount}
               </div>
               <div className="flex flex-wrap items-center gap-2 lg:justify-end">

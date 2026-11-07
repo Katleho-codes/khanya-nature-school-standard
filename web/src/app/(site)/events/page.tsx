@@ -60,15 +60,15 @@ export default async function EventsPage({ searchParams }: PageProps) {
         <section className="page-container pb-12">
           <div className="grid gap-8 paper-card rotate-[-0.3deg] bg-sun p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8">
             <div>
-              <p className="flex items-center gap-2 hand text-poppy-deep">
+              <p className="flex items-center gap-2 hand text-ink">
                 <CalendarIcon className="h-4 w-4" />
                 Next event
               </p>
               <h2 className="display-md mt-1 text-ink">{next.title}</h2>
-              <p className="mt-2 text-[0.9rem] font-semibold text-ink/70">
+              <p className="mt-2 text-[0.9rem] font-semibold text-ink/75">
                 {formatDateLong(next.startsAt)} · {formatEventWhen(next)}
               </p>
-              <p className="mt-1 flex items-center gap-1.5 text-[0.82rem] text-ink/65">
+              <p className="mt-1 flex items-center gap-1.5 text-[0.82rem] text-ink/75">
                 <MapPinIcon className="h-3.5 w-3.5" />
                 {next.locationText}
                 {next.branch ? ` · ${next.branch.name}` : " · All branches"}
@@ -84,14 +84,14 @@ export default async function EventsPage({ searchParams }: PageProps) {
       <section className="page-container pb-10">
         <div className="flex flex-col gap-4 rounded-[24px] bg-sky-tint/60 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="mr-2 font-hand text-[1.05rem] text-ink/65">Branch</span>
+            <span className="mr-2 font-hand text-[1.05rem] text-ink/75">Branch</span>
             <Link
               href={branchHref(undefined)}
               aria-current={!branch ? "page" : undefined}
               className={`inline-flex min-h-9 items-center rounded-full border-2 px-3.5 py-1.5 text-[0.78rem] font-bold transition-colors ${
                 !branch
                   ? "border-ink bg-sun text-ink"
-                  : "border-ink/15 bg-paper text-ink/70 hover:border-ink hover:bg-sun-tint hover:text-ink"
+                  : "border-ink/15 bg-paper text-ink/75 hover:border-ink hover:bg-sun-tint hover:text-ink"
               }`}
             >
               All branches
@@ -106,7 +106,7 @@ export default async function EventsPage({ searchParams }: PageProps) {
                   className={`inline-flex min-h-9 items-center rounded-full border-2 px-3.5 py-1.5 text-[0.78rem] font-bold transition-colors ${
                     active
                       ? "border-ink bg-sun text-ink"
-                      : "border-ink/15 bg-paper text-ink/70 hover:border-ink hover:bg-sun-tint hover:text-ink"
+                      : "border-ink/15 bg-paper text-ink/75 hover:border-ink hover:bg-sun-tint hover:text-ink"
                   }`}
                 >
                   {item.name}
@@ -114,7 +114,7 @@ export default async function EventsPage({ searchParams }: PageProps) {
               );
             })}
           </div>
-          <p className="text-[0.75rem] text-ink/65">
+          <p className="text-[0.75rem] text-ink/75">
             {activeBranch
               ? `Events at ${activeBranch.name} and school-wide events.`
               : "All events, including school-wide dates."}
@@ -131,7 +131,7 @@ export default async function EventsPage({ searchParams }: PageProps) {
           <div className="lg:col-span-5">
             <p className="sticker bg-paper text-ink">Practical notes</p>
             <h2 className="display-lg mt-3 text-ink">Before you come.</h2>
-            <p className="mt-4 text-[0.94rem] leading-relaxed text-ink/65">
+            <p className="mt-4 text-[0.94rem] leading-relaxed text-ink/75">
               Events happen outside unless the weather is dangerous. Bring a hat,
               a water bottle and shoes that can cope with the garden.
             </p>
@@ -161,7 +161,7 @@ export default async function EventsPage({ searchParams }: PageProps) {
             ].map((item) => (
               <div key={item.title} className={`paper-card ${item.tone} p-4`}>
                 <h3 className="font-display text-[1.2rem] font-extrabold text-ink">{item.title}</h3>
-                <p className="mt-2 text-[0.84rem] leading-relaxed text-ink/65">
+                <p className="mt-2 text-[0.84rem] leading-relaxed text-ink/75">
                   {item.body}
                 </p>
               </div>

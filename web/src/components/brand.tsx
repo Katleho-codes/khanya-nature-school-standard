@@ -94,7 +94,7 @@ export function Logo({ className, inverse = false }: { className?: string; inver
           Khanya
         </span>
         <span
-          className={`mt-1 block font-hand text-[1.02rem] leading-none ${inverse ? "text-paper/75" : "text-ink/65"}`}
+          className={`mt-1 block font-hand text-[1.02rem] leading-none ${inverse ? "text-paper/75" : "text-ink/75"}`}
         >
           Nature School
         </span>

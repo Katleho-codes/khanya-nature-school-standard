@@ -75,7 +75,7 @@ export default async function NewsPage({ searchParams }: PageProps) {
       <section className="page-container pb-12">
         <div className="flex flex-col gap-5 rounded-[24px] bg-sun-tint/60 px-4 py-4 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="mr-2 font-hand text-[1.05rem] text-ink/65">Type</span>
+            <span className="mr-2 font-hand text-[1.05rem] text-ink/75">Type</span>
             {categories.map((item) => {
               const active = category === item.value;
               return (
@@ -86,7 +86,7 @@ export default async function NewsPage({ searchParams }: PageProps) {
                   className={`inline-flex min-h-9 items-center rounded-full border-2 px-3.5 py-1.5 text-[0.78rem] font-bold transition-colors ${
                     active
                       ? "border-ink bg-sun text-ink"
-                      : "border-ink/15 bg-paper text-ink/70 hover:border-ink hover:bg-sun-tint hover:text-ink"
+                      : "border-ink/15 bg-paper text-ink/75 hover:border-ink hover:bg-sun-tint hover:text-ink"
                   }`}
                 >
                   {item.label}
@@ -95,14 +95,14 @@ export default async function NewsPage({ searchParams }: PageProps) {
             })}
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            <span className="mr-2 font-hand text-[1.05rem] text-ink/65">Branch</span>
+            <span className="mr-2 font-hand text-[1.05rem] text-ink/75">Branch</span>
             <Link
               href={filterHref(undefined, category || undefined)}
               aria-current={!branch ? "page" : undefined}
               className={`inline-flex min-h-9 items-center rounded-full border-2 px-3.5 py-1.5 text-[0.78rem] font-bold transition-colors ${
                 !branch
                   ? "border-ink bg-sun text-ink"
-                  : "border-ink/15 bg-paper text-ink/70 hover:border-ink hover:bg-sun-tint hover:text-ink"
+                  : "border-ink/15 bg-paper text-ink/75 hover:border-ink hover:bg-sun-tint hover:text-ink"
               }`}
             >
               All
@@ -117,7 +117,7 @@ export default async function NewsPage({ searchParams }: PageProps) {
                   className={`inline-flex min-h-9 items-center rounded-full border-2 px-3.5 py-1.5 text-[0.78rem] font-bold transition-colors ${
                     active
                       ? "border-ink bg-sun text-ink"
-                      : "border-ink/15 bg-paper text-ink/70 hover:border-ink hover:bg-sun-tint hover:text-ink"
+                      : "border-ink/15 bg-paper text-ink/75 hover:border-ink hover:bg-sun-tint hover:text-ink"
                   }`}
                 >
                   {item.name}
@@ -126,7 +126,7 @@ export default async function NewsPage({ searchParams }: PageProps) {
             })}
           </div>
         </div>
-        <p className="mt-3 text-[0.75rem] text-ink/65">
+        <p className="mt-3 text-[0.75rem] text-ink/75">
           {activeBranch ? `Showing stories for ${activeBranch.name}.` : "Showing all branches."}
         </p>
       </section>
@@ -137,7 +137,7 @@ export default async function NewsPage({ searchParams }: PageProps) {
             <h2 className="font-display text-[1.8rem] font-extrabold text-ink">
               Nothing filed under that combination yet.
             </h2>
-            <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink/65">
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink/75">
               Try another type or branch. The office also sends important notices
               by email to enrolled families.
             </p>
@@ -157,7 +157,7 @@ export default async function NewsPage({ searchParams }: PageProps) {
                         Pinned
                       </span>
                       <span className="tag bg-sky-tint text-ink">{post.branch?.name ?? "All branches"}</span>
-                      <span className="text-[0.78rem] font-semibold text-ink/55">
+                      <span className="text-[0.78rem] font-semibold text-ink/75">
                         {post.publishedAt ? formatDate(post.publishedAt) : ""}
                       </span>
                     </div>
@@ -204,7 +204,7 @@ export default async function NewsPage({ searchParams }: PageProps) {
               <h2 className="display-md mt-1 text-ink">
                 The useful things also arrive by email.
               </h2>
-              <p className="mt-2 max-w-2xl text-[0.92rem] leading-relaxed text-ink/65">
+              <p className="mt-2 max-w-2xl text-[0.92rem] leading-relaxed text-ink/75">
                 Enrolled families receive term dates, fee reminders and urgent
                 notices directly. For the public, this page is the record.
               </p>

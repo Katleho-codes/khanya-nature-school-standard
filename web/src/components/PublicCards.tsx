@@ -33,7 +33,7 @@ export function PostCard({
           <p className="font-display text-[2rem] font-extrabold leading-none text-ink">
             {post.publishedAt ? new Date(post.publishedAt).getDate() : ""}
           </p>
-          <p className="mt-1 text-[0.7rem] font-bold uppercase tracking-[0.12em] text-ink/60">
+          <p className="mt-1 text-[0.7rem] font-bold uppercase tracking-[0.12em] text-ink/75">
             {post.publishedAt ? formatDate(post.publishedAt).split(" ").slice(1).join(" ") : ""}
           </p>
         </div>
@@ -46,7 +46,7 @@ export function PostCard({
                 Pinned
               </span>
             ) : null}
-            <span className="text-[0.76rem] font-semibold text-ink/55">
+            <span className="text-[0.76rem] font-semibold text-ink/75">
               {post.branch ? post.branch.name : "All branches"}
             </span>
           </div>
@@ -55,7 +55,7 @@ export function PostCard({
               {post.title}
             </Link>
           </h3>
-          <p className="mt-2 max-w-2xl text-[0.92rem] leading-relaxed text-ink/65">{post.excerpt}</p>
+          <p className="mt-2 max-w-2xl text-[0.92rem] leading-relaxed text-ink/75">{post.excerpt}</p>
         </div>
         <div className="hidden md:block">
           <Photo
@@ -88,7 +88,7 @@ export function PostCard({
       </Link>
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <span className="tag bg-sun-tint text-ink">{categoryLabels[post.category]}</span>
-        <span className="text-[0.76rem] font-semibold text-ink/50">
+        <span className="text-[0.76rem] font-semibold text-ink/75">
           {post.publishedAt ? formatDate(post.publishedAt) : ""}
         </span>
       </div>
@@ -97,7 +97,7 @@ export function PostCard({
           {post.title}
         </Link>
       </h3>
-      <p className="mt-2 line-clamp-3 text-[0.94rem] leading-relaxed text-ink/65">{post.excerpt}</p>
+      <p className="mt-2 line-clamp-3 text-[0.94rem] leading-relaxed text-ink/75">{post.excerpt}</p>
       <Link
         href={`/news/${post.slug}`}
         className="squiggle-link mt-4 inline-flex w-fit items-center gap-1.5 text-sm font-bold text-ink"
@@ -117,17 +117,17 @@ export function EventRow({ event }: { event: Event }) {
         <p className="mt-1 font-display text-[2rem] font-extrabold leading-none text-ink">
           {new Date(event.startsAt).getDate()}
         </p>
-        <p className="mt-1 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-ink/60">
+        <p className="mt-1 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-ink/75">
           {formatDate(event.startsAt).split(" ").slice(1).join(" ")}
         </p>
-        <p className="mt-1 text-[0.72rem] text-ink/50">
+        <p className="mt-1 text-[0.72rem] text-ink/75">
           {event.allDay ? "All day" : formatEventWhen(event).split(" · ")[1]}
         </p>
       </div>
       <div>
         <div className="flex flex-wrap items-center gap-2">
           <span className={`tag ${tone.pill}`}>{event.branch?.name ?? "All branches"}</span>
-          <span className="inline-flex items-center gap-1 text-[0.76rem] font-semibold text-ink/55">
+          <span className="inline-flex items-center gap-1 text-[0.76rem] font-semibold text-ink/75">
             <MapPinIcon className="h-3.5 w-3.5" />
             {event.locationText}
           </span>
@@ -137,7 +137,7 @@ export function EventRow({ event }: { event: Event }) {
             {event.title}
           </Link>
         </h3>
-        <p className="mt-1.5 line-clamp-2 max-w-2xl text-[0.92rem] leading-relaxed text-ink/65">
+        <p className="mt-1.5 line-clamp-2 max-w-2xl text-[0.92rem] leading-relaxed text-ink/75">
           {event.descriptionMd.replace(/[#*_>`]/g, "").slice(0, 180)}
         </p>
         <Link
@@ -164,18 +164,18 @@ export function ProgrammeRow({
       href={`/programmes/${programme.slug}`}
       className={`group grid gap-3 rounded-[26px_20px_30px_18px] ${tone.tint} p-5 shadow-[0_3px_0_rgb(34_40_74_/_0.12)] transition-transform hover:-rotate-[0.4deg] sm:grid-cols-[3rem_1fr_8rem_9rem_2rem] sm:items-center sm:gap-6 md:p-6`}
     >
-      <span className={`inline-flex h-10 w-10 items-center justify-center rounded-full ${tone.solid} font-display text-sm font-extrabold text-ink`}>
+      <span className={`inline-flex h-10 w-10 items-center justify-center rounded-full ${tone.solid} ${tone.text} font-display text-sm font-extrabold`}>
         {String(index + 1).padStart(2, "0")}
       </span>
       <span>
         <span className="block font-display text-[1.65rem] font-extrabold leading-tight text-ink md:text-[2rem]">
           {programme.name}
         </span>
-        <span className="mt-1 block max-w-xl text-[0.92rem] leading-relaxed text-ink/65">
+        <span className="mt-1 block max-w-xl text-[0.92rem] leading-relaxed text-ink/75">
           {programme.summary}
         </span>
       </span>
-      <span className="text-[0.85rem] font-bold text-ink/60 sm:text-right">{programme.ageLabel}</span>
+      <span className="text-[0.85rem] font-bold text-ink/75 sm:text-right">{programme.ageLabel}</span>
       <span className="text-[0.9rem] font-extrabold text-ink sm:text-right">
         {programme.monthlyFeeCents === null ? "R450 per day" : formatFee(programme.monthlyFeeCents)}
       </span>
@@ -212,14 +212,14 @@ export function BranchCard({ branch }: { branch: import("@/lib/types").Branch })
           {branch.suburb}
         </span>
       </div>
-      <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/70">{branch.tagline}</p>
-      <dl className="mt-4 space-y-2 text-[0.86rem] text-ink/65">
+      <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">{branch.tagline}</p>
+      <dl className="mt-4 space-y-2 text-[0.86rem] text-ink/75">
         <div className="flex gap-2">
-          <dt className="w-16 shrink-0 font-bold text-ink/50">Hours</dt>
+          <dt className="w-16 shrink-0 font-bold text-ink/75">Hours</dt>
           <dd>{summariseHours(branch.hours)}</dd>
         </div>
         <div className="flex gap-2">
-          <dt className="w-16 shrink-0 font-bold text-ink/50">Address</dt>
+          <dt className="w-16 shrink-0 font-bold text-ink/75">Address</dt>
           <dd>{branch.addressLine1}, {branch.suburb}</dd>
         </div>
       </dl>
@@ -250,14 +250,14 @@ export function AlbumCard({ album }: { album: Album }) {
       </Link>
       <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
         <span className={`tag ${tone.pill}`}>{album.branch?.name ?? "Both branches"}</span>
-        <span className="text-[0.76rem] font-bold text-ink/50">
+        <span className="text-[0.76rem] font-bold text-ink/75">
           {album._count?.photos ?? album.photos?.length ?? 0} photos
         </span>
       </div>
       <h3 className="mt-2 font-display text-[1.45rem] font-extrabold leading-tight text-ink">
         <Link href={`/gallery/${album.slug}`}>{album.title}</Link>
       </h3>
-      <p className="mt-1.5 line-clamp-2 text-[0.92rem] leading-relaxed text-ink/65">{album.description}</p>
+      <p className="mt-1.5 line-clamp-2 text-[0.92rem] leading-relaxed text-ink/75">{album.description}</p>
     </article>
   );
 }
@@ -278,7 +278,7 @@ export function DocumentRow({ document }: { document: Document }) {
           {document.branch ? ` · ${document.branch.name}` : " · All branches"}
         </p>
         <h3 className="mt-1 font-display text-[1.35rem] font-extrabold leading-tight text-ink">{document.title}</h3>
-        <p className="mt-1.5 max-w-2xl text-[0.92rem] leading-relaxed text-ink/65">{document.description}</p>
+        <p className="mt-1.5 max-w-2xl text-[0.92rem] leading-relaxed text-ink/75">{document.description}</p>
       </div>
       <a
         href={`/api/public/documents/${document.id}/download`}

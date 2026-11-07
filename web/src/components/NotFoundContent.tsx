@@ -57,11 +57,11 @@ export function NotFoundContent() {
             <Cloud className="absolute -left-6 top-7 h-16 w-32 text-paper opacity-80" />
             <Sun className="animate-bob absolute right-5 top-5 h-24 w-24 text-sun" />
             <div className="absolute inset-x-5 bottom-5 rounded-[26px_22px_30px_18px] bg-paper/90 p-5 paper-shadow">
-              <p className="hand text-ink/60">A small detour</p>
+              <p className="hand text-ink/75">A small detour</p>
               <p className="mt-1 font-display text-[1.4rem] font-extrabold leading-tight text-ink">
                 Even the best walkers take a wrong turn.
               </p>
-              <p className="mt-2 text-[0.9rem] leading-relaxed text-ink/70">
+              <p className="mt-2 text-[0.9rem] leading-relaxed text-ink/75">
                 Use the links to find your way back to the school.
               </p>
             </div>

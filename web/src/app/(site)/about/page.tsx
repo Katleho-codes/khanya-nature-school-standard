@@ -37,7 +37,7 @@ export default async function AboutPage() {
         aside={
           <div className="mt-6 paper-card rotate-[0.7deg] bg-sun-tint p-4">
             <p className="hand text-poppy-deep">A short history</p>
-            <p className="mt-1 text-[0.82rem] leading-relaxed text-ink/70">
+            <p className="mt-1 text-[0.82rem] leading-relaxed text-ink/75">
               Founded in 2016 in Ferndale, Randburg. A second garden opened in
               Fourways in 2019. Still independent, still small.
             </p>
@@ -116,7 +116,7 @@ export default async function AboutPage() {
               />
               <div className="paper-card-plain bg-sky-tint p-4">
                 <p className="hand text-poppy-deep">The name</p>
-                <p className="mt-1 text-[0.88rem] leading-relaxed text-ink/70">
+                <p className="mt-1 text-[0.88rem] leading-relaxed text-ink/75">
                   Khanya is a Nguni word for light. Not a spotlight. The ordinary
                   morning light that makes a leaf look new.
                 </p>
@@ -167,7 +167,7 @@ export default async function AboutPage() {
                 <h3 className="mt-3 font-display text-[1.55rem] font-extrabold text-ink">
                   {value.title}
                 </h3>
-                <p className="mt-2 text-[0.9rem] leading-relaxed text-ink/65">
+                <p className="mt-2 text-[0.9rem] leading-relaxed text-ink/75">
                   {value.body}
                 </p>
               </div>
@@ -246,11 +246,11 @@ export default async function AboutPage() {
         <div className="page-container">
           <div className="grid gap-10 paper-card rotate-[0.3deg] bg-sun p-6 md:grid-cols-[1fr_auto] md:items-center md:p-10">
             <div>
-              <p className="hand text-poppy-deep">A good next step</p>
+              <p className="hand text-ink">A good next step</p>
               <h2 className="display-md mt-1 max-w-2xl text-ink">
                 Read the programmes, then come and see the garden.
               </h2>
-              <p className="mt-3 max-w-2xl text-[0.94rem] leading-relaxed text-ink/70">
+              <p className="mt-3 max-w-2xl text-[0.94rem] leading-relaxed text-ink/75">
                 The website can tell you the shape of the day. Only a visit can
                 tell you whether your child will be happy here.
               </p>
@@ -264,7 +264,7 @@ export default async function AboutPage() {
               </ButtonLink>
             </div>
           </div>
-          <p className="mt-5 text-[0.8rem] text-ink/65">
+          <p className="mt-5 text-[0.8rem] text-ink/75">
             Prefer to read the practical details first?{" "}
             <Link href="/admissions" className="squiggle-link font-bold text-ink">
               Admissions and fees

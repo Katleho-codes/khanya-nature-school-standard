@@ -38,7 +38,7 @@ export function GalleryGrid({
 
   if (photos.length === 0) {
     return (
-      <p className="paper-card bg-sun-tint p-6 text-sm text-ink/70">
+      <p className="paper-card bg-sun-tint p-6 text-sm text-ink/75">
         Photographs for this album are still being sorted. Please check back soon.
       </p>
     );
@@ -67,7 +67,7 @@ export function GalleryGrid({
                 className="w-full"
                 imageClassName="transition-transform duration-700 group-hover:scale-[1.03]"
               />
-              <span className="hand mt-2 block text-[1.02rem] leading-snug text-ink/60">
+              <span className="hand mt-2 block text-[1.02rem] leading-snug text-ink/75">
                 {photo.caption}
               </span>
             </button>
@@ -96,7 +96,7 @@ export function GalleryGrid({
                 <Dialog.Title className="font-display text-[1.2rem] font-extrabold text-ink">
                   {albumTitle}
                 </Dialog.Title>
-                <p className="mt-0.5 font-hand text-[1.02rem] text-ink/60">
+                <p className="mt-0.5 font-hand text-[1.02rem] text-ink/75">
                   Photograph {index !== null ? index + 1 : 0} of {photos.length}
                 </p>
               </div>
@@ -128,7 +128,7 @@ export function GalleryGrid({
                   className="w-full"
                 />
                 <div className="mt-4 flex items-center justify-between gap-4">
-                  <p className="hand text-[1.08rem] text-ink/70">{current.caption}</p>
+                  <p className="hand text-[1.08rem] text-ink/75">{current.caption}</p>
                   <div className="flex shrink-0 items-center gap-2">
                     <button
                       type="button"

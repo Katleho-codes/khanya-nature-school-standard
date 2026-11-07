@@ -112,19 +112,19 @@ export default async function HomePage() {
 
             <dl className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
               <div className="paper-card rotate-[-1deg] bg-sun-tint p-4">
-                <dt className="hand text-ink/60">Ages</dt>
+                <dt className="hand text-ink/75">Ages</dt>
                 <dd className="mt-1 font-display text-[1.18rem] font-extrabold leading-tight text-ink">
                   18 months to Grade R
                 </dd>
               </div>
               <div className="paper-card rotate-[1deg] bg-sky-tint p-4">
-                <dt className="hand text-ink/60">Gardens</dt>
+                <dt className="hand text-ink/75">Gardens</dt>
                 <dd className="mt-1 font-display text-[1.18rem] font-extrabold leading-tight text-ink">
                   Two open branches
                 </dd>
               </div>
               <div className="paper-card rotate-[-1deg] bg-meadow-tint p-4">
-                <dt className="hand text-ink/60">The day</dt>
+                <dt className="hand text-ink/75">The day</dt>
                 <dd className="mt-1 font-display text-[1.18rem] font-extrabold leading-tight text-ink">
                   Mostly outside
                 </dd>
@@ -210,7 +210,7 @@ export default async function HomePage() {
                 <h3 className="font-display text-[1.35rem] font-extrabold leading-tight text-ink">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-[0.94rem] leading-relaxed text-ink/70">{item.body}</p>
+                <p className="mt-2 text-[0.94rem] leading-relaxed text-ink/75">{item.body}</p>
               </article>
             ))}
           </div>
@@ -282,9 +282,9 @@ export default async function HomePage() {
                       {index + 1}
                     </span>
                     <div>
-                      <p className="hand text-ink/55">{item.time}</p>
+                      <p className="hand text-ink/75">{item.time}</p>
                       <h3 className="mt-0.5 font-display text-[1.25rem] font-extrabold text-ink">{item.title}</h3>
-                      <p className="mt-1 text-[0.92rem] leading-relaxed text-ink/65">{item.body}</p>
+                      <p className="mt-1 text-[0.92rem] leading-relaxed text-ink/75">{item.body}</p>
                     </div>
                   </li>
                 ))}
@@ -312,7 +312,7 @@ export default async function HomePage() {
               <ProgrammeRow key={programme.id} programme={programme} index={index} />
             ))}
           </div>
-          <p className="hand mt-5 text-right text-ink/50">
+          <p className="hand mt-5 text-right text-ink/75">
             Fees for 2027. Monthly, unless the programme says otherwise.
           </p>
         </div>
@@ -418,7 +418,7 @@ export default async function HomePage() {
                           <p className="mt-1 font-display text-[1.7rem] font-extrabold leading-none text-ink">
                             {new Date(event.startsAt).getDate()}
                           </p>
-                          <p className="mt-0.5 text-[0.64rem] font-bold uppercase tracking-[0.08em] text-ink/55">
+                          <p className="mt-0.5 text-[0.64rem] font-bold uppercase tracking-[0.08em] text-ink/75">
                             {formatDate(event.startsAt).split(" ").slice(1).join(" ")}
                           </p>
                         </div>
@@ -427,7 +427,7 @@ export default async function HomePage() {
                           <h3 className="mt-1.5 font-display text-[1.15rem] font-extrabold leading-tight text-ink group-hover:text-poppy-deep">
                             {event.title}
                           </h3>
-                          <p className="mt-1 text-[0.78rem] font-semibold text-ink/60">
+                          <p className="mt-1 text-[0.78rem] font-semibold text-ink/75">
                             {formatEventWhen(event)}
                           </p>
                         </div>
@@ -437,7 +437,7 @@ export default async function HomePage() {
                 })}
               </ul>
             ) : (
-              <p className="paper-card mt-7 bg-paper p-5 text-[0.94rem] text-ink/60">
+              <p className="paper-card mt-7 bg-paper p-5 text-[0.94rem] text-ink/75">
                 No events are listed just now. Check back soon, or join us for an
                 ordinary morning in the garden.
               </p>
@@ -445,11 +445,11 @@ export default async function HomePage() {
 
             {nextEvent ? (
               <div className="paper-card mt-5 rotate-[0.6deg] bg-sun p-5">
-                <p className="hand text-ink/65">Next at the garden</p>
+                <p className="hand text-ink/75">Next at the garden</p>
                 <p className="mt-1 font-display text-[1.25rem] font-extrabold leading-tight text-ink">
                   {nextEvent.title}
                 </p>
-                <p className="mt-1.5 text-[0.84rem] font-semibold text-ink/65">
+                <p className="mt-1.5 text-[0.84rem] font-semibold text-ink/75">
                   {formatEventWhen(nextEvent)}
                 </p>
                 <ButtonLink href={`/events/${nextEvent.slug}`} variant="light" className="mt-4 text-[0.84rem]">
@@ -469,7 +469,7 @@ export default async function HomePage() {
             <h2 className="display-lg mt-4 text-white">
               Come and see whether it fits.
             </h2>
-            <p className="mt-5 max-w-xl text-[1.08rem] leading-relaxed text-white/80">
+            <p className="mt-5 max-w-xl text-[1.08rem] leading-relaxed text-white">
               The first step is a visit. Walk the garden, meet a teacher, ask the
               awkward questions. If it feels right, we will help you with the rest.
             </p>
@@ -510,7 +510,7 @@ export default async function HomePage() {
                     </span>
                     <div>
                       <h3 className="font-display text-[1.2rem] font-extrabold leading-tight text-ink">{step.title}</h3>
-                      <p className="mt-1 text-[0.9rem] leading-relaxed text-ink/65">{step.body}</p>
+                      <p className="mt-1 text-[0.9rem] leading-relaxed text-ink/75">{step.body}</p>
                     </div>
                   </div>
                 </li>
@@ -526,11 +526,11 @@ export default async function HomePage() {
               return (
                 <div key={branch.id} className={`paper-card-plain ${tone.tint} p-4 text-ink`}>
                   <h3 className="font-display text-[1.1rem] font-extrabold">{branch.name}</h3>
-                  <p className="mt-1 flex items-start gap-1.5 text-[0.82rem] text-ink/65">
+                  <p className="mt-1 flex items-start gap-1.5 text-[0.82rem] text-ink/75">
                     <MapPinIcon className="mt-0.5 h-3.5 w-3.5 shrink-0" />
                     {branch.addressLine1}, {branch.suburb}
                   </p>
-                  <p className="mt-1 flex items-center gap-1.5 text-[0.82rem] text-ink/65">
+                  <p className="mt-1 flex items-center gap-1.5 text-[0.82rem] text-ink/75">
                     <ClockIcon className="h-3.5 w-3.5" />
                     {summariseHours(branch.hours)}
                   </p>
@@ -542,7 +542,7 @@ export default async function HomePage() {
             })}
             <div className="paper-card-plain bg-paper p-4 text-ink">
               <h3 className="font-display text-[1.1rem] font-extrabold">Follow the seasons</h3>
-              <p className="mt-1 text-[0.82rem] leading-relaxed text-ink/65">
+              <p className="mt-1 text-[0.82rem] leading-relaxed text-ink/75">
                 Photos, garden news and the odd chicken update.
               </p>
               <div className="mt-3 flex items-center gap-2">

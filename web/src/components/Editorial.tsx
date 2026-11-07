@@ -43,7 +43,7 @@ export function HoursTable({ hours }: { hours: WeekHours }) {
             key={key}
             className="grid grid-cols-[1fr_auto] gap-4 border-b border-ink/10 px-4 py-2.5 text-[0.88rem] last:border-b-0"
           >
-            <dt className="font-semibold text-ink/55">{label}</dt>
+            <dt className="font-semibold text-ink/75">{label}</dt>
             <dd className="font-bold tabular-nums text-ink">
               {value ? `${value.open} to ${value.close}` : "Closed"}
             </dd>
@@ -115,7 +115,7 @@ export function EditorialQuote({
         {children}
       </blockquote>
       {attribution ? (
-        <figcaption className="hand mt-3 text-ink/55">{attribution}</figcaption>
+        <figcaption className="hand mt-3 text-ink/75">{attribution}</figcaption>
       ) : null}
     </figure>
   );

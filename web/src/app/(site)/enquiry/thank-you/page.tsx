@@ -51,7 +51,7 @@ export default async function ThankYouPage({ searchParams }: PageProps) {
               <p className="mt-1 font-display text-[1.8rem] font-extrabold tracking-wide text-ink">
                 {reference}
               </p>
-              <p className="mt-1 text-[0.78rem] text-ink/65">
+              <p className="mt-1 text-[0.78rem] text-ink/75">
                 Keep this if you need to phone the office about your enquiry.
               </p>
             </div>
@@ -83,7 +83,7 @@ export default async function ThankYouPage({ searchParams }: PageProps) {
                   </span>
                   <div>
                     <h2 className="font-display text-[1.18rem] font-extrabold text-ink">{step.title}</h2>
-                    <p className="mt-1 text-[0.86rem] leading-relaxed text-ink/65">{step.body}</p>
+                    <p className="mt-1 text-[0.86rem] leading-relaxed text-ink/75">{step.body}</p>
                   </div>
                 </li>
               ))}
@@ -141,7 +141,7 @@ export default async function ThankYouPage({ searchParams }: PageProps) {
               className="mt-4 w-full"
             />
           </div>
-          <p className="mt-5 text-[0.76rem] leading-relaxed text-ink/65">
+          <p className="mt-5 text-[0.76rem] leading-relaxed text-ink/75">
             Your details are only used to reply to this enquiry. You can read the{" "}
             <Link href="/privacy" className="squiggle-link font-bold text-ink">
               privacy notice
