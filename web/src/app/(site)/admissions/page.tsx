@@ -99,11 +99,10 @@ export default async function AdmissionsPage({ searchParams }: PageProps) {
         eyebrow="Admissions"
         title={
           <>
-            A clear path from <span className="text-poppy-deep">first look</span>{" "}
-            to first day.
+            First a look. Then a <span className="text-poppy-deep">visit.</span>
           </>
         }
-        lead="No entrance tests, no performance. We want to know your child, your family and what you need from a school. Then we will tell you honestly whether we can provide it."
+        lead="There is no entrance test and no performance. We want to meet your child, hear what your family needs and tell you honestly whether this is the right fit. If it is not, we will say so."
         crumbs={[{ label: "Home", href: "/" }, { label: "Admissions" }]}
         aside={
           <div className="mt-6 paper-card rotate-[-1deg] bg-sun-tint p-4">

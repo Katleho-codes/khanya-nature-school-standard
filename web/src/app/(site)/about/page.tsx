@@ -29,10 +29,10 @@ export default async function AboutPage() {
         eyebrow="About"
         title={
           <>
-            A school built around <span className="text-poppy-deep">the garden.</span>
+            The garden came first. The <span className="text-poppy-deep">school followed.</span>
           </>
         }
-        lead="Khanya means light. We chose it because children do not need to be filled up. They need room, time and a good place to notice what is already there."
+        lead="Khanya started with a rented house, a scrappy garden and a small group of children. The indoor room was too small, so we spent most of the day outside. It was an accident that turned out to be the right one."
         crumbs={[{ label: "Home", href: "/" }, { label: "About" }]}
         aside={
           <div className="mt-6 paper-card rotate-[0.7deg] bg-sun-tint p-4">
@@ -50,44 +50,41 @@ export default async function AboutPage() {
           <div className="lg:col-span-7">
             <div className="prose-playful rounded-[28px_22px_30px_18px] bg-paper p-5 sm:p-7">
               <p className="lead">
-                Khanya began with a small group of children, a rented house and a
-                garden that had been left alone for years. The first year was
-                mostly outside because the indoor room was too small to hold
-                everyone. It turned out to be the right accident.
+                Khanya began in 2016 with a rented house in Ferndale, a garden
+                that had been left alone for years, and a group of children who
+                needed somewhere to be. The indoor room was too small for
+                everyone. So we spent most of the day outside. It was an accident
+                that turned out to be the right one.
               </p>
               <p>
-                We learned that children settle faster when they have somewhere
-                to dig, a job worth doing and an adult who is not trying to move
-                them along. We learned that rain is rarely the problem. The
-                problem is being dressed for the wrong weather. We learned that
-                parents want honesty more than polish.
+                We learned quickly. Children settle faster when they have a job:
+                fill the watering can, carry the branch, wash the bowl. Rain is
+                rarely the problem. The problem is being dressed for the wrong
+                weather. Parents want straight answers more than glossy brochures.
               </p>
               <p>
-                Ten years later, the school has two open branches and a third
-                garden taking root in Midstream. The rooms are still small. The
-                gardens are still the main classroom. We still stop for the
-                interesting beetle.
+                Ten years later we have two open branches and a third garden
+                taking shape in Midstream. The rooms are still small. The gardens
+                are still the main classroom. We still stop for the interesting
+                beetle.
               </p>
-              <h2>What we believe</h2>
+              <h2>What we keep coming back to</h2>
               <p>
-                Childhood is not a waiting room for school. The years from
-                eighteen months to Grade R are full of real work: learning to be
-                with other people, to carry something heavy, to wait, to try
-                again, to notice. We take that work seriously and protect the
-                time it needs.
+                Childhood is not a waiting room for big school. Children from 18
+                months to Grade R are doing real work: making friends, carrying
+                something heavy, waiting for a turn, trying again. We protect the
+                time that work needs.
               </p>
               <p>
-                We also believe a school should be a place where adults can be
-                honest. Teachers are not performers. Families are not customers.
-                We make decisions together, explain them plainly and change them
-                when they are wrong.
+                We also try to be honest with adults. Teachers are not performers.
+                Families are not customers. We explain decisions plainly and change
+                them when they are wrong.
               </p>
             </div>
 
             <div className="mt-10">
               <EditorialQuote attribution="Naledi Botha, founder and principal">
-                A child who knows one place deeply will learn to know every place
-                better.
+                A child who knows one place well is not afraid of the next one.
               </EditorialQuote>
             </div>
 

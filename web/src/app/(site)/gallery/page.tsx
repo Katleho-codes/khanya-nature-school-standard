@@ -35,10 +35,10 @@ export default async function GalleryPage({ searchParams }: PageProps) {
         eyebrow="Gallery"
         title={
           <>
-            The ordinary days, <span className="text-poppy-deep">kept.</span>
+            Mud, cake and the <span className="text-poppy-deep">same old tree.</span>
           </>
         }
-        lead="Not a highlights reel. Mud, weather, small hands, the same corner of the garden across a year, and the days when families fill the chairs."
+        lead="We photograph the ordinary days, not a highlights reel. Wet socks, small hands, the same corner of the garden across a year, and the mornings when families fill the chairs."
         crumbs={[{ label: "Home", href: "/" }, { label: "Gallery" }]}
         aside={
           <div className="mt-6 paper-card rotate-[1deg] bg-meadow-tint p-4">

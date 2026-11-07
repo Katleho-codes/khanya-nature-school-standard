@@ -28,11 +28,11 @@ export default async function BranchesPage() {
         eyebrow="Branches"
         title={
           <>
-            Two gardens, each with its{" "}
-            <span className="text-poppy-deep">own weather.</span>
+            Two gardens. Pick the one that fits your{" "}
+            <span className="text-poppy-deep">morning.</span>
           </>
         }
-        lead="Randburg has the big trees, the chickens and the corner-shop walk. Fourways has the wetland, the fire circle and the Grade R room. Both are small and both are outdoors first."
+        lead="Randburg has the big trees, the chickens and the corner-shop walk. Fourways has the wetland, the fire circle and the Grade R room. Both are small. Both are outside first."
         crumbs={[{ label: "Home", href: "/" }, { label: "Branches" }]}
         aside={
           <div className="mt-6 paper-card rotate-[0.8deg] bg-sky-tint p-4 text-[0.84rem] leading-relaxed text-ink/70">

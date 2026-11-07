@@ -223,7 +223,8 @@ export default async function HomePage() {
             eyebrow="A day with us"
             title={
               <>
-                A rhythm, not a <span className="text-sky-deep">timetable</span>.
+                The day has a shape. It is not a{" "}
+                <span className="text-sky-deep">timetable</span>.
               </>
             }
             lead="There is always a morning circle and always lunch. The rest of the day has room to breathe. If the children are deep in a game, we let it run."
@@ -321,7 +322,7 @@ export default async function HomePage() {
         <div className="page-container">
           <SectionHeading
             eyebrow="Two gardens"
-            title="Come and stand in the shade."
+            title="Two gardens. Two sets of boots."
             lead="Each branch has its own ground, its own creatures and its own way of using the day. Both are small. Both spend most of the day outside."
             action={
               <ButtonLink href="/branches" variant="text">

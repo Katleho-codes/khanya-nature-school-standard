@@ -68,7 +68,7 @@ export default async function NewsPage({ searchParams }: PageProps) {
             Notes from the <span className="text-poppy-deep">garden.</span>
           </>
         }
-        lead="What is growing, what is changing and the practical notices that keep the school day running. Written by the teachers and the office."
+        lead="What is growing, what is changing and the notices that keep the school day running. Written by the teachers and the office."
         crumbs={[{ label: "Home", href: "/" }, { label: "News" }]}
       />
 

@@ -32,10 +32,10 @@ export default async function ProgrammesPage() {
         eyebrow="Programmes"
         title={
           <>
-            Four years of growing <span className="text-poppy-deep">outward.</span>
+            Four programmes, one <span className="text-poppy-deep">muddy garden.</span>
           </>
         }
-        lead="Each programme keeps the outdoor day at its centre. What changes is the size of the project, the length of the walk and how much the children can do for themselves."
+        lead="Little Explorers, Forest Kindy, Bush School and Grade R Pathfinders. The garden stays the same. The jobs get bigger, the walks get longer and the children do more for themselves."
         crumbs={[{ label: "Home", href: "/" }, { label: "Programmes" }]}
         aside={
           <div className="mt-6 paper-card rotate-[-1deg] bg-sun-tint p-4">

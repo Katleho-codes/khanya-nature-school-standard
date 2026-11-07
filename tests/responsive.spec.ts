@@ -35,7 +35,7 @@ test.describe("at 375 pixels wide", () => {
     await menu.getByRole("link", { name: "Programmes" }).click();
     await expect(page).toHaveURL(/\/programmes$/);
     await expect(
-      page.getByRole("heading", { name: /Four years of growing outward/i }),
+      page.getByRole("heading", { name: /Four programmes, one muddy garden/i }),
     ).toBeVisible();
   });
 
