@@ -10,8 +10,8 @@ This project uses Next.js 16. The App Router has breaking changes compared with 
 
 A fictional school demo for a sales conversation: a polished public site plus a working admin CMS. It is not a real school and it is not production infrastructure. Do not add real personal data.
 
-- `web/`: Next.js 16 App Router, port 3002.
-- `api/`: Express 5, Prisma 7, better-auth, port 4002.
+- `web/`: Next.js 16 App Router, port 3007.
+- `api/`: Express 5, Prisma 7, better-auth, port 4007.
 - PostgreSQL: port 5442, database `khanya`, user and password `postgres`.
 - The API is the source of truth. Public pages fetch it with `cache: "no-store"`.
 

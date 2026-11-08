@@ -10,13 +10,13 @@ Architecture, content and scope decisions for the Khanya Nature School demo. The
 
 Consequence: two dev servers, two environment files, and a rewrite from `/api/*` to the API. The benefit is that the CMS is not a collection of server actions pretending to be an API.
 
-### Next.js App Router on port 3002
+### Next.js App Router on port 3007
 
 The public site uses server components and server-side data fetching. This keeps the first paint complete, keeps SEO metadata and JSON-LD on the server, and avoids shipping a large client data layer for a content site.
 
 The admin is mostly client components because it is an interactive CRUD interface. Admin pages sit under a protected route group with a server-side session check, then use `adminFetch` for mutations.
 
-### Express 5 and Prisma 7 on port 4002
+### Express 5 and Prisma 7 on port 4007
 
 Express remains a small, understandable API layer. Prisma provides typed queries, migrations and seed support. Prisma 7 is used with `prisma.config.ts` and `@prisma/adapter-pg` because that is the current configuration model.
 
